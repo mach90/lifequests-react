@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="500"
+   height="500"
+   viewBox="0 0 500 500"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25, custom)"
+   sodipodi:docname="dessin.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:clip-to-page="true"
+     inkscape:zoom="1.0242632"
+     inkscape:cx="251.40022"
+     inkscape:cy="301.19211"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g2"
+       transform="matrix(1.2280029,0,0,1.3222116,-70.026582,-82.020745)">
+      <text
+         xml:space="preserve"
+         style="font-weight:900;font-size:383.545px;line-height:1;font-family:Arial;-inkscape-font-specification:'Arial Heavy';text-align:center;text-anchor:middle;fill:#ff0000;stroke-width:75.501;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0;paint-order:stroke fill markers"
+         x="156.84386"
+         y="440.18729"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           x="156.84386"
+           y="440.18729"
+           style="fill:#000000;stroke-width:75.501">L</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:900;font-size:383.545px;line-height:1;font-family:Arial;-inkscape-font-specification:'Arial Heavy';text-align:center;text-anchor:middle;fill:#ff0000;stroke-width:75.501;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0;paint-order:stroke fill markers"
+         x="311.5585"
+         y="341.26425"
+         id="text2"><tspan
+           sodipodi:role="line"
+           id="tspan2"
+           x="311.5585"
+           y="341.26425"
+           style="fill:#000000;stroke-width:75.501">Q</tspan></text>
+    </g>
+  </g>
+</svg>
