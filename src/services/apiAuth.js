@@ -2,13 +2,15 @@ import axios from "axios";
 
 // axios.defaults.withCredentials = true;
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api/v1',
+    baseURL: process.env.NODE_ENV === 'production'
+      ? 'https://lifequests.onrender.com/api/v1'
+      : 'http://localhost:3000/api/v1',
     withCredentials: true,  // Essential for cookies to work
     credentials: 'include',  // Also important for cross-origin requests
 });
 
 // const api = axios.create({
-//     baseURL: 'http://127.0.0.1:3000/api/v1',
+//     baseURL: 'https://127.0.0.1:3000/api/v1',
 // });
 
 export const login = async (email, password) => {
