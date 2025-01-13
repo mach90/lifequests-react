@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useUser } from "../features/authentication/useUser";
 import LoadingSpinner from "./LoadingSpinner";
 import toast from "react-hot-toast";
 
 function ProtectedRoute({children}) {
     const navigate = useNavigate();
 
-    const isAuthenticated = true;
-    const isLoading = false;
+    const {isLoading, isAuthenticated} = useUser();
 
     useEffect(function() {
         if (!isAuthenticated && !isLoading) navigate("/login");
@@ -17,6 +17,8 @@ function ProtectedRoute({children}) {
     if(isLoading) return <div><LoadingSpinner /></div>
 
     if(isAuthenticated) return children;
+
+    return null;
 };
 
 export default ProtectedRoute;

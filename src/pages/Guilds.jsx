@@ -1,14 +1,10 @@
-import { useEffect, useState } from "react";
-import { getGuilds, getGuild } from "../services/apiGuilds";
+import { useState } from "react";
+import { getGuilds } from "../services/apiGuilds";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../ui/LoadingSpinner";
 
 function Guilds() {
     const [currentGuild, setCurrentGuild] = useState(null);
-
-    // useEffect(() => {
-    //     getGuild("676bce04debeb41b958ddd21").then(data => console.log("DATA ARRAY:", data));
-    // }, []);
 
     const { isLoading, data, error } = useQuery({
         queryKey: ["guild"],
