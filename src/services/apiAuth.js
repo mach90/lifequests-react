@@ -27,7 +27,7 @@ export const login = async (email, password) => {
 export const logout = async () => {
     try {
         const res = await api.get('/users/logout', {
-            withCredentials: true
+            // withCredentials: true
         });
 
         return res.data;
@@ -39,7 +39,7 @@ export const logout = async () => {
 export const getMe = async () => {
     try {
         const res = await api.get('/users/me', {
-            withCredentials: true
+            // withCredentials: true
         });
 
         if(res.data.status === "success") {
