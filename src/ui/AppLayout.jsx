@@ -14,9 +14,9 @@ APPLAYOUT UI COMPONENT
 ////////////////////////////////////////////////// */
 function AppLayout() {
     return (
-        <main className="bg-stone-800 flex flex-col p-6 gap-6 h-screen max-w-screen">
+        <main className="bg-background flex flex-col p-6 gap-6 h-screen max-w-screen">
             <Header />
-            <main className="bg-red-900 flex-1 overflow-hidden">
+            <main className="bg-container flex-1 overflow-hidden rounded-md">
                 <Outlet />
             </main>
         </main>

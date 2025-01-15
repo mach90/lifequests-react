@@ -18,34 +18,33 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 justify-center items-center bg-gray-950 w-[30%] p-6">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4 justify-center items-center w-max p-6">
             <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-xl font-bold text-gray-300">Email address</label>
                 <input
                     type="email"
                     id="email"
-                    // This makes this form better for password managers
+                    placeholder="Email address"
                     autoComplete="username"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={isLoading}
+                    className="bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]"
                 />
-                {/* <span>Error span</span> */}
             </div>
             <div className="flex flex-col gap-2">
-                <label htmlFor="password" className="text-xl font-bold text-gray-300">Password</label>
                 <input
                     type="password"
                     id="password"
+                    placeholder="*****"
                     autoComplete="current-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={isLoading}
+                    className="bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]"
                 />
-                {/* {error && <span className="text-red-400">{error}</span>} */}
             </div> 
             <div className="flex flex-col gap-2">
-                <button disabled={isLoading} className="bg-blue-700 text-gray-100 p-2 rounded-xl hover:bg-blue-600">{!isLoading ? "Log in" : "Spinning"}</button>
+                <button disabled={isLoading} className="bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md">{!isLoading ? "Log in" : "Spinning"}</button>
             </div>
         </form>
     );
