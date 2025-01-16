@@ -10,7 +10,7 @@ export default {
         background: "#131b2e",
         container: "#070a14",
         card: "#2c3c5c",
-        variant1: "#5ec9f0"
+        variant1: "#5ec9f0",
       },
     },
   },

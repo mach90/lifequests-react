@@ -1,9 +1,11 @@
 import UserInfos from "./UserInfos";
 import MainNav from "./MainNav";
 
+const headerContainerStyle = "col-span-full flex flex-row justify-between";
+
 function Header() {
     return (
-        <div className="col-span-full flex flex-row justify-between">
+        <div className={headerContainerStyle}>
             <UserInfos />
             <MainNav />
         </div>
