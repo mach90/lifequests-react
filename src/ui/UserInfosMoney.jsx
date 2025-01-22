@@ -6,7 +6,7 @@ function UserInfosMoney({data}) {
     return (
         <div className={userInfosMoneyStyle}>
             <PiCoinVerticalFill className={userInfosMoneyIconStyle} /> 
-            {data.money}
+            {data?.money}
         </div>
     );
 };

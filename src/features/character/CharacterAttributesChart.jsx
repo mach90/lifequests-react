@@ -4,18 +4,18 @@ const characterAttributesChartCardStyle = "bg-card col-span-3 row-span-6 text-wh
 
 function CharacterAttributesChart({data}) {
     const chartData = [
-        { 'attribute': 'STR', 'value': data.attributes.strength }, 
-        { 'attribute': 'STA', 'value': data.attributes.stamina },
-        { 'attribute': 'DEX', 'value': data.attributes.dexterity },
-        { 'attribute': 'SPD', 'value': data.attributes.speed },
-        { 'attribute': 'VIT', 'value': data.attributes.vitality },
-        { 'attribute': 'AGI', 'value': data.attributes.agility },
-        { 'attribute': 'INT', 'value': data.attributes.intelligence },
-        { 'attribute': 'CHA', 'value': data.attributes.charisma },
-        { 'attribute': 'WIS', 'value': data.attributes.wisdom },
-        { 'attribute': 'PER', 'value': data.attributes.perception },
-        { 'attribute': 'FOC', 'value': data.attributes.focus },
-        { 'attribute': 'WIL', 'value': data.attributes.willpower },
+        { 'attribute': 'STR', 'value': data?.attributes?.strength }, 
+        { 'attribute': 'STA', 'value': data?.attributes?.stamina },
+        { 'attribute': 'DEX', 'value': data?.attributes?.dexterity },
+        { 'attribute': 'SPD', 'value': data?.attributes?.speed },
+        { 'attribute': 'VIT', 'value': data?.attributes?.vitality },
+        { 'attribute': 'AGI', 'value': data?.attributes?.agility },
+        { 'attribute': 'INT', 'value': data?.attributes?.intelligence },
+        { 'attribute': 'CHA', 'value': data?.attributes?.charisma },
+        { 'attribute': 'WIS', 'value': data?.attributes?.wisdom },
+        { 'attribute': 'PER', 'value': data?.attributes?.perception },
+        { 'attribute': 'FOC', 'value': data?.attributes?.focus },
+        { 'attribute': 'WIL', 'value': data?.attributes?.willpower },
     ];
 
     return (

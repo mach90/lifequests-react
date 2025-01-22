@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// axios.defaults.withCredentials = true;
 const api = axios.create({
     baseURL: process.env.NODE_ENV === 'production'
       ? 'https://lifequests.onrender.com/api/v1'
@@ -9,9 +8,18 @@ const api = axios.create({
     credentials: 'include',  // Also important for cross-origin requests
 });
 
-// const api = axios.create({
-//     baseURL: 'https://127.0.0.1:3000/api/v1',
-// });
+export const signup = async (name, email, password, passwordConfirm) => {
+    try {
+        const res = await api.post('/users/signup', { name, email, password, passwordConfirm });
+
+        if(res.data.status === "success") {
+            console.log("Signup success:", res.data);
+        }
+
+    } catch(err) {
+        throw new Error(err?.response?.data?.message || "Signup failed");
+    }
+}
 
 export const login = async (email, password) => {
     try {
@@ -26,9 +34,7 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
     try {
-        const res = await api.get('/users/logout', {
-            // withCredentials: true
-        });
+        const res = await api.get('/users/logout');
 
         return res.data;
     } catch(err) {
@@ -36,16 +42,18 @@ export const logout = async () => {
     }
 }
 
-export const getMe = async () => {
+export const updatePassword = async ({ passwordCurrent, password, passwordConfirm }) => {
     try {
-        const res = await api.get('/users/me', {
-            // withCredentials: true
+        const res = await api.patch('/users/updateMyPassword', {
+            passwordCurrent,
+            password,
+            passwordConfirm
         });
 
         if(res.data.status === "success") {
             return res.data.data.user;
         }
     } catch(err) {
-        throw new Error(err?.response?.data?.message || "Failed to get user data");
+        throw new Error(err?.response?.data?.message || "Password update failed");
     }
 }

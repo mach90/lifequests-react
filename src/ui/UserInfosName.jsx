@@ -1,8 +1,8 @@
-const userInfosUsernameStyle = "text-xl font-bold";
+const userInfosUsernameStyle = "text-2xl font-black";
 
 function UserInfosName({data}) {
     return (
-        <div className={userInfosUsernameStyle}>{data.name}</div>
+        <div className={userInfosUsernameStyle}>{data?.name}</div>
     );
 };
 

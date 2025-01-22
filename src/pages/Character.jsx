@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMe } from "../services/apiAuth";
+import { getMe } from "../services/apiUser";
 import CharacterAttributes from "../features/character/CharacterAttributes";
 import CharacterAttributesChart from "../features/character/CharacterAttributesChart";
 import CharacterStats from "../features/character/CharacterStats";
@@ -10,17 +10,19 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 const characterContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 p-4 gap-4 h-full";
 
 function Character() {
-    const { isLoading, data, error } = useQuery({
+    const { isLoading, data: userData, error } = useQuery({
         queryKey: ["user"],
         queryFn: getMe,
     });
 
     if(isLoading) return <LoadingSpinner size="lg" />;
+    if(error) return <div>Error: {error.message}</div>;
+    if(!userData) return <div>No user data found</div>;
 
     return (
         <div className={characterContainerStyle}>
-            <CharacterAttributes data={data} />
-            <CharacterAttributesChart data={data} />
+            <CharacterAttributes data={userData?.data} />
+            <CharacterAttributesChart data={userData?.data} />
             <CharacterStats />
             <CharacterGuildsProgress />
             <CharacterTrackedQuests />

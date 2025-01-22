@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useLogin } from "./useLogin";
 
 const loginFormStyle = "flex flex-col gap-4 justify-center items-center w-max p-6";
-const loginFormRowStyle = "flex flex-col gap-2";
+const loginFormRowStyle = "flex flex-col gap-2 w-full";
 const loginFormInputStyle = "bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]";
-const loginFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md"
+const loginFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md";
 
 function LoginForm() {
     const [email, setEmail] = useState("john@example.com");
-    const [password, setPassword] = useState("test1234");
+    const [password, setPassword] = useState("test123456");
     const {login, isLoading} = useLogin();
 
     function handleSubmit(e) {
