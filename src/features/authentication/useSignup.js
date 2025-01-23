@@ -28,7 +28,7 @@ export function useSignup() {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
     
-    const {mutate: signup, isLoading} = useMutation({
+    const {mutate: signup, isPending} = useMutation({
         mutationFn: ({name, email, password, passwordConfirm}) => signupApi(name, email, password, passwordConfirm),
         onSuccess: async (newUser) => {
             queryClient.setQueryData(["user"], newUser);
@@ -41,5 +41,5 @@ export function useSignup() {
         }
     })
 
-    return {signup, isLoading};
+    return {signup, isPending};
 };

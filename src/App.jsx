@@ -16,6 +16,7 @@ import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Forgot from "./pages/Forgot";
 import Character from "./pages/Character";
 import Account from "./pages/Account";
 import Skills from "./pages/Skills";
@@ -61,6 +62,7 @@ function App() {
 
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgot" element={<Forgot />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

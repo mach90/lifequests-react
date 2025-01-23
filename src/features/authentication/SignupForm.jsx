@@ -1,17 +1,24 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useSignup } from "./useSignup";
+import LoadingSpinner from "../../ui/LoadingSpinner";
 
-const signupFormStyle = "flex flex-col gap-4 justify-center items-center w-max p-6";
+const signupTitlestyle = "text-2xl font-bold text-white";
+const signupFormStyle = "flex flex-col gap-4 justify-center items-center w-full p-6";
 const signupFormRowStyle = "flex flex-col gap-2 w-full";
-const signupFormInputStyle = "bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]";
-const signupFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md";
+const signupFormRow2Style = "flex flex-row gap-2 w-full px-6";
+const signupFormLabelStyle = "flex flex-row gap-2 font-medium text-white";
+const signupFormInputStyle = "bg-stone-950 border border-gray-500 p-2 rounded-lg text-white";
+const signupFormButtonSubmitStyle = "bg-variant2 disabled:bg-gray-800 disabled:cursor-not-allowed hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md";
+const signupFormButtonLinkStyle = "bg-slate-700 hover:brightness-90 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-md w-full text-center";
 
 function SignupForm() {
     const [name, setName] = useState("Jean")
     const [email, setEmail] = useState("jean@example.com");
     const [password, setPassword] = useState("test123456");
     const [passwordConfirm, setPasswordConfirm] = useState("test123456");
-    const {signup, isLoading} = useSignup();
+    const [isChecked, setIsChecked] = useState(false);
+    const {signup, isPending: isLoading} = useSignup();
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -27,59 +34,76 @@ function SignupForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className={signupFormStyle}>
-            <div className={signupFormRowStyle}>
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Name"
-                    autoComplete="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    disabled={isLoading}
-                    className={signupFormInputStyle}
-                />
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Email address"
-                    autoComplete="username"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    disabled={isLoading}
-                    className={signupFormInputStyle}
-                />
+        <>
+            <h2 className={signupTitlestyle}>Register</h2>
+            <form onSubmit={handleSubmit} className={signupFormStyle}>
+                <div className={signupFormRowStyle}>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Name"
+                        autoComplete="name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        disabled={isLoading}
+                        className={signupFormInputStyle}
+                    />
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Email address"
+                        autoComplete="username"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        disabled={isLoading}
+                        className={signupFormInputStyle}
+                    />
+                </div>
+                <div className={signupFormRowStyle}>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="*****"
+                        autoComplete="new-password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        disabled={isLoading}
+                        className={signupFormInputStyle}
+                    />
+                </div> 
+                <div className={signupFormRowStyle}>
+                    <input
+                        type="password"
+                        id="passwordConfirm"
+                        placeholder="*****"
+                        autoComplete="new-password"
+                        value={passwordConfirm}
+                        onChange={(e) => setPasswordConfirm(e.target.value)}
+                        disabled={isLoading}
+                        className={signupFormInputStyle}
+                    />
+                </div>
+                <div className={signupFormRowStyle}>
+                    <label className={signupFormLabelStyle}>
+                        <input 
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={(e) => setIsChecked(e.target.checked)}
+                            className={signupFormInputStyle}
+                        />
+                        I agree to the terms and conditions
+                    </label>
+                </div>
+                <div className={signupFormRowStyle}>
+                    <button disabled={isLoading || !isChecked} className={signupFormButtonSubmitStyle}>
+                        {isLoading ? <LoadingSpinner size="sm" /> : "Register" }
+                    </button>
+                </div>
+            </form>
+            <div className={signupFormRow2Style}>
+                <NavLink to="/login" className={signupFormButtonLinkStyle}>Already registered ?</NavLink>
             </div>
-            <div className={signupFormRowStyle}>
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="*****"
-                    autoComplete="new-password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    disabled={isLoading}
-                    className={signupFormInputStyle}
-                />
-            </div> 
-            <div className={signupFormRowStyle}>
-                <input
-                    type="password"
-                    id="passwordConfirm"
-                    placeholder="*****"
-                    autoComplete="new-password"
-                    value={passwordConfirm}
-                    onChange={(e) => setPasswordConfirm(e.target.value)}
-                    disabled={isLoading}
-                    className={signupFormInputStyle}
-                />
-            </div>
-            <div className={signupFormRowStyle}>
-                <button disabled={isLoading} className={signupFormButtonStyle}>
-                    {!isLoading ? "Register" : "Loading..."}
-                </button>
-            </div>
-        </form>
+        </>
     );
 };
 

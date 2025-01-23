@@ -1,17 +1,17 @@
 import AuthLayout from "../ui/AuthLayout";
-import AuthPanel from "../ui/AuthPanel";
 import Welcome from "../ui/Welcome";
-import SignupForm from "../features/authentication/SignupForm";
+import ForgotPasswordForm from "../features/authentication/ForgotPasswordForm";
+import AuthPanel from "../ui/AuthPanel";
 
-function Register() {
+function Login() {
     return (
         <AuthLayout>
             <Welcome />
             <AuthPanel>
-                <SignupForm />
+                <ForgotPasswordForm />
             </AuthPanel>
         </AuthLayout>
     );
 };
 
-export default Register;
+export default Login;

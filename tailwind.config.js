@@ -11,6 +11,7 @@ export default {
         container: "#070a14",
         card: "#2c3c5c",
         variant1: "#5ec9f0",
+        variant2: "#198d58",
       },
     },
   },

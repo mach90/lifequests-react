@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* //////////////////////////////////////////////////
+CLIP PATH
+////////////////////////////////////////////////// */
+@layer utilities {
+    .clip-left-point-male {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    }
+    .clip-right-point-male {
+        clip-path: polygon(0% 0%, 93% 0%, 100% 50%, 93% 100%, 0% 100%);
+    }
+    .clip-left-point-female {
+        clip-path: polygon(100% 0%, 93% 50%, 100% 100%, 0 100%, 0 0);
+    }
+    .clip-right-point-female {
+        clip-path: polygon(100% 0, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+    }
+}
