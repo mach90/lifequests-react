@@ -14,6 +14,8 @@ function UserInfos() {
         queryFn: getMe,
     });
 
+    // console.log("GETMEQUERIED", userData);
+
     if (isLoading) {
         return <LoadingSpinner size="md" />;
     }

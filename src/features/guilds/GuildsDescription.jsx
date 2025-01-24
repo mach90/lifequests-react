@@ -1,4 +1,4 @@
-const guildsDescriptionCardStyle = "bg-card col-span-3 row-span-6 text-white flex justify-center items-center";
+const guildsDescriptionCardStyle = "bg-card col-span-3 row-span-3 text-white flex justify-center items-center";
 
 function GuildsDescription({ currentGuild }) {
     return (

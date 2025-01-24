@@ -1,4 +1,4 @@
-const guildsProgressCardStyle = "bg-card col-span-3 row-span-4 text-white flex justify-center items-center";
+const guildsProgressCardStyle = "bg-card col-span-3 row-span-3 text-white flex justify-center items-center";
 
 function GuildsProgress({ currentGuild }) {
     return (

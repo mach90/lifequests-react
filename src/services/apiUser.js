@@ -13,6 +13,7 @@ export const getMe = async () => {
         const res = await api.get('/users/me');
         
         if(res.data.status === "success") {
+            // console.log("GETMEAPI", res.data.data);
             return res.data.data;
         }
         throw new Error(`Request failed with status: ${res.data.status}`);

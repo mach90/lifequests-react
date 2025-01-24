@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useLocalStorageState } from "../hooks/useLocalStorageState";
 import {calculateLevel, calculateXp} from "../utils/levels";
 
 const userInfosLevelStyle = "text-2xl font-bold";
@@ -8,7 +8,7 @@ const userInfosXpBarProgressStyle = "bg-variant1 h-full";
 const userInfosXpNumbersStyle = "text-xs";
 
 function UserInfosLevelXp({ data }) {
-    const [xpDisplay, setXpDisplay] = useState(true);
+    const [xpDisplayStyle] = useLocalStorageState([], "xpDisplayStyle");
 
     const currentLevel = calculateLevel(data?.experience);
     const currentLevelStartXp = calculateXp(currentLevel).toFixed(0);
@@ -22,8 +22,10 @@ function UserInfosLevelXp({ data }) {
                 <div className={userInfosXpBarStyle}>
                     <div className={userInfosXpBarProgressStyle} style={{ width: `${progress}%` }}></div>
                 </div>
-                {xpDisplay && <div className={userInfosXpNumbersStyle} onClick={() => setXpDisplay(false)}>{data?.experience} / {nextLevelStartXp} EXP</div>}
-                {!xpDisplay && <div className={userInfosXpNumbersStyle} onClick={() => setXpDisplay(true)}>{nextLevelStartXp - data?.experience} EXP</div>}
+                {xpDisplayStyle 
+                    ? <div className={userInfosXpNumbersStyle}>{nextLevelStartXp - data?.experience} EXP</div>
+                    : <div className={userInfosXpNumbersStyle}>{data?.experience} / {nextLevelStartXp} EXP</div>
+                }
             </div>
         </>
     );

@@ -10,10 +10,10 @@ export async function getGuilds() {
 
         let data = await response.json();
 
+        // console.log("GETALLGUILDSAPI", data.data.data);
         return data.data.data;
 
     } catch(error) {
-        console.error("Error fetching guilds:", error);
         throw new Error("Guilds could not be fetched");
     }
 }
@@ -28,10 +28,28 @@ export async function getGuild(id) {
 
         let data = await response.json();
 
+        // console.log("GETGUILDAPI", data.data.data);
         return data.data.data;
 
     } catch(error) {
-        console.error("Error fetching guild", error);
         throw new Error("Guild could not be fetched");   
+    }
+}
+
+export async function getAllGuildQuests(id) {
+    try {
+        let response = await fetch(`${apiURL}/guilds/${id}/quests`);
+
+        if(!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data = await response.json();
+
+        // console.log("GETALLGUILDSQUESTSAPI", data.data.quests);
+        return data.data.quests;
+
+    } catch(err) {
+        throw new Error("Guild's quests could not be fetched");   
     }
 }

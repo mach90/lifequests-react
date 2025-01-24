@@ -8,6 +8,7 @@ import GuildsMaster from "../features/guilds/GuildsMaster";
 import GuildsChatbotInput from "../features/guilds/GuildsChatbotInput";
 import GuildsDescription from "../features/guilds/GuildsDescription";
 import GuildsProgress from "../features/guilds/GuildsProgress";
+import GuildsQuests from "../features/guilds/GuildsQuests";
 
 const guildsContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 p-4 gap-4 h-full";
 
@@ -20,17 +21,19 @@ function Guilds() {
     const [company5, setCompany5] = useState(true);
     const [company6, setCompany6] = useState(true);
 
-    const { isLoading, data, error } = useQuery({
-        queryKey: ["guild"],
+    const { isLoading, data: guilds, error } = useQuery({
+        queryKey: ["guilds"],
         queryFn: getGuilds,
     });
 
     if(isLoading) return <LoadingSpinner size="lg" />
 
+    // console.log("GETALLGUILDSQUERIED", guilds);
+
     return (
         <div className={guildsContainerStyle}>
             <GuildsList 
-                data={data} 
+                data={guilds} 
                 setCurrentGuild={setCurrentGuild} 
                 company1={company1}
                 company2={company2}
@@ -52,11 +55,11 @@ function Guilds() {
 
             {currentGuild && <GuildsChatbotInput currentGuild={currentGuild} />}
 
+            {currentGuild && <GuildsQuests currentGuild={currentGuild} />}
+
             {currentGuild && <GuildsDescription currentGuild={currentGuild} />}
 
             {currentGuild && <GuildsProgress currentGuild={currentGuild} />}
-
-            {currentGuild && <div className="bg-card col-span-3 row-span-2 text-white flex justify-center items-center">See Quests</div>}
 
         </div>
     );
