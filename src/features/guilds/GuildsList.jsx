@@ -3,7 +3,7 @@ import { MdOutlineArrowDropDown, MdOutlineArrowDropUp } from "react-icons/md";
 const guildsListStyle = "bg-card col-span-2 row-span-full overflow-scroll p-4 flex flex-col gap-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-none [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-thumb]:bg-gray-300 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:hover:bg-gray-400 [&::-webkit-scrollbar:horizontal]:hidden";
 const guildsListSectionButtonStyle = "flex flex-row gap-2 items-center justify-between text-xl font-black text-white border-b-2 border-white mb-2 w-full";
 const guildsListSectionItemsBoxStyle = "flex flex-col gap-2";
-const guildsListItemStyle = "p-1 text-left font-semibold px-4 py-1 bg-gradient-to-r from-slate-900 hover:from-variant1 to-transparent text-white";
+const guildsListItemStyle = "p-1 text-left font-semibold px-4 py-1 bg-linear-to-r from-slate-900 hover:from-variant1 to-transparent text-white";
 
 function GuildsList({data, setCurrentGuild, company1, company2, company3, company4, company5, company6, setCompany1, setCompany2, setCompany3, setCompany4, setCompany5, setCompany6}) {
     return (
