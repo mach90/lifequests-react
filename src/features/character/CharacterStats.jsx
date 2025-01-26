@@ -1,9 +1,10 @@
-const characterStatsCardStyle = "bg-card col-span-6 row-span-4 text-white flex justify-center items-center"
+const characterStatsCardStyle = "bg-card col-span-6 row-span-6 flex justify-start items-center flex-col rounded-lg border-4 border-variant1";
+const characterStatsTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 
 function CharacterStats() {
     return (
         <div className={characterStatsCardStyle}>
-            Stats (day/week/month/year/ever)
+            <h2 className={characterStatsTitleStyle}>Stats</h2>
         </div>
     );
 };

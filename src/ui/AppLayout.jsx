@@ -15,7 +15,7 @@ import Header from "./Header";
 APPLAYOUT UI COMPONENT
 ////////////////////////////////////////////////// */
 const appLayoutStyle = "bg-background flex flex-col p-6 gap-6 h-screen max-w-screen";
-const appLayoutMainStyle = "bg-container flex-1 overflow-hidden rounded-md";
+const appLayoutMainStyle = "bg-container flex-1 overflow-hidden rounded-xl";
 // const toggleMusicButtonStyle = "fixed bottom-6 left-6 w-10 hover:bg-primary/20 rounded-full transition-colors";
 // const toggleMusicIconStyle = "bg-red-600 w-full h-full p-1 rounded-full";
 

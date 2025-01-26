@@ -22,7 +22,7 @@ function Character() {
     return (
         <div className={characterContainerStyle}>
             <CharacterAttributes data={userData?.data} />
-            <CharacterAttributesChart data={userData?.data} />
+            <CharacterAttributesChart chartData={userData?.data.attributes} />
             <CharacterStats />
             <CharacterGuildsProgress />
             <CharacterTrackedQuests />

@@ -4,7 +4,7 @@
   --color-background: #131b2e;
   --color-container: #070a14;
   --color-card: #2c3c5c;
-  --color-variant1: #5ec9f0;
+  --color-variant1: #5270a7;
   --color-variant2: #198d58;
 }
 
@@ -40,4 +40,12 @@ CLIP PATH
 }
 @utility clip-right-point-female {
   clip-path: polygon(100% 0, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+
+@utility clip-right-diagonal {
+  clip-path: polygon(0 0, 100% 0%, 90% 100%, 0% 100%);
+}
+
+@utility clip-left-diagonal {
+  clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
