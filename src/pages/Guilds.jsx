@@ -14,12 +14,12 @@ const guildsContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 p-4 g
 
 function Guilds() {
     const [currentGuild, setCurrentGuild] = useState(null);
-    const [company1, setCompany1] = useState(true);
-    const [company2, setCompany2] = useState(true);
-    const [company3, setCompany3] = useState(true);
-    const [company4, setCompany4] = useState(true);
-    const [company5, setCompany5] = useState(true);
-    const [company6, setCompany6] = useState(true);
+    const [company1, setCompany1] = useState(false);
+    const [company2, setCompany2] = useState(false);
+    const [company3, setCompany3] = useState(false);
+    const [company4, setCompany4] = useState(false);
+    const [company5, setCompany5] = useState(false);
+    const [company6, setCompany6] = useState(false);
 
     const { isLoading, data: guilds, error } = useQuery({
         queryKey: ["guilds"],

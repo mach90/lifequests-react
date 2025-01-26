@@ -18,7 +18,11 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
 import Character from "./pages/Character";
-import Account from "./pages/Account";
+import Settings from "./pages/Settings";
+import SettingsProfile from "./pages/SettingsProfile";
+import SettingsSecurity from "./pages/SettingsSecurity";
+import SettingsAdmin from "./pages/SettingsAdmin";
+import SettingsApp from "./pages/SettingsApp";
 import Skills from "./pages/Skills";
 import Guilds from "./pages/Guilds";
 import Quests from "./pages/Quests";
@@ -53,7 +57,13 @@ function App() {
           <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
             <Route index element={<Navigate replace to="character" />} />
             <Route path="character" element={<Character />} />
-            <Route path="account" element={<Account />} />
+            <Route path="settings" element={<Settings />}>
+              <Route index element={<Navigate to="profile" />} />
+              <Route path="profile" element={<SettingsProfile />} />
+              <Route path="security" element={<SettingsSecurity />} />
+              <Route path="admin" element={<SettingsAdmin />} />
+              <Route path="app-settings" element={<SettingsApp />} />
+            </Route>
             <Route path="skills" element={<Skills />} />
             <Route path="guilds" element={<Guilds />} />
             <Route path="quests" element={<Quests />} />

@@ -60,7 +60,7 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip);
 //     { 'attribute': 'WIL', 'value': data?.attributes?.willpower },
 // ];
 
-const characterAttributesChartCardStyle = "bg-variant1/50 col-span-2 row-span-5 text-white flex flex-col justify-start items-center border-4 border-variant1 rounded-lg";
+const characterAttributesChartCardStyle = "bg-variant1/50 col-span-3 row-span-6 text-white flex flex-col justify-start items-center border-4 border-variant1 rounded-lg";
 const characterAttributesChartTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const characterAttributesChartAreaStyle = "h-full w-full p-4";
 

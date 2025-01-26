@@ -44,7 +44,7 @@ function MainNav() {
                 <div className={mainNavLinkIconStyle}><BsBackpack4Fill /></div> 
                 <div className={mainNavLinkTextStyle}>Inventory</div>
             </NavLink>
-            <NavLink to="account" className={({ isActive }) => isActive ? mainNavSettingsActiveStyle : mainNavSettingsStyle}>
+            <NavLink to="settings" className={({ isActive }) => isActive ? mainNavSettingsActiveStyle : mainNavSettingsStyle}>
                 <FaGear size={24}/>
             </NavLink>
             <button onClick={handleLogout} className={mainNavLogoutStyle} disabled={isLoading}>
