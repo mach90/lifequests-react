@@ -37,3 +37,9 @@
 - [x] Delete account form
 - [x] Change photo form
 - [x] Signup form
+
+
+## To do
+- L : guilds/useGuilds/guild
+- M : character/useCharacter
+- MJV : quests

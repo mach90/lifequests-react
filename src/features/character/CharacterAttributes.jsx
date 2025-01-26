@@ -1,6 +1,6 @@
-const characterAttributesCardStyle = "bg-card col-span-2 row-span-7 flex justify-start items-center flex-col rounded-lg border-4 border-variant1";
+const characterAttributesCardStyle = "bg-variant1/50 col-span-2 row-span-7 flex justify-start items-center flex-col rounded-lg border-4 border-variant1";
 const characterAttributesTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
-const characterAttributesListStyle = "flex flex-col justify-between bg-variant1/25 w-full h-full p-2";
+const characterAttributesListStyle = "flex flex-col justify-between w-full h-full p-2";
 const characterAttributesListItemStyle = "text-base flex flex-row justify-between border-b-2 border-transparent";
 const characterAttributesListItemDescriptionStyle = "flex flex-row gap-2 items-center justify-start w-full";
 const characterAttributesTagStyle = "bg-black flex items-center justify-center px-2 text-xs text-center italic w-14 font-black border-l-6 h-5 clip-right-diagonal";
