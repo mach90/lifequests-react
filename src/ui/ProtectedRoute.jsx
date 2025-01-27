@@ -11,6 +11,7 @@ function ProtectedRoute({children}) {
 
     useEffect(function() {
         if (!isAuthenticated && !isLoading) navigate("/login");
+        if (!isAuthenticated && isLoading) return;
         if (!isAuthenticated) toast.error("You need to log in to access the app");
     }, [isAuthenticated, isLoading, navigate]); 
     

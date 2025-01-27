@@ -5,11 +5,11 @@ export function useUser() {
     const {isLoading, data: user, error} = useQuery({
         queryKey: ["user"],
         queryFn: getMe,
-        staleTime: Infinity,
+        staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
-        refetchOnWindowFocus: true,
+        refetchOnWindowFocus: false,
         // Add error handling
         onError: (error) => {
             // Handle unauthorized errors silently

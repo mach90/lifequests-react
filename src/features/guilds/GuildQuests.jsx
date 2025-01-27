@@ -3,14 +3,14 @@ import { getAllGuildQuests } from "../../services/apiGuilds";
 import GuildsQuestsItem from "./GuildsQuestsItem";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 
-const guildsQuestsCardStyle = "bg-card col-span-6 row-span-9 flex flex-col gap-2 text-white flex justify-start items-center p-6";
-const guildsQuestsTitleStyle = "text-white text-xl font-bold";
-const guildsQuestsListStyle = "flex flex-col gap-4 overflow-y-scroll w-full";
+const guildQuestsCardStyle = "bg-card col-span-6 row-span-9 flex flex-col gap-2 text-white flex justify-start items-center p-6";
+const guildQuestsTitleStyle = "text-white text-xl font-bold";
+const guildQuestsListStyle = "flex flex-col gap-4 overflow-y-scroll w-full";
 
-function GuildsQuests({currentGuild}) {
+function GuildQuests({guild}) {
     const { isLoading, data: quests, error } = useQuery({
-        queryKey: ["quests", currentGuild.id],
-        queryFn: () => getAllGuildQuests(currentGuild.id),
+        queryKey: ["quests", guild.id],
+        queryFn: () => getAllGuildQuests(guild.id),
     });
 
     console.log("GETGUILDSQUESTQUERIED", quests);
@@ -26,13 +26,13 @@ function GuildsQuests({currentGuild}) {
     }
 
     if (quests.length === 0) {
-        return <div className={guildsQuestsCardStyle}>No quests available yet</div>
+        return <div className={guildQuestsCardStyle}>No quests available yet</div>
     }
 
     return (
-        <div className={guildsQuestsCardStyle}>
-            <h3 className={guildsQuestsTitleStyle}>Guild's Quests</h3>
-            <div className={guildsQuestsListStyle}>
+        <div className={guildQuestsCardStyle}>
+            <h3 className={guildQuestsTitleStyle}>Guild's Quests</h3>
+            <div className={guildQuestsListStyle}>
                 {quests.map(quest => 
                     <GuildsQuestsItem key={quest.id} quest={quest} />)
                 }
@@ -41,4 +41,4 @@ function GuildsQuests({currentGuild}) {
     );
 };
 
-export default GuildsQuests;
+export default GuildQuests;

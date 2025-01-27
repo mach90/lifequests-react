@@ -1,5 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import { getMe } from "../services/apiUser";
+import { useUser } from "../features/authentication/useUser";
 import UserInfosAvatar from "./UserInfosAvatar";
 import UserInfosName from "./UserInfosName";
 import UserInfosLevelXp from "./UserInfosLevelXp";
@@ -10,11 +9,8 @@ const userInfosContainerStyle = "flex flex-row justify-start items-center text-s
 const userInfosDataContainerStyle = "flex flex-col h-full justify-center items-start";
 
 function UserInfos() {
-    const { isLoading, data: userData, error } = useQuery({
-        queryKey: ["user"],
-        queryFn: getMe,
-    });
-
+    const { isLoading, user, error } = useUser();
+    
     // console.log("GETMEQUERIED", userData);
 
     if (isLoading) {
@@ -23,11 +19,11 @@ function UserInfos() {
 
     return (
         <div className={userInfosContainerStyle}>
-            <UserInfosAvatar data={userData?.data} />
+            <UserInfosAvatar data={user?.data} />
             <div className={userInfosDataContainerStyle}>
-                <UserInfosName data={userData?.data} />
-                <UserInfosLevelXp data={userData?.data} />
-                <UserInfosMoney data={userData?.data} />
+                <UserInfosName data={user?.data} />
+                <UserInfosLevelXp data={user?.data} />
+                <UserInfosMoney data={user?.data} />
             </div>
         </div>
     );

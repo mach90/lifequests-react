@@ -41,5 +41,4 @@
 
 ## To do
 - L : guilds/useGuilds/guild
-- M : character/useCharacter
 - MJV : quests

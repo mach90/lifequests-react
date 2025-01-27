@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getGuilds } from "../../services/apiGuilds";
+import { getGuild } from "../../services/apiGuilds";
 
-export function useGuilds() {
-    const {isLoading, data: guilds, error} = useQuery({
-        queryKey: ["guilds"],
-        queryFn: getGuilds,
+export function useGuild(guildId) {
+    const {isLoading, data: guild, error} = useQuery({
+        queryKey: ["guild", guildId],
+        queryFn: () => getGuild(guildId),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
@@ -18,7 +18,7 @@ export function useGuilds() {
 
     return {
         isLoading, 
-        guilds, 
+        guild, 
         error
     };
 }

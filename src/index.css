@@ -1,4 +1,6 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&family=Pacifico&display=swap');
 
 @theme {
   --color-background: #131b2e;
@@ -9,6 +11,13 @@
   --color-variant3: #e38864;
   --color-variant4: #907ad7;
   --color-variant5: #ffc359;
+
+  --font-display: "Assistant", "serif";
+  --font-test: "Pacifico", "serif";
+}
+
+body {
+  @apply font-display; /* This applies the 'sans' font, which is now 'Roboto' */
 }
 
 /*
