@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 
-const userInfosAvatarContainerStyle = "h-full bg-container rounded-l-full border-4 border-slate-700";
-const userInfosAvatarStyle = "h-full border-4 border-container rounded-l-full";
+const userInfosAvatarContainerStyle = "h-full bg-container rounded-l-full border-l-4 border-y-4 border-slate-700";
+const userInfosAvatarStyle = "h-full border-4 border-container rounded-full";
 
 function UserInfosAvatar({data}) {   
     const photoUrl = data?.photo ? `http://127.0.0.1:3000/img/users/${data.photo}` : "http://127.0.0.1:3000/img/users/default.jpg";

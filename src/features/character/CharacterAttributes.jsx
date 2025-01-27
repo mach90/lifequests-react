@@ -1,12 +1,12 @@
 const characterAttributesCardStyle = "bg-variant1/50 col-span-3 row-span-6 flex justify-start items-center flex-col rounded-lg border-4 border-variant1";
 const characterAttributesTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const characterAttributesListStyle = "flex flex-row justify-between w-full h-full";
-const characterAttributesListSectionStyle = "flex flex-col gap-2 p-2 w-full";
+const characterAttributesListSectionStyle = "flex flex-col gap-2 p-4 w-full";
 const characterAttributesListSectionTitleStyle = "text-white font-bold text-center";
 const characterAttributesListItemStyle = "text-base flex flex-row justify-between border-b-2 border-transparent";
 const characterAttributesListItemDescriptionStyle = "flex flex-row gap-2 items-center justify-start w-full";
-const characterAttributesTagStyle = "bg-black flex items-center justify-center px-1 text-xs text-center italic w-12 font-black border-l-6 h-5 clip-right-diagonal";
-const characterAttributesNameStyle = "text-black text-sm pl-2 pr-4 w-28 font-bold clip-left-point-opposite uppercase border-b-4 border-black";
+const characterAttributesTagStyle = "bg-black flex items-center justify-center pr-1 text-xs text-center italic w-10 font-black border-l-6 h-5 clip-right-diagonal";
+const characterAttributesNameStyle = "text-black text-sm w-26 font-bold clip-left-point-opposite uppercase border-b-4 border-black";
 const characterAttributesValueStyle = "bg-black px-2 text-variant1 text-center italic font-bold clip-left-point w-full";
 
 function CharacterAttributes({data}) {
