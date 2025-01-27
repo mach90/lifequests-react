@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAllGuildQuests } from "../../services/apiGuilds";
-import GuildsQuestsItem from "./GuildsQuestsItem";
+import GuildQuestsItem from "./GuildQuestsItem";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 
-const guildQuestsCardStyle = "bg-card col-span-6 row-span-9 flex flex-col gap-2 text-white flex justify-start items-center p-6";
-const guildQuestsTitleStyle = "text-white text-xl font-bold";
-const guildQuestsListStyle = "flex flex-col gap-4 overflow-y-scroll w-full";
+const guildQuestsCardStyle = "bg-variant3/50 col-span-6 row-span-9 flex flex-col gap-2 text-white flex justify-start items-center rounded-lg border-4 border-variant3";
+const guildQuestsTitleStyle = "bg-variant3 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
+const guildQuestsListStyle = "flex flex-wrap p-6 gap-4 overflow-y-scroll w-full [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant3 [&::-webkit-scrollbar-thumb]:hover:bg-variant3 [&::-webkit-scrollbar:horizontal]:hidden";
 
 function GuildQuests({guild}) {
     const { isLoading, data: quests, error } = useQuery({
@@ -32,9 +32,10 @@ function GuildQuests({guild}) {
     return (
         <div className={guildQuestsCardStyle}>
             <h3 className={guildQuestsTitleStyle}>Guild's Quests</h3>
+            <div>FILTER / SORT</div>
             <div className={guildQuestsListStyle}>
                 {quests.map(quest => 
-                    <GuildsQuestsItem key={quest.id} quest={quest} />)
+                    <GuildQuestsItem key={quest.id} quest={quest} />)
                 }
             </div>
         </div>

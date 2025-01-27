@@ -1,6 +1,6 @@
-const guildChatbotInputCardStyle = "bg-card flex flex-col col-span-4 row-span-5 text-white flex justify-center items-center p-4";
-const guildChatbotInputTextAreaStyle = "bg-gray-800 p-4 w-full h-full resize-none";
-const guildChatbotInputButtonStyle = "bg-blue-500 text-white w-full p-2 mt-2";
+const guildChatbotInputCardStyle = "bg-variant3/50 flex flex-col col-span-4 row-span-5 text-white flex justify-center items-center p-4 rounded-lg border-4 border-variant3";
+const guildChatbotInputTextAreaStyle = "bg-gray-800 text-white p-4 w-full h-full resize-none rounded-t-md";
+const guildChatbotInputButtonStyle = "bg-variant3 text-white w-full p-2 mt-2 rounded-b-md";
 
 function GuildChatbotInput({ guild }) {
     return (

@@ -2,11 +2,11 @@ const characterAttributesCardStyle = "bg-variant1/50 col-span-3 row-span-6 flex 
 const characterAttributesTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const characterAttributesListStyle = "flex flex-row justify-between w-full h-full";
 const characterAttributesListSectionStyle = "flex flex-col gap-2 p-4 w-full";
-const characterAttributesListSectionTitleStyle = "text-white font-bold text-center";
+const characterAttributesListSectionTitleStyle = "text-white font-bold text-center uppercase";
 const characterAttributesListItemStyle = "text-base flex flex-row justify-between border-b-2 border-transparent";
 const characterAttributesListItemDescriptionStyle = "flex flex-row gap-2 items-center justify-start w-full";
 const characterAttributesTagStyle = "bg-black flex items-center justify-center pr-1 text-xs text-center italic w-10 font-black border-l-6 h-5 clip-right-diagonal";
-const characterAttributesNameStyle = "text-black text-sm w-22 font-bold clip-left-point-opposite uppercase border-b-4 border-black";
+const characterAttributesNameStyle = "text-white text-sm w-22 font-bold clip-left-point-opposite uppercase border-b-4 border-black";
 const characterAttributesValueStyle = "bg-black px-2 text-variant1 text-center italic font-bold clip-left-point w-full flex flex-row items-end";
 const characterAttributesMaxValueStyle = "text-xs text-gray-400";
 
@@ -16,7 +16,7 @@ function CharacterAttributes({data}) {
             <h2 className={characterAttributesTitleStyle}>Attributes</h2>
             <div className={characterAttributesListStyle}>
                 <div className={characterAttributesListSectionStyle}>
-                    <h3 className={characterAttributesListSectionTitleStyle}>Physical</h3>
+                    <h3 className={characterAttributesListSectionTitleStyle}>Physical attributes</h3>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#cb364d] text-[#cb364d]`}>STR</div>
@@ -61,7 +61,7 @@ function CharacterAttributes({data}) {
                     </div>
                 </div>
                 <div className={characterAttributesListSectionStyle}>
-                    <h3 className={characterAttributesListSectionTitleStyle}>Mental</h3>
+                    <h3 className={characterAttributesListSectionTitleStyle}>Mental attributes</h3>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#5c529e] text-[#5c529e]`}>INT</div> 

@@ -40,5 +40,4 @@
 
 
 ## To do
-- L : guilds/useGuilds/guild
 - MJV : quests
