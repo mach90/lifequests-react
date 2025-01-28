@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
 import { useLogout } from "../features/authentication/useLogout";
-import { FaScroll } from "react-icons/fa";
+import { FaFileContract } from "react-icons/fa6";
 import { BsBackpack4Fill } from "react-icons/bs";
 import { ImTree } from "react-icons/im";
 import { FaGear, FaHouseFlag, FaPerson } from "react-icons/fa6";
 import { HiLogout } from "react-icons/hi";
+import { FaScroll } from "react-icons/fa";
 
 const mainNavContainerStyle = "bg-container rounded-full shadow-inner shadow-black flex flex-row gap-2 justify-end items-center pl-6 pr-1 py-1 text-slate-200 border-4 border-slate-700";
 const mainNavLinkStyle = "flex flex-col justify-center items-center text-slate-500 hover:text-white w-20";
@@ -36,9 +37,13 @@ function MainNav() {
                 <div className={mainNavLinkIconStyle}><FaHouseFlag /></div> 
                 <div className={mainNavLinkTextStyle}>Guilds</div>
             </NavLink>
-            <NavLink to="contracts" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
+            <NavLink to="quests" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
                 <div className={mainNavLinkIconStyle}><FaScroll /></div> 
                 <div className={mainNavLinkTextStyle}>Quests</div>
+            </NavLink>
+            <NavLink to="contracts" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
+                <div className={mainNavLinkIconStyle}><FaFileContract /></div> 
+                <div className={mainNavLinkTextStyle}>Contracts</div>
             </NavLink>
             <NavLink to="inventory" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
                 <div className={mainNavLinkIconStyle}><BsBackpack4Fill /></div> 

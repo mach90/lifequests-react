@@ -17,7 +17,22 @@ export const getMyContracts = async () => {
         }
         throw new Error(`Request failed with status: ${res.data.status}`);
     } catch(err) {
-        console.error('Get my contracts error:', err);
+        // console.error('Get my contracts error:', err);
         throw new Error(err?.response?.data?.message || "Failed to get user contracts");
+    }
+}
+
+export const getMyContract = async (contractId) => {
+    try {
+        const res = await api.get(`contracts/my-contracts/${contractId}`);
+
+        if(res.data.status === "success") {
+            // console.log("CONTRACT DATA", res.data.data.data);
+            return res.data.data.data;
+        }
+        throw new Error(`Request failed with status: ${res.data.status}`);
+    } catch(err) {
+        console.error('Get my contract error:', err);
+        throw new Error(err?.response?.data?.message || "Failed to get user contract");
     }
 }

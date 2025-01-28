@@ -26,7 +26,10 @@ import SettingsApp from "./pages/SettingsApp";
 import Skills from "./pages/Skills";
 import Guilds from "./pages/Guilds";
 import Guild from "./pages/Guild";
+import Quests from "./pages/Quests";
+import Quest from "./pages/Quest";
 import Contracts from "./pages/Contracts";
+import Contract from "./pages/Contract";
 import Inventory from "./pages/Inventory";
 import PageNotFound from "./pages/PageNotFound";
 
@@ -69,7 +72,12 @@ function App() {
             <Route path="guilds" element={<Guilds />}>
               <Route path="/guilds/:guildId" element={<Guild />} />
             </Route>
-            <Route path="contracts" element={<Contracts />} />
+            <Route path="quests" element={<Quests />}>
+              <Route path="/quests/:questId" element={<Quest />} />
+            </Route>
+            <Route path="contracts" element={<Contracts />}>
+              <Route path="/contracts/:contractId" element={<Contract />} />
+            </Route>
             <Route path="inventory" element={<Inventory />} />
           </Route>
 

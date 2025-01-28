@@ -6,11 +6,12 @@
   --color-background: #131b2e;
   --color-container: #070a14;
   --color-card: #2c3c5c;
-  --color-variant1: #4a82d6;
-  --color-variant2: #198d58;
-  --color-variant3: #e38864;
-  --color-variant4: #907ad7;
-  --color-variant5: #ffc359;
+  --color-variant1: #4785c2; /* character */
+  --color-variant2: #3fa153; /* contracts */ 
+  --color-variant3: #e38864; /* guilds */ 
+  --color-variant4: #7f69cc; /* skills */
+  --color-variant5: #f2c055; /* inventory */
+  --color-variant6: #48beab; /* quests */
 
   --font-display: "Assistant", "serif";
   --font-test: "Pacifico", "serif";

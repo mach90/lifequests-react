@@ -1,7 +1,10 @@
 import { useContracts } from "../contracts/useContracts";
 import LoadingSpinner from "../../ui/LoadingSpinner";
+import ContractLink from "./ContractLink";
 
-const contractsMenuStyle = "bg-variant2/50 col-span-4 row-span-full text-white flex  flex-col justify-center items-center";
+const contractsMenuStyle = "bg-variant2/50 col-span-4 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant2";
+const contractsMenuTitleStyle = "bg-variant2 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
+const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-start flex-col w-full h-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant3 [&::-webkit-scrollbar-thumb]:hover:bg-variant3 [&::-webkit-scrollbar:horizontal]:hidden";
 
 function ContractsMenu() {
     const {isLoading, contracts, error} = useContracts();
@@ -11,7 +14,11 @@ function ContractsMenu() {
 
     return (
         <div className={contractsMenuStyle}>
-            {contracts && contracts.map(contract => <p key={contract.id}>{contract.quest.name}</p>)}
+            <h2 className={contractsMenuTitleStyle}>My Contracts</h2>
+            <div>Filter/sort/paginate</div>
+            <div className={contractsListStyle}>
+                {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
+            </div>
         </div>
     );
 };

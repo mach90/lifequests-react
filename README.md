@@ -6,6 +6,16 @@ React, Vite, TailwindCSS, Chartjs
 ## 🔧 TO FIX
 
 ## 🔳 TO DO
+### LAST PARAMS
+- [ ] Menu navlink should use last params
+
+### TEST
+- [ ] Report all errors
+
+### REFACTOR
+- [ ] Refactor UI
+- [ ] Refactor logic
+
 ### UI
 - [ ] Modal
 - [ ] Confirmation delete window
