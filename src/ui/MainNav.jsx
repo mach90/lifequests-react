@@ -36,7 +36,7 @@ function MainNav() {
                 <div className={mainNavLinkIconStyle}><FaHouseFlag /></div> 
                 <div className={mainNavLinkTextStyle}>Guilds</div>
             </NavLink>
-            <NavLink to="quests" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
+            <NavLink to="contracts" className={({ isActive }) => isActive ? mainNavLinkActiveStyle : mainNavLinkStyle}>
                 <div className={mainNavLinkIconStyle}><FaScroll /></div> 
                 <div className={mainNavLinkTextStyle}>Quests</div>
             </NavLink>

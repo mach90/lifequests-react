@@ -1,24 +1,30 @@
 # LifeQuests React
 
-## UI
+## ⚙️ TECHNOLOGIES
+React, Vite, TailwindCSS, Chartjs
+
+## 🔧 TO FIX
+
+## 🔳 TO DO
+### UI
 - [ ] Modal
 - [ ] Confirmation delete window
 - [ ] Guilds/Quests
 
-## API user model
+### API user model
 - [ ] Username should only contain az09
 
-## Emailing
+### Emailing
 - [ ] Proper emailing service
 - [ ] Send welcome message to confirm email (set account to active)
 
-## Auth/User
+### Auth/User
 - [ ] Forgot password form
 
-## Settings
+### Settings
 - [x] Implementing basic settings (xp display style)
 
-## Guilds quests and progress
+### Guilds quests and progress
 - [/] Guilds Quests section (getAllGuildsQuests)
 - [ ] Contracts (create from guilds quests section / update from Quests page)
     post contract
@@ -29,7 +35,16 @@
     get all my progress
     patch progress
 
-## Completed
+## 💡 FEATURES TO BE ADDED LATER
+### INVENTORY
+- [ ] Inventory: 3D object viewer
+- [ ] Inventory: Character equipement/perks
+- [ ] Inventory: Marketplace
+- [ ] Inventory: Books reader
+### QUESTS
+- [ ] Quests: Community pictures
+
+## COMPLETED TASKS
 - [x] Keep session alive
 - [x] user data flow issue
 - [x] Update user data form
@@ -38,6 +53,9 @@
 - [x] Change photo form
 - [x] Signup form
 
-
-## To do
-- MJV : quests
+## LEGEND
+🟢 100% done
+🟡 75% done
+🟠 50% done
+🟤 25% done
+🔴 0% done

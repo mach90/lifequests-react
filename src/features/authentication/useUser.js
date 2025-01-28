@@ -10,9 +10,7 @@ export function useUser() {
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
-        // Add error handling
         onError: (error) => {
-            // Handle unauthorized errors silently
             if (error?.response?.status === 401) return null;
             console.error("Authentication error:", error);
         }
