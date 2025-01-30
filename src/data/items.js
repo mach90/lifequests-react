@@ -10,7 +10,7 @@ export const items = [
         name: "Pottery",
         id: "4598456",
         model: "pottery",
-        type: "",
+        type: "artifact",
         description: "A classic earthenware vase, adorned with intricate black designs, echoing ancient craftsmanship.",
     },
     {
@@ -19,5 +19,33 @@ export const items = [
         model: "gold-medal",
         type: "trophy",
         description: "A gleaming emblem of triumph, bestowed upon those who achieve greatness",
+    },
+    {
+        name: "Calculator",
+        id: "191959159",
+        model: null,
+        type: "app",
+        description: "A simple calculator to calculate some calculations.",
+    },
+    {
+        name: "Book",
+        id: "53545343521065",
+        model: null,
+        type: "book",
+        description: "A public domain book, otherwise the FBI will knock on our door.",
+    },
+    {
+        name: "Document",
+        id: "971356465065",
+        model: null,
+        type: "doc",
+        description: "A document that shows nothing interesting.",
+    },
+    {
+        name: "Clock",
+        id: "958123343521065",
+        model: null,
+        type: "app",
+        description: "A clock that display local time.",
     },
 ]
