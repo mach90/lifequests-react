@@ -1,9 +1,15 @@
 # LifeQuests React
+___
 
 ## ⚙️ TECHNOLOGIES
 React, Vite, TailwindCSS, Chartjs
 
+___
+
 ## 🔧 TO FIX
+
+___
+<!-- TO DO -->
 
 ## 🔳 TO DO
 ### LAST PARAMS
@@ -54,6 +60,8 @@ React, Vite, TailwindCSS, Chartjs
 ### QUESTS
 - [ ] Quests: Community pictures
 
+___
+
 ## COMPLETED TASKS
 - [x] Keep session alive
 - [x] user data flow issue
@@ -62,6 +70,8 @@ React, Vite, TailwindCSS, Chartjs
 - [x] Delete account form
 - [x] Change photo form
 - [x] Signup form
+
+___
 
 ## LEGEND
 🟢 100% done

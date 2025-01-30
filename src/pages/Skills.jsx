@@ -1,8 +1,21 @@
+const skillsContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 p-4 gap-4 h-full";
+const skillsCardStyle = "bg-variant4/50 col-span-3 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant4";
+const skillsTitleStyle = "bg-variant4 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
+
 function Skills() {
     return (
-        <div className="grid grid-flow-col grid-cols-12 grid-rows-12 p-4 gap-4 h-full">
-            <div className="bg-variant4/50 col-span-full row-span-full text-white flex flex-col justify-center items-center">
-                Skills not yet implemented
+        <div className={skillsContainerStyle}>
+            <div className={skillsCardStyle}>
+                <h2 className={skillsTitleStyle}>Skills</h2>
+            </div>
+            <div className={skillsCardStyle}>
+                <h2 className={skillsTitleStyle}>Skills</h2>
+            </div>
+            <div className={skillsCardStyle}>
+                <h2 className={skillsTitleStyle}>Skills</h2>
+            </div>
+            <div className={skillsCardStyle}>
+                <h2 className={skillsTitleStyle}>Skills</h2>
             </div>
         </div>
     );
