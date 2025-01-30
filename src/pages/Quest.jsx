@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuest } from "../features/quests/useQuest";
+import { useCreateContract } from "../features/contracts/useCreateContract";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import QuestGuilds from "../features/quests/QuestGuilds";
 
@@ -10,6 +11,12 @@ const questTitleStyle = "bg-variant6 w-full text-center text-base font-bold text
 function Quest() {
     const { questId } = useParams();
     const {isLoading, quest, error} = useQuest(questId);
+    
+    const createContract = useCreateContract();
+
+    const handleCreateContract = (qId) => {
+        createContract.mutate(qId);
+    };
 
     if(isLoading) return <LoadingSpinner size="lg" />
 
@@ -19,6 +26,7 @@ function Quest() {
                 <h2 className={questTitleStyle}>Quest Description</h2>
                 <div>{quest?.name}</div>
                 <QuestGuilds questId={quest?.id} />
+                <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-gray-500 rounded-md hover:bg-gray-300 cursor-pointer">CREATE CONTRACT</button>
             </div>
         </div>
     );

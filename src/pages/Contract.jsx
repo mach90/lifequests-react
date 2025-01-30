@@ -1,5 +1,6 @@
 import { NavLink, useParams } from "react-router-dom";
 import { useContract } from "../features/contracts/useContract";
+import { useUpdateContract } from "../features/contracts/useUpdateContract";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import QuestGuilds from "../features/quests/QuestGuilds";
 import { FaCheckCircle } from "react-icons/fa";
@@ -10,9 +11,18 @@ const contractStatusStampStyle = "absolute bottom-0 right-0 p-8 text-variant2";
 
 function Contract() {
     const { contractId } = useParams();
-    const {isLoading, contract, error} = useContract(contractId);
+    const { isLoading, contract, error } = useContract(contractId);
+    const { isUpdating, updateContract } = useUpdateContract();
     
     if(isLoading) return <LoadingSpinner size="lg" />
+
+    const handleStatusUpdate = () => {
+        const newStatus = contract.status === 'active' ? 'finished' : 'active';
+        updateContract({ 
+            contractId, 
+            status: newStatus 
+        });
+    };
 
     return (
         <div className={contractContainerStyle}>
@@ -24,7 +34,15 @@ function Contract() {
                 <div>THIS CONTRACT STATUS IS: {contract?.status}</div>
                 <QuestGuilds questId={contract?.quest?.id} />
             </div>
-            {contract.status === "finished" && <div className={contractStatusStampStyle}><FaCheckCircle size={96} /></div>}
+            <div>
+            <button className="p-2 bg-amber-400 text-black rounded-md cursor-pointer hover:bg-amber-300"
+                onClick={handleStatusUpdate}
+                disabled={isUpdating}
+            >
+                {contract.status === 'active' ? 'Mark this contract as finished' : 'Mark this contract as active'}
+            </button>
+            </div>
+            {contract.status === "finished" && <div className={contractStatusStampStyle}>FINISHED <FaCheckCircle size={96} /></div>}
         </div>
     );
 };

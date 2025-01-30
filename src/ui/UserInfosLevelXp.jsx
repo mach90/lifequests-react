@@ -16,10 +16,10 @@ function UserInfosLevelXp({ data }) {
     const nextLevelStartXp = calculateXp(currentLevel + 1).toFixed(0);
     const progress = (((data?.experience - currentLevelStartXp)/(nextLevelStartXp - currentLevelStartXp))*100).toFixed(2);
 
-    console.log("LEVEL", currentLevel)
-    console.log("BOTTOM", currentLevelStartXp)
-    console.log("NEXT", nextLevelStartXp)
-    console.log("%", progress)
+    // console.log("LEVEL", currentLevel)
+    // console.log("BOTTOM", currentLevelStartXp)
+    // console.log("NEXT", nextLevelStartXp)
+    // console.log("%", progress)
 
     return (
         <div className={userInfosLevelXpContainerStyle}>

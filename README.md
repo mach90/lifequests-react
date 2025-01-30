@@ -28,8 +28,8 @@ ___
 |             | Settings       | Basic settings                                      | 🟠     |
 |             | Navigation     | Main nav routes should remember and use last params | 🔴     |
 |             | Contracts      | Get my contracts/contract (x2)                      | 🟢     |
-|             |                | Post contracts                                      | 🔴     |
-|             |                | Patch contracts                                     | 🔴     |
+|             |                | Post contracts                                      | 🟢     |
+|             |                | Patch contracts                                     | 🟢     |
 |             | Guild progress | Get my guilds/guild progress (x2)                   | 🔴     |
 |             |                | Post guild progress                                 | 🔴     |
 |             |                | Patch guild progress                                | 🔴     |
@@ -37,6 +37,7 @@ ___
 |             |                | Character equipement/perks                          | 🔴     |
 |             |                | Marketplace                                         | ⚫     |
 |             |                | Books reader                                        | ⚫     |
+|             |                | Small apps/tools (calc, convert)                    | ⚫     |
 |             | Quests         | Community pictures                                  | ⚫     |
 
 ___
