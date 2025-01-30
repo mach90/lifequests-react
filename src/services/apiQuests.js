@@ -1,5 +1,22 @@
 const apiURL = import.meta.env.VITE_API_URL;
 
+export async function getQuests() {
+    try {
+        let response = await fetch(`${apiURL}/quests`);
+
+        if(!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data = await response.json();
+
+        return data.data.data;
+        
+    } catch(error) {
+        throw new Error("Quests could not be fetched");   
+    }
+}
+
 export async function getQuest(id) {
     try {
         let response = await fetch(`${apiURL}/quests/${id}`);

@@ -8,8 +8,6 @@ function Model({ url }) {
 }
 
 function GLBViewer({ modelUrl }) {
-  console.log(modelUrl)
-
   return (
     <div className="w-full h-full bg-stone-900">
       <Canvas shadows camera={{ position: [-15, 10, 15], fov: 10 }}>
