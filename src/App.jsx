@@ -31,6 +31,7 @@ import Quest from "./pages/Quest";
 import Contracts from "./pages/Contracts";
 import Contract from "./pages/Contract";
 import Inventory from "./pages/Inventory";
+import Item from "./pages/Item";
 import PageNotFound from "./pages/PageNotFound";
 
 /* //////////////////////////////////////////////////
@@ -78,7 +79,9 @@ function App() {
             <Route path="contracts" element={<Contracts />}>
               <Route path="/contracts/:contractId" element={<Contract />} />
             </Route>
-            <Route path="inventory" element={<Inventory />} />
+            <Route path="inventory" element={<Inventory />}>
+              <Route path="/inventory/item/:itemId" element={<Item />} />
+            </Route>
           </Route>
 
           <Route path="login" element={<Login />} />

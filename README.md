@@ -6,7 +6,7 @@ React, Vite, TailwindCSS, Chartjs
 ___
 
 ## 🔧 TO FIX
-Nothing yet
+
 
 ___
 
