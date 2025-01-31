@@ -1,3 +1,5 @@
+const serverUrl = import.meta.env.VITE_SERVER_URL;
+
 const guildTitleCardStyle = "bg-variant3 px-4 py-2 col-span-4 row-span-1 text-slate-800 flex justify-between items-center rounded-full";
 const guildTitleDivStyle = "flex flex-row gap-2 justify-center items-center";
 const guildEmblemStyle = "w-6 h-6";
@@ -10,7 +12,7 @@ function GuildTitle({ guild }) {
             <div className={guildTitleDivStyle}>
                 <img 
                     className={guildEmblemStyle} 
-                    src={guild.images[0] ? `http://127.0.0.1:3000/img/guilds/${guild.images[0]}` : "http://127.0.0.1:3000/img/guilds/default-emblem.png"} 
+                    src={guild.images[0] ? `${serverUrl}/img/guilds/${guild.images[0]}` : `${serverUrl}/img/guilds/default-emblem.png`} 
                 />
                 <h1 className={guildTitleH1Style}>{guild.name} Guild</h1>
             </div>

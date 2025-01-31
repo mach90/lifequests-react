@@ -1,8 +1,9 @@
 # LifeQuests React
 
 ## ⚙️ TECHNOLOGIES
-React, Vite, TailwindCSS, Chartjs
-
+React, Vite, Axios, Tanstack
+Hook Form, Hot Toasts, React Icons
+TailwindCSS, Chartjs, React-three
 ___
 
 ## 🔧 TO FIX
@@ -11,34 +12,37 @@ ___
 ___
 
 ## 🔳 TO DO
-| Type        | Section        | TODO                                                | Status |
-| ----------- | -------------- | --------------------------------------------------- | ------ |
-| Testing     | Create tests   | ←                                                   | ⚫     |
-| Refactoring | UI             | ←                                                   | ⚫     |
-|             | Logic          | ←                                                   | ⚫     |
-| Backend/API | User model     | Username should only contain az09                   | 🔴     |
-|             | Indexes        | Create indexes that will improve performances       | 🔴     |
-|             | Emailing       | Production Emailing service                         | 🟠     |
-|             |                | Welcome message (activate account)                  | 🟠     |
-|             |                | Reset password mail (reset link)                    | 🟠     |
-| Frontend    | UI             | Modal for all                                       | 🔴     |
-|             |                | Confirmation in modal for all                       | 🔴     |
-|             | Auth           | Forgot password form                                | 🔴     |
-|             |                | Reset password page+form                            | 🔴     |
-|             | Settings       | Basic settings                                      | 🟠     |
-|             | Navigation     | Main nav routes should remember and use last params | 🔴     |
-|             | Contracts      | Get my contracts/contract (x2)                      | 🟢     |
-|             |                | Post contracts                                      | 🟢     |
-|             |                | Patch contracts                                     | 🟢     |
-|             | Guild progress | Get my guilds/guild progress (x2)                   | 🔴     |
-|             |                | Post guild progress                                 | 🔴     |
-|             |                | Patch guild progress                                | 🔴     |
-|             | Inventory      | .glb 3D viewer                                      | 🟠     |
-|             |                | Character equipement/perks                          | 🔴     |
-|             |                | Marketplace                                         | ⚫     |
-|             |                | Books reader                                        | ⚫     |
-|             |                | Small apps/tools (calc, convert)                    | ⚫     |
-|             | Quests         | Community pictures                                  | ⚫     |
+| Type           | Section        | TODO                                                | Status |
+| -------------- | -------------- | --------------------------------------------------- | ------ |
+| Error Handling | ←              | ←                                                   | 🔴     |
+| Testing        | Create tests   | ←                                                   | ⚫     |
+| Refactoring    | UI             | ←                                                   | ⚫     |
+|                | Logic          | ←                                                   | ⚫     |
+| Backend/API    | User model     | Username should only contain az09                   | 🔴     |
+|                | Indexes        | Create indexes that will improve performances       | 🔴     |
+|                | Emailing       | Production Emailing service                         | 🟠     |
+|                |                | Welcome message (activate account)                  | 🟠     |
+|                |                | Reset password mail (reset link)                    | 🟠     |
+| Frontend       | UI             | Modal for all                                       | 🔴     |
+|                |                | Confirmation in modal for all                       | 🔴     |
+|                | Auth           | Forgot password form                                | 🔴     |
+|                |                | Reset password page+form                            | 🔴     |
+|                | Settings       | Basic settings                                      | 🟠     |
+|                | Navigation     | Main nav routes should remember and use last params | 🔴     |
+|                | Contracts      | Get my contracts/contract (x2)                      | 🟢     |
+|                |                | Post contracts                                      | 🟢     |
+|                |                | Patch contracts                                     | 🟢     |
+|                | Guild progress | Get my guilds/guild progress (x2)                   | 🔴     |
+|                |                | Post guild progress                                 | 🔴     |
+|                |                | Patch guild progress                                | 🔴     |
+|                | Inventory      | .glb 3D viewer                                      | 🟠     |
+|                |                | Character equipement/perks                          | 🔴     |
+|                |                | Marketplace                                         | ⚫     |
+|                |                | Books reader                                        | ⚫     |
+|                |                | App viewer                                          | ⚫     |
+|                |                | Doc reader                                          | ⚫     |
+|                |                | Picture viewer                                      | ⚫     |
+|                | Quests         | Community pictures                                  | ⚫     |
 
 ___
 

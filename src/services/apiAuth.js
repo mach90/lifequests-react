@@ -1,5 +1,7 @@
 import axios from "axios";
 
+console.log(process.env.NODE_ENV);
+
 const api = axios.create({
     baseURL: process.env.NODE_ENV === 'production'
       ? 'https://lifequests.onrender.com/api/v1'

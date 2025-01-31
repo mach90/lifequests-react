@@ -4,12 +4,14 @@ import GLBViewer from "../features/inventory/GLBViewer";
 import AppViewer from "../features/inventory/AppViewer";
 import BookViewer from "../features/inventory/BookViewer";
 import DocumentViewer from "../features/inventory/DocumentViewer";
+import ImageViewer from "../features/inventory/ImageViewer";
 
 const itemContainerStyle = "grid grid-flow-col grid-cols-9 grid-rows-12 gap-4 text-white w-full h-full";
 const item3DViewerStyle = "bg-variant5/50 col-span-6 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
 const itemAppViewerStyle = "bg-variant5/50 col-span-9 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
 const itemBookViewerStyle = "bg-variant5/50 col-span-9 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
 const itemDocViewerStyle = "bg-variant5/50 col-span-9 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
+const itemImageViewerStyle = "bg-variant5/50 col-span-9 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
 const itemDescriptionCardStyle = "bg-variant5/50 col-span-3 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant5";
 const itemTitleStyle = "bg-variant5 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const itemDescriptionStyle = "p-8";
@@ -36,6 +38,10 @@ function Item() {
             {item?.type === "doc" && <div className={itemDocViewerStyle}>
                 <h2 className={itemTitleStyle}>Document Viewer</h2>
                 <DocumentViewer />
+            </div>}
+            {item?.type === "image" && <div className={itemImageViewerStyle}>
+                <h2 className={itemTitleStyle}>Image Viewer</h2>
+                <ImageViewer />
             </div>}
 
             {item?.model && <div className={itemDescriptionCardStyle}>

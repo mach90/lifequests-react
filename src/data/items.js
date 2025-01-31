@@ -48,4 +48,25 @@ export const items = [
         type: "app",
         description: "A clock that display local time.",
     },
+    {
+        name: "Image",
+        id: "564941256616",
+        model: null,
+        type: "image",
+        description: "An image.",
+    },
+    {
+        name: "Brass pot",
+        id: "156897841324894516",
+        model: "brass-pot",
+        type: "artifact",
+        description: "A brass pot.",
+    },
+    {
+        name: "Terracotta pottery",
+        id: "659915132165",
+        model: "terracotta-pottery",
+        type: "artifact",
+        description: "A simple terracotta pottery.",
+    },
 ]

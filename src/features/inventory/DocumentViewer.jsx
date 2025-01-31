@@ -1,7 +1,7 @@
 function DocumentViewer() {
     return (
         <div>
-            Document
+            DOCUMENT
         </div>
     );
 };
