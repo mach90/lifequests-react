@@ -35,7 +35,7 @@ function Item() {
                 <h2 className={itemTitleStyle}>Book Viewer</h2>
                 <BookViewer />
             </div>}
-            {item?.type === "doc" && <div className={itemDocViewerStyle}>
+            {item?.type === "document" && <div className={itemDocViewerStyle}>
                 <h2 className={itemTitleStyle}>Document Viewer</h2>
                 <DocumentViewer />
             </div>}

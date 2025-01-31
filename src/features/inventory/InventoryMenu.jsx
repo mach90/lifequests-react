@@ -11,7 +11,7 @@ function GuildsMenu() {
             <h2 className={guildsListTitleStyle}>Inventory</h2>
             <div>Filter/Sort + Search</div>
             <div className={guildsListStyle}>
-                {items.map(item => <InventoryLink key={item.id} itemId={item.id} name={item.name} itemType={item.type} />)}
+                {items.map(item => <InventoryLink key={item.id} itemId={item.id} itemName={item.name} itemType={item.type} itemQty={item.quantity} />)}
             </div>
         </div>
     );

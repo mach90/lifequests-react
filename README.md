@@ -2,8 +2,8 @@
 
 ## ⚙️ TECHNOLOGIES
 React, Vite, Axios, Tanstack
-Hook Form, Hot Toasts, React Icons
 TailwindCSS, Chartjs, React-three
+Hook Form, Hot Toasts, React Icons, Game-icons.net
 ___
 
 ## 🔧 TO FIX
