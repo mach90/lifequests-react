@@ -17,7 +17,7 @@ function Contract() {
     if(isLoading) return <LoadingSpinner size="lg" />
 
     const handleStatusUpdate = () => {
-        const newStatus = contract.status === 'active' ? 'finished' : 'active';
+        const newStatus = "finished";
         updateContract({ 
             contractId, 
             status: newStatus 
@@ -35,12 +35,9 @@ function Contract() {
                 <QuestGuilds questId={contract?.quest?.id} />
             </div>
             <div>
-            <button className="p-2 bg-amber-400 text-black rounded-md cursor-pointer hover:bg-amber-300"
-                onClick={handleStatusUpdate}
-                disabled={isUpdating}
-            >
-                {contract.status === 'active' ? 'Mark this contract as finished' : 'Mark this contract as active'}
-            </button>
+            {contract.status === "active" && <button className="p-2 bg-amber-400 text-black rounded-md cursor-pointer hover:bg-amber-300" onClick={handleStatusUpdate} disabled={isUpdating}>
+                Mark this contract as finished
+            </button>}
             </div>
             {contract.status === "finished" && <div className={contractStatusStampStyle}>FINISHED <FaCheckCircle size={96} /></div>}
         </div>

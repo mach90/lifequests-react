@@ -2,7 +2,7 @@ import { useQuest } from "./useQuest";
 import QuestGuildsItem from "./QuestGuildsItem";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 
-const questGuildsContainerStyle = "flex flex-col gap-2";
+const questGuildsContainerStyle = "flex flex-row gap-2 p-4 w-full h-full";
 
 function QuestGuilds({questId}) {
     const {isLoading, quest} = useQuest(questId);
@@ -11,7 +11,6 @@ function QuestGuilds({questId}) {
 
     return (
         <div className={questGuildsContainerStyle}>
-            <div>GUILDS THAT HAVE THIS QUEST: {quest?.guilds.length}</div>
             {quest?.guilds?.map(guild => {
                 return <QuestGuildsItem key={guild} guildId={guild} />
             })}
