@@ -1,8 +1,18 @@
 const apiURL = import.meta.env.VITE_API_URL;
 
-export async function getGuilds() {
+export async function getGuilds(params = {}) {
     try {
-        let response = await fetch(`${apiURL}/guilds`);
+        if (params.sortBy) {
+            const [field, direction] = params.sortBy.split('-');
+            params.sort = direction === 'desc' ? `-${field}` : field;
+            delete params.sortBy;
+        }
+
+        // Convert params object to URL query string
+        const queryString = new URLSearchParams(params).toString();
+        const url = `${apiURL}/guilds${queryString ? `?${queryString}` : ''}`;
+
+        let response = await fetch(url);
 
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -10,7 +20,6 @@ export async function getGuilds() {
 
         let data = await response.json();
 
-        // console.log("GETALLGUILDSAPI", data.data.data);
         return data.data.data;
 
     } catch(error) {

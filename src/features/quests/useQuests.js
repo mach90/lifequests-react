@@ -19,7 +19,7 @@ export function useQuests() {
     }
 
     const {isLoading, data: quests, error} = useQuery({
-        queryKey: ["quests", params], // Include params in queryKey for proper cache invalidation
+        queryKey: ["quests", params],
         queryFn: () => getQuests(params),
         staleTime: 1000 * 60 * 30,
         retry: false,
@@ -36,6 +36,5 @@ export function useQuests() {
         isLoading, 
         quests, 
         error,
-        sortBy // Return current sortBy value for UI state management
     };
 }

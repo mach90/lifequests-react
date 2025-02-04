@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useSearchParams } from "react-router-dom";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
@@ -8,9 +8,15 @@ const guildLinkEmblemStyle ="h-6 w-6";
 const guildLinkNameStyle ="text-slate-800 font-black uppercase text-base";
 
 function GuildLink({guildId, name, emblem}) {
+    const [searchParams] = useSearchParams();
+
+    const to = {
+        pathname: `/guilds/${guildId}`,
+        search: searchParams.toString()
+    };
 
     return (
-        <NavLink to={`/guilds/${guildId}`} className={({ isActive }) => isActive ? guildLinkActiveStyle : guildLinkStyle}>
+        <NavLink to={to} className={({ isActive }) => isActive ? guildLinkActiveStyle : guildLinkStyle}>
             <img src={emblem ? `${serverUrl}/img/guilds/${emblem}` : `${serverUrl}/img/guilds/default-emblem.png`} alt="guild-emblem" className={guildLinkEmblemStyle} />
             <h2 className={guildLinkNameStyle}>{name}</h2>
         </NavLink>

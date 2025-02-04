@@ -1,6 +1,8 @@
 import { useGuilds } from "./useGuilds";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import GuildLink from "./GuildLink";
+import GuildsMenuOperations from "./GuildsMenuOperations";
+import Pagination from "../../ui/Pagination";
 
 const guildsMenuStyle = "bg-variant3/50 col-span-2 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant3";
 const guildsListTitleStyle = "bg-variant3 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
@@ -14,11 +16,13 @@ function GuildsMenu() {
     return (
         <div className={guildsMenuStyle}>
             <h2 className={guildsListTitleStyle}>Guilds</h2>
-            <div>- sort (name asc-desc) or (company name asc-desc) or (guild progress asc-desc)
-            - filter (company) and (have progress) or (don't have progress)</div>
+            {/* <div>- sort (name asc-desc) or (company name asc-desc) or (guild progress asc-desc)
+            - filter (company) and (have progress) or (don't have progress)</div> */}
+            <GuildsMenuOperations />
             <div className={guildsListStyle}>
                 {guilds.map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
             </div>
+            {/* <Pagination /> */}
         </div>
     );
 };
