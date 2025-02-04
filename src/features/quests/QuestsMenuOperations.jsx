@@ -1,7 +1,7 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const questsMenuOperationsStyle = "flex flex-auto gap-8 p-4 w-full";
+const questsMenuOperationsStyle = "flex flex-auto gap-8 p-4 border-b-2 border-slate-800 w-full justify-center";
 
 function QuestsMenuOperations() {
     return (

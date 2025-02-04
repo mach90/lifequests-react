@@ -17,10 +17,13 @@ export async function getQuests(params = {}) {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
-
         let data = await response.json();
 
-        return data.data.data;
+        return {
+            quests: data.data.data,
+            totalCount: data.totalCount,
+            results: data.results
+        };
         
     } catch (error) {
         throw new Error("Quests could not be fetched");

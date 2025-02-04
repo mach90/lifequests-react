@@ -22,7 +22,10 @@ export const getMyContracts = async (params = {}) => {
         });
 
         if(res.data.status === "success") {
-            return res.data.data.data;
+            return {
+                contracts: res.data.data.data,
+                totalCount: res.data.totalCount
+            }
         }
         throw new Error(`Request failed with status: ${res.data.status}`);
     } catch(err) {

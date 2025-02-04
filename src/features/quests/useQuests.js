@@ -2,12 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { getQuests } from "../../services/apiQuests";
 
+import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
+
 export function useQuests() {
     const [searchParams] = useSearchParams();
     
     // Get filter and sort parameters
     const difficultyFilter = searchParams.get('difficulty');
     const sortBy = searchParams.get('sortBy') || 'name-asc';
+    const page = searchParams.get('page') || 1;
+    const limit = searchParams.get('limit') || DEFAULT_PAGE_SIZE;
     
     // Build params object
     const params = {};
@@ -17,8 +21,14 @@ export function useQuests() {
     if (sortBy) {
         params.sortBy = sortBy;
     }
+    if (page) {
+        params.page = page;
+    }
+    if (limit) {
+        params.limit = limit;
+    }
 
-    const {isLoading, data: quests, error} = useQuery({
+    const {isLoading, data, error} = useQuery({
         queryKey: ["quests", params],
         queryFn: () => getQuests(params),
         staleTime: 1000 * 60 * 30,
@@ -32,9 +42,15 @@ export function useQuests() {
         }
     });
 
+    const quests = data?.quests || [];
+    const totalCount = data?.totalCount || 0;
+    const results = data?.results || 0;
+
     return {
         isLoading, 
-        quests, 
+        quests,
+        totalCount, 
+        results,
         error,
     };
 }

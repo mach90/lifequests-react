@@ -9,10 +9,10 @@ const contractsMenuTitleStyle = "bg-variant2 w-full text-center text-base font-b
 const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-start flex-col w-full h-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant2 [&::-webkit-scrollbar-thumb]:hover:bg-variant2 [&::-webkit-scrollbar:horizontal]:hidden";
 
 function ContractsMenu() {
-    const {isLoading, contracts, error} = useContracts();
+    const {isLoading, contracts, totalCount, error} = useContracts();
 
     if(isLoading) return <LoadingSpinner size="md" />;
-    if(contracts.length === 0) return <div className={contractsMenuStyle}>No contracts</div>
+    if(contracts.length === 0 || totalCount === 0) return <div className={contractsMenuStyle}>No contracts</div>
 
     return (
         <div className={contractsMenuStyle}>
@@ -24,7 +24,7 @@ function ContractsMenu() {
             <div className={contractsListStyle}>
                 {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
             </div>
-            <Pagination />
+            <Pagination totalCount={totalCount} color="variant2" />
         </div>
     );
 };

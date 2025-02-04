@@ -1,7 +1,7 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const contractsMenuOperationsStyle = "flex flex-row gap-8 p-4";
+const contractsMenuOperationsStyle = "flex flex-row gap-8 p-4 border-b-2 border-slate-800 w-full justify-center";
 
 function ContractsMenuOperations() {
     return (
