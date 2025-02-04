@@ -10,7 +10,7 @@ export function useUpdateContract() {
         data: updatedContract, 
         error 
     } = useMutation({
-        mutationFn: ({ contractId, status }) => updateMyContract(contractId, status),
+        mutationFn: ({ contractId, status, finishedAt }) => updateMyContract(contractId, status, finishedAt),
         onSuccess: (data, variables) => {
             queryClient.invalidateQueries({ 
                 queryKey: ["contract", variables.contractId], 

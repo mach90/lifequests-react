@@ -1,10 +1,20 @@
 const apiURL = import.meta.env.VITE_API_URL;
 
-export async function getQuests() {
+export async function getQuests(params = {}) {
     try {
-        let response = await fetch(`${apiURL}/quests`);
+        if (params.sortBy) {
+            const [field, direction] = params.sortBy.split('-');
+            params.sort = direction === 'desc' ? `-${field}` : field;
+            delete params.sortBy;
+        }
 
-        if(!response.ok) {
+        // Convert params object to URL query string
+        const queryString = new URLSearchParams(params).toString();
+        const url = `${apiURL}/quests${queryString ? `?${queryString}` : ''}`;
+
+        let response = await fetch(url);
+
+        if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
@@ -12,8 +22,8 @@ export async function getQuests() {
 
         return data.data.data;
         
-    } catch(error) {
-        throw new Error("Quests could not be fetched");   
+    } catch (error) {
+        throw new Error("Quests could not be fetched");
     }
 }
 

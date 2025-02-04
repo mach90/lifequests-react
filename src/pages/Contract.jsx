@@ -11,6 +11,7 @@ const contractStatusStampStyle = "absolute bottom-0 right-0 p-8 text-variant2";
 
 function Contract() {
     const { contractId } = useParams();
+    // const [searchParams] = useSearchParams();
     const { isLoading, contract, error } = useContract(contractId);
     const { isUpdating, updateContract } = useUpdateContract();
     
@@ -18,9 +19,12 @@ function Contract() {
 
     const handleStatusUpdate = () => {
         const newStatus = "finished";
+        const finishedAt = new Date(Date.now()).toISOString();
+        console.log(finishedAt)
         updateContract({ 
             contractId, 
-            status: newStatus 
+            status: newStatus,
+            finishedAt
         });
     };
 
@@ -32,12 +36,15 @@ function Contract() {
                 <div>THE QUEST ID IS: {contract?.quest?.id}</div>
                 <NavLink to={`/quests/${contract?.quest?.id}`}>🔗LINK TO THE QUEST</NavLink>
                 <div>THIS CONTRACT STATUS IS: {contract?.status}</div>
+                <div>CREATED: {contract?.createdAt}</div>
+                <div>FINISHED: {contract?.finishedAt}</div>
                 <QuestGuilds questId={contract?.quest?.id} />
             </div>
             <div>
             {contract.status === "active" && <button className="p-2 bg-amber-400 text-black rounded-md cursor-pointer hover:bg-amber-300" onClick={handleStatusUpdate} disabled={isUpdating}>
                 Mark this contract as finished
             </button>}
+            CONTRACT on complete = updateMe (xp, money, attributes)
             </div>
             {contract.status === "finished" && <div className={contractStatusStampStyle}>FINISHED <FaCheckCircle size={96} /></div>}
         </div>

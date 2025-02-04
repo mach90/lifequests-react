@@ -1,6 +1,8 @@
 import { useContracts } from "../contracts/useContracts";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import ContractLink from "./ContractLink";
+import ContractsMenuOperations from "./ContractsMenuOperations";
+import Pagination from "../../ui/Pagination";
 
 const contractsMenuStyle = "bg-variant2/50 col-span-4 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant2";
 const contractsMenuTitleStyle = "bg-variant2 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
@@ -15,10 +17,14 @@ function ContractsMenu() {
     return (
         <div className={contractsMenuStyle}>
             <h2 className={contractsMenuTitleStyle}>My Contracts</h2>
-            <div>Filter/sort/paginate</div>
+            {/* <div>- sort (name asc-desc) or (xp ..................)
+            - filter (guild) or (company) and (active) or (finished)
+            - paginate</div> */}
+            <ContractsMenuOperations />
             <div className={contractsListStyle}>
                 {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
             </div>
+            <Pagination />
         </div>
     );
 };

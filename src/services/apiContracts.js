@@ -9,16 +9,23 @@ const api = axios.create({
     credentials: 'include',  // Also important for cross-origin requests
 });
 
-export const getMyContracts = async () => {
+export const getMyContracts = async (params = {}) => {
     try {
-        const res = await api.get('contracts/my-contracts');
+        if (params.sortBy) {
+            const [field, direction] = params.sortBy.split('-');
+            params.sort = direction === 'desc' ? `-${field}` : field;
+            delete params.sortBy;
+        }
+
+        const res = await api.get('contracts/my-contracts', {
+            params: params
+        });
 
         if(res.data.status === "success") {
             return res.data.data.data;
         }
         throw new Error(`Request failed with status: ${res.data.status}`);
     } catch(err) {
-        // console.error('Get my contracts error:', err);
         throw new Error(err?.response?.data?.message || "Failed to get user contracts");
     }
 }
@@ -57,10 +64,11 @@ export const createMyContract = async (questId) => {
     }
 }
 
-export const updateMyContract = async (contractId, status) => {
+export const updateMyContract = async (contractId, status, finishedAt) => {
     try {
         const res = await api.patch(`contracts/my-contracts/${contractId}`, {
-            status
+            status,
+            finishedAt
         });
 
         if(res.data.status === "success") {

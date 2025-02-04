@@ -14,7 +14,8 @@ function GuildsMenu() {
     return (
         <div className={guildsMenuStyle}>
             <h2 className={guildsListTitleStyle}>Guilds</h2>
-            <div>Filter/Sort</div>
+            <div>- sort (name asc-desc) or (company name asc-desc) or (guild progress asc-desc)
+            - filter (company) and (have progress) or (don't have progress)</div>
             <div className={guildsListStyle}>
                 {guilds.map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
             </div>

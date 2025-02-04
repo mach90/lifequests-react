@@ -8,7 +8,6 @@ ___
 
 ## 🔧 TO FIX
 
-
 ___
 
 ## 🔳 TO DO
@@ -64,3 +63,8 @@ ___
 🟤 25% done
 🔴 0% done
 ⚫ Ideas/Later
+
+L-Filter/Sort/Paginate
+M-Implementing Filter/Sort/Paginate
+M-Quest -> Contract -> XP update flow
+J-Stats (aggregate)

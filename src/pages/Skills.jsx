@@ -6,16 +6,21 @@ function Skills() {
     return (
         <div className={skillsContainerStyle}>
             <div className={skillsCardStyle}>
-                <h2 className={skillsTitleStyle}>Skills</h2>
+                <h2 className={skillsTitleStyle}>Skills list</h2>
+                <p>Filter/Sort/search</p>
+                <p>Item + train button (to add training time+xp)</p>
             </div>
             <div className={skillsCardStyle}>
-                <h2 className={skillsTitleStyle}>Skills</h2>
+                <h2 className={skillsTitleStyle}>Quests</h2>
+                <p>Corresponding quests</p>
             </div>
             <div className={skillsCardStyle}>
-                <h2 className={skillsTitleStyle}>Skills</h2>
+                <h2 className={skillsTitleStyle}>Stats</h2>
+                <p>Stats</p>
             </div>
             <div className={skillsCardStyle}>
-                <h2 className={skillsTitleStyle}>Skills</h2>
+                <h2 className={skillsTitleStyle}>Stats</h2>
+                <p>Stats</p>
             </div>
         </div>
     );

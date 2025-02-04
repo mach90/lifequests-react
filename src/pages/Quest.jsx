@@ -6,8 +6,8 @@ import QuestGuilds from "../features/quests/QuestGuilds";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-const questContainerStyle = "grid grid-flow-col grid-cols-10 grid-rows-12 gap-4 text-white w-full h-full";
-const questCardStyle = "bg-variant6/50 col-span-7 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant6";
+const questContainerStyle = "grid grid-flow-col grid-cols-8 grid-rows-12 gap-4 text-white w-full h-full";
+const questCardStyle = "bg-variant6/50 col-span-5 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant6";
 const questCard2Style = "bg-variant6/50 col-span-3 row-span-9 flex justify-start items-center flex-col rounded-lg border-4 border-variant6";
 const questCard3Style = "bg-variant6/50 col-span-3 row-span-3 flex justify-start items-center flex-col rounded-lg border-4 border-variant6";
 const questTitleStyle = "bg-variant6 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
