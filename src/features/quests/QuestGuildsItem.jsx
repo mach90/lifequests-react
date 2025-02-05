@@ -3,7 +3,7 @@ import LoadingSpinner from "../../ui/LoadingSpinner";
 import { useGuild } from "../guilds/useGuild";
 import { FaExternalLinkSquareAlt } from "react-icons/fa";
 
-const questGuildsItemLinkStyle = "text-variant2/50 text-sm px-2 border border-variant2/50 rounded-md flex flex-row gap-1 items-center hover:text-variant2 hover:border-variant2";
+const questGuildsItemLinkStyle = "text-white/75 text-sm px-2 border border-white/75 rounded-md flex flex-row gap-1 items-center hover:text-white hover:border-white";
 
 function QuestGuildsItem(guildId) {
     const {isLoading, guild} = useGuild(guildId.guildId);

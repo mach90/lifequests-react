@@ -11,37 +11,41 @@ ___
 ___
 
 ## 🔳 TO DO
-| Type           | Section        | TODO                                                | Status |
-| -------------- | -------------- | --------------------------------------------------- | ------ |
-| Error Handling | ←              | ←                                                   | 🔴     |
-| Testing        | Create tests   | ←                                                   | ⚫     |
-| Refactoring    | UI             | ←                                                   | ⚫     |
-|                | Logic          | ←                                                   | ⚫     |
-| Backend/API    | User model     | Username should only contain az09                   | 🔴     |
-|                | Indexes        | Create indexes that will improve performances       | 🔴     |
-|                | Emailing       | Production Emailing service                         | 🟠     |
-|                |                | Welcome message (activate account)                  | 🟠     |
-|                |                | Reset password mail (reset link)                    | 🟠     |
-| Frontend       | UI             | Modal for all                                       | 🔴     |
-|                |                | Confirmation in modal for all                       | 🔴     |
-|                | Auth           | Forgot password form                                | 🔴     |
-|                |                | Reset password page+form                            | 🔴     |
-|                | Settings       | Basic settings                                      | 🟠     |
-|                | Navigation     | Main nav routes should remember and use last params | 🔴     |
-|                | Contracts      | Get my contracts/contract (x2)                      | 🟢     |
-|                |                | Post contracts                                      | 🟢     |
-|                |                | Patch contracts                                     | 🟢     |
-|                | Guild progress | Get my guilds/guild progress (x2)                   | 🔴     |
-|                |                | Post guild progress                                 | 🔴     |
-|                |                | Patch guild progress                                | 🔴     |
-|                | Inventory      | .glb 3D viewer                                      | 🟠     |
-|                |                | Character equipement/perks                          | 🔴     |
-|                |                | Marketplace                                         | ⚫     |
-|                |                | Books reader                                        | ⚫     |
-|                |                | App viewer                                          | ⚫     |
-|                |                | Doc reader                                          | ⚫     |
-|                |                | Picture viewer                                      | ⚫     |
-|                | Quests         | Community pictures                                  | ⚫     |
+| Type           | Section              | St  | TODO                                                |
+| -------------- | -------------------- | --- | --------------------------------------------------- |
+| Error Handling | ←                    | 🔴 | ←                                                   |
+| Testing        | Create tests         | ⚫   | ←                                                   |
+| Refactoring    | UI                   | ⚫   | ←                                                   |
+|                | Logic                | 🔴  | ←                                                   |
+| Backend/API    | User model           |     |                                                     |
+|                | Indexes              | 🔴  | *Create indexes that will improve performances*     |
+|                | Emailing             | 🟠  | *Production Emailing service*                       |
+|                |                      | 🟠  | *Welcome message (activate account)*                |
+|                |                      | 🟠  | *Reset password mail (reset link)*                  |
+| Frontend       | UI                   | 🔴  | *Modals*                                            |
+|                |                      | 🔴  | *Confirmation in modal*                             |
+|                | Auth                 | 🔴  | *Forgot password form*                              |
+|                |                      | 🔴  | *Reset password page+form*                          |
+|                | Settings             | 🟠  | *Basic settings*                                    |
+|                | Navigation           | 🔴  | Main nav routes should remember and use last params |
+|                | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                    |
+|                |                      | 🔴  | *Nested params*                                     |
+|                | Character            | 🟢  | **Patch contract → Patch character**                |
+|                |                      | 🔴  | *Min/Max values after patch validator*              |
+|                | Contracts            | 🟢  | **Get my contracts/contract (x2)**                  |
+|                |                      | 🟢  | **Post contracts**                                  |
+|                |                      | 🟢  | **Patch contracts**                                 |
+|                | Guild progress       | 🔴  | *Get my guilds/guild progress (x2)*                 |
+|                |                      | 🔴  | *Post guild progress*                               |
+|                |                      | 🔴  | *Patch guild progress*                              |
+|                | Inventory            | 🟠  | .glb 3D viewer                                      |
+|                |                      | ⚫   | Character equipement/perks                          |
+|                |                      | ⚫   | Marketplace                                         |
+|                |                      | ⚫   | Books reader                                        |
+|                |                      | ⚫   | App viewer                                          |
+|                |                      | ⚫   | Doc reader                                          |
+|                |                      | ⚫   | Picture viewer                                      |
+|                | Quests               | ⚫   | Community pictures                                  |
 
 ___
 

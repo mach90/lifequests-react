@@ -2,7 +2,7 @@ import { useQuest } from "./useQuest";
 import QuestGuildsItem from "./QuestGuildsItem";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 
-const questGuildsContainerStyle = "flex flex-row gap-2 w-full h-full";
+const questGuildsContainerStyle = "flex flex-row gap-2 w-full h-full p-4";
 
 function QuestGuilds({questId}) {
     const {isLoading, quest} = useQuest(questId);

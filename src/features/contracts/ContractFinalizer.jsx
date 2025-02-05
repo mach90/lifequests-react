@@ -33,7 +33,7 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
         toast.success("Contract complete !");
         {quest?.reward?.money && toast.success(`Money: ${quest.reward.money}`)};
         {quest?.reward?.experience && toast.success(`Experience: ${quest.reward.experience}`)};
-        {quest?.reward?.attributes && Object.entries(quest.reward.attributes).forEach(([key, value]) => toast.success(`${key}: ${value}`))};
+        {quest?.reward?.attributes && Object.entries(quest.reward.attributes).filter(([key, value]) => value > 0).forEach(([key, value]) => toast.success(`${key}: ${value}`))};
     };
 
     if (isLoading) return <LoadingSpinner size="md" />
@@ -43,7 +43,7 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
             <div className={questRewardStyle}>
                 <p className={questXpStyle}>+{quest?.reward?.experience} XP</p>
                 <p className={questMoneyStyle}>+{quest?.reward?.money}🪙</p>
-                {Object.entries(quest?.reward?.attributes).map(([key, value]) => (
+                {Object.entries(quest?.reward?.attributes).filter(([key, value]) => value > 0).map(([key, value]) => (
                     <div key={key} className={questAttributesStyle}>
                         <p className={questAttributeKeyStyle}>{key}</p>
                         <p className={questAttributeValueStyle}>+{value}</p>

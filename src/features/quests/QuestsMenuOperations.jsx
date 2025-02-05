@@ -12,7 +12,7 @@ function QuestsMenuOperations() {
                     {value: "all", label:"All"},
                     {value: "easy", label:"Easy"},
                     {value: "medium", label:"Medium"},
-                    {value: "difficult", label:"Difficult"},
+                    {value: "hard", label:"Hard"},
                 ]}
                 color="variant6"
             />
