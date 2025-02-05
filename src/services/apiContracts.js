@@ -75,7 +75,7 @@ export const updateMyContract = async (contractId, status, finishedAt) => {
         });
 
         if(res.data.status === "success") {
-            console.log("API CONTRACT UPDATED", res.data.data);
+            // console.log("API CONTRACT UPDATED", res.data.data);
             return res.data.data;
         }
     } catch(err) {

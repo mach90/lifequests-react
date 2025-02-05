@@ -1,8 +1,9 @@
 import { NavLink } from "react-router-dom";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import { useGuild } from "../guilds/useGuild";
+import { FaExternalLinkSquareAlt } from "react-icons/fa";
 
-const questGuildsItemLinkStyle = "bg-variant6 px-2 py-1 rounded-md";
+const questGuildsItemLinkStyle = "text-variant2/50 text-sm px-2 border border-variant2/50 rounded-md flex flex-row gap-1 items-center hover:text-variant2 hover:border-variant2";
 
 function QuestGuildsItem(guildId) {
     const {isLoading, guild} = useGuild(guildId.guildId);
@@ -11,7 +12,7 @@ function QuestGuildsItem(guildId) {
 
     return (
         <div>
-            {guild && <NavLink to={`/guilds/${guildId.guildId}`} className={questGuildsItemLinkStyle}>{guild.name}</NavLink>}
+            {guild && <NavLink to={`/guilds/${guildId.guildId}`} className={questGuildsItemLinkStyle}><FaExternalLinkSquareAlt /> {guild.name}</NavLink>}
         </div>
     );
 };

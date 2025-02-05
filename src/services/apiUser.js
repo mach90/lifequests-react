@@ -46,3 +46,16 @@ export const deleteMe = async () => {
         throw new Error(err?.response?.data?.message || "Failed to delete user");
     }
 }
+
+export const updateMyCharacter = async (characterData) => {
+    try {
+        const res = await api.patch('/users/updateMyCharacter', characterData);
+
+        if(res.data.status === "success") {
+            console.log(res.data)
+            return res.data;
+        }
+    } catch(err) {
+        throw new Error(err?.response?.data?.message || "Failed to update character data");
+    }
+}
