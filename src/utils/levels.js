@@ -19,6 +19,14 @@ export function calculateXp(level) {
 }
 
 /*
-Start level: 1 (0 xp)
-Max level: 200 (30 000 000 xp)
+Progression is roughly linear
+1 (0 xp)
+7 (200 000)
+20 (1 000 000)
+60 (5 000 000)
+96 (10 000 000)
+152 (20 000 000)
+177 (25 000 000)
+200 (29 999 996)
+200 (30 225 276)
 */

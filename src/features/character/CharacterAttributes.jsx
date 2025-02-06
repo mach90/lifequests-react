@@ -22,42 +22,42 @@ function CharacterAttributes({data}) {
                             <div className={`${characterAttributesTagStyle} border-[#cb364d] text-[#cb364d]`}>STR</div>
                             <p className={characterAttributesNameStyle}>Strength</p>
                         </div>
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.strength}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.strength}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#e96745] text-[#e96745]`}>STA</div> 
                             <p className={characterAttributesNameStyle}>Stamina</p>
                         </div>
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.stamina}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.stamina}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#e7f49d] text-[#e7f49d]`}>DEX</div> 
                             <p className={characterAttributesNameStyle}>Dexterity</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.dexterity}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.dexterity}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#fade93] text-[#fade93]`}>SPD</div> 
                             <p className={characterAttributesNameStyle}>Speed</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.speed}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.speed}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#9a0040] text-[#9a0040]`}>VIT</div> 
                             <p className={characterAttributesNameStyle}>Vitality</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.vitality}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.vitality}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#f2a867] text-[#f2a867]`}>AGI</div> 
                             <p className={characterAttributesNameStyle}>Agility</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.agility}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.agility}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                 </div>
                 <div className={characterAttributesListSectionStyle}>
@@ -67,42 +67,42 @@ function CharacterAttributes({data}) {
                             <div className={`${characterAttributesTagStyle} border-[#5c529e] text-[#5c529e]`}>INT</div> 
                             <p className={characterAttributesNameStyle}>Intellig.</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.intelligence}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.intelligence}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#d76fa9] text-[#d76fa9]`}>CHA</div> 
                             <p className={characterAttributesNameStyle}>Charisma</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.charisma}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.charisma}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#64b799] text-[#64b799]`}>WIS</div> 
                             <p className={characterAttributesNameStyle}>Wisdom</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.wisdom}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.wisdom}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#448aba] text-[#448aba]`}>PER</div> 
                             <p className={characterAttributesNameStyle}>Perception</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.perception}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.perception}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#b1dda9] text-[#b1dda9]`}>FOC</div> 
                             <p className={characterAttributesNameStyle}>Focus</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.focus}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.focus}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>
                             <div className={`${characterAttributesTagStyle} border-[#9beae7] text-[#9beae7]`}>WIL</div> 
                             <p className={characterAttributesNameStyle}>Willpower</p>
                         </div> 
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.willpower}<div className={characterAttributesMaxValueStyle}>/255</div></div>
+                        <div className={characterAttributesValueStyle}>{data?.attributes?.willpower}<div className={characterAttributesMaxValueStyle}>/100</div></div>
                     </div>
                 </div>
             </div>

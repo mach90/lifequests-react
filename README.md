@@ -68,11 +68,4 @@ ___
 🔴 0% done
 ⚫ Ideas/Later
 
-L-Filter/Sort/Paginate
-M-Implementing Filter/Sort/Paginate
-M-Quest -> Contract -> XP update flow
-JV-Guild quest -> Contract & Quest -> Contract relation per user (UI display and condition)
-- If contract quest is finished it must be shown on the quest list and guild quests list, and a contract can't be signed for that quest anymore, the quest must also be hidden in the guild quest list
-- If contract is active or finished, the quest list and guilds quest list must show that and disable the sign contract button
-- Basically you can only sign a contract for a quest once, otherwise the button is hidden
-SD-Stats (aggregate)
+SD-Guild progress
