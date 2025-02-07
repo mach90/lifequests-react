@@ -20,6 +20,8 @@ function QuestsMenuOperations() {
                 options={[
                     { value: "name-asc", label: "Sort by name (A-Z)" },
                     { value: "name-desc", label: "Sort by name (Z-A)" },
+                    { value: "reward.experience-desc", label: "Highest experience first" },
+                    { value: "reward.money-desc", label: "Highest money first" },
                 ]}
                 color="variant6"
             />

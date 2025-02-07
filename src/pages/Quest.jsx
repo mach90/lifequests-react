@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuest } from "../features/quests/useQuest";
+import { useContracts } from "../features/contracts/useContracts";
 import { useCreateContract } from "../features/contracts/useCreateContract";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import QuestGuilds from "../features/quests/QuestGuilds";
@@ -23,15 +24,24 @@ function Quest() {
     const { questId } = useParams();
     const {isLoading, quest, error} = useQuest(questId);
     
-    const createContract = useCreateContract();
+    const { isLoading: isLoadingContracts, contracts } = useContracts({
+        page: 1,
+        limit: 9999
+    });
 
+    const createContract = useCreateContract();
+    
     const handleCreateContract = (qId) => {
         createContract.mutate(qId);
     };
 
-    if(isLoading) return <LoadingSpinner size="lg" />
+    if(isLoading || isLoadingContracts) return <LoadingSpinner size="lg" />
 
-    // console.log(quest)
+    const hasContract = contracts.some(contract => contract.quest.id === quest.id);
+    const contractFinished = contracts.some(contract => contract.quest.id === quest.id && contract.status === "finished");
+
+    // console.log("QUEST ID", quest.id);
+    // console.log(contracts);
     // console.log(`${serverUrl}/quests/${quest?.imageCover}`)
 
     return (
@@ -44,6 +54,8 @@ function Quest() {
                         <h3 className="text-xl font-bold">{quest?.name}</h3>
                         <p className="border border-white/50 rounded-sm px-2">{quest?.difficulty}</p>
                         <p>{quest?.duration}h</p>
+                        {hasContract && !contractFinished && <p className="bg-blue-500 px-2">ACTIVE</p>}
+                        {contractFinished && <p className="bg-green-700 px-2">FINISHED</p>}
                     </div>
                     <p>{quest?.summary}</p>
                     <p>{quest?.description}</p>
@@ -52,7 +64,7 @@ function Quest() {
                         <img src={`${serverUrl}/img/quests/${quest?.images[1]}`} alt="Quest image 002" className="h-40" />
                         <img src={`${serverUrl}/img/quests/${quest?.images[2]}`} alt="Quest image 003" className="h-40" />
                     </div>
-                    <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-variant6/75 rounded-md hover:bg-variant6 cursor-pointer w-full">CREATE CONTRACT</button>
+                    {!hasContract && <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-variant6/75 rounded-md hover:bg-variant6 cursor-pointer w-full">CREATE CONTRACT</button>}
                 </div>
             </div>
             <div className={questCard2Style}>

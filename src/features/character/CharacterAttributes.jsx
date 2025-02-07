@@ -22,7 +22,7 @@ function CharacterAttributes({data}) {
                             <div className={`${characterAttributesTagStyle} border-[#cb364d] text-[#cb364d]`}>STR</div>
                             <p className={characterAttributesNameStyle}>Strength</p>
                         </div>
-                        <div className={characterAttributesValueStyle}>{data?.attributes?.strength}<div className={characterAttributesMaxValueStyle}>/100</div></div>
+                        {data?.attributes?.strength === 100 ? <div className={characterAttributesValueStyle}>MAX</div> : <div className={characterAttributesValueStyle}><div className={characterAttributesMaxValueStyle}>/100</div></div>}
                     </div>
                     <div className={characterAttributesListItemStyle}>
                         <div className={characterAttributesListItemDescriptionStyle}>

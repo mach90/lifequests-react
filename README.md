@@ -13,7 +13,7 @@ ___
 ## 🔳 TO DO
 | Type           | Section              | St  | TODO                                                |
 | -------------- | -------------------- | --- | --------------------------------------------------- |
-| Error Handling | ←                    | 🔴 | ←                                                   |
+| Error Handling | ←                    | 🔴  | ←                                                   |
 | Testing        | Create tests         | ⚫   | ←                                                   |
 | Refactoring    | UI                   | ⚫   | ←                                                   |
 |                | Logic                | 🔴  | ←                                                   |
@@ -29,15 +29,16 @@ ___
 |                | Settings             | 🟠  | *Basic settings*                                    |
 |                | Navigation           | 🔴  | Main nav routes should remember and use last params |
 |                | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                    |
-|                |                      | 🔴  | *Nested params*                                     |
+|                |                      | 🟠  | *Nested params*                                     |
 |                | Character            | 🟢  | **Patch contract → Patch character**                |
-|                |                      | 🔴  | *Min/Max values after patch validator*              |
+|                |                      | 🟢  | **Min/Max values after patch validator**            |
 |                | Contracts            | 🟢  | **Get my contracts/contract (x2)**                  |
 |                |                      | 🟢  | **Post contracts**                                  |
 |                |                      | 🟢  | **Patch contracts**                                 |
 |                | Guild progress       | 🔴  | *Get my guilds/guild progress (x2)*                 |
 |                |                      | 🔴  | *Post guild progress*                               |
 |                |                      | 🔴  | *Patch guild progress*                              |
+|                | Guilds               | ⚫   | Chatbots                                            |
 |                | Inventory            | 🟠  | .glb 3D viewer                                      |
 |                |                      | ⚫   | Character equipement/perks                          |
 |                |                      | ⚫   | Marketplace                                         |
@@ -68,4 +69,4 @@ ___
 🔴 0% done
 ⚫ Ideas/Later
 
-SD-Guild progress
+SD-Guild progress (API: routes, Frontend: post patch apiProgress, useProgress, useUpdateProgress) Creating a contract creates an empty progress for all the guilds associated to the quest. Completing a contract patch all the progress (all associated guilds) adding the XP to them.

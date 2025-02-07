@@ -4,14 +4,14 @@ import { getMyContracts } from "../../services/apiContracts";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
 
-export function useContracts() {
+export function useContracts(overrideParams = {}) {
     const [searchParams] = useSearchParams();
     
     // Get filter and sort parameters
-    const statusFilter = searchParams.get('status');
-    const sortBy = searchParams.get('sortBy') || 'status-asc';
-    const page = searchParams.get('page') || 1;
-    const limit = searchParams.get('limit') || DEFAULT_PAGE_SIZE;
+    const statusFilter = overrideParams.status ?? searchParams.get('status');
+    const sortBy = overrideParams.sortBy ?? (searchParams.get('sortBy') || 'status-asc');
+    const page = overrideParams.page ?? (searchParams.get('page') || 1);
+    const limit = overrideParams.limit ?? (searchParams.get('limit') || DEFAULT_PAGE_SIZE);
     
     // Build params object
     const params = {};
