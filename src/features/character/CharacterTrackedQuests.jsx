@@ -1,10 +1,13 @@
-const characterTrackedQuestsCardStyle = "bg-variant1/50 col-span-3 row-span-full flex justify-start items-center flex-col rounded-lg border-4 border-variant1";
-const characterTrackedQuestsTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
+import Card from "../../ui/Card";
+
+const characterTrackedQuestsContainerStyle = "col-span-3 row-span-full";
 
 function CharacterTrackedQuests() {
     return (
-        <div className={characterTrackedQuestsCardStyle}>
-            <h2 className={characterTrackedQuestsTitleStyle}>Tracked Quests</h2>
+        <div className={characterTrackedQuestsContainerStyle}>
+            <Card title="Tracked Quests">
+            
+            </Card>
         </div>
     );
 };

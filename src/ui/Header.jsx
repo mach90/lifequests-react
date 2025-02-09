@@ -1,13 +1,16 @@
 import UserInfos from "./UserInfos";
 import MainNav from "./MainNav";
+import NavBar from "./NavBar";
 
-const headerContainerStyle = "col-span-full flex flex-row justify-between h-24";
+const headerContainerStyle = "w-full h-max pb-5 border-b border-b-main3 flex flex-row justify-between items-center";
 
 function Header() {
     return (
         <div className={headerContainerStyle}>
-            <UserInfos />
-            <MainNav />
+            <NavBar>
+                <UserInfos />
+                <MainNav />
+            </NavBar>
         </div>
     );
 }

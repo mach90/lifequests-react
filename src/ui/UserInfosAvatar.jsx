@@ -2,18 +2,16 @@ import { NavLink } from "react-router-dom";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-const userInfosAvatarContainerStyle = "h-full bg-container rounded-l-full border-l-4 border-y-4 border-slate-700";
-const userInfosAvatarStyle = "h-full border-4 border-container rounded-full";
+const userInfosAvatarContainerStyle = "h-20 py-2.5";
+const userInfosAvatarStyle = "h-full rounded-full border-2 border-main4";
 
 function UserInfosAvatar({data}) {   
     const photoUrl = data?.photo ? `${serverUrl}/img/users/${data.photo}` : `${serverUrl}/img/users/default.jpg`;
 
     return (
-        <div className={userInfosAvatarContainerStyle}>
-            <NavLink to="/settings/profile">
-                <img src={photoUrl} alt="User avatar" className={userInfosAvatarStyle} />
-            </NavLink>
-        </div>
+        <NavLink to="/settings/profile" className={userInfosAvatarContainerStyle}>
+            <img src={photoUrl} alt="User avatar" className={userInfosAvatarStyle} />
+        </NavLink>
     );
 };
 

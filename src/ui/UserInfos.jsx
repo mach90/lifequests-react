@@ -4,9 +4,9 @@ import UserInfosName from "./UserInfosName";
 import UserInfosLevelXp from "./UserInfosLevelXp";
 import UserInfosMoney from "./UserInfosMoney";
 import LoadingSpinner from "./LoadingSpinner";
+import UserInfosData from "./UserInfosData";
 
-const userInfosContainerStyle = "flex flex-row justify-start items-center text-slate-200";
-const userInfosDataContainerStyle = "flex flex-col h-full justify-center items-start";
+const userInfosContainerStyle = "flex flex-row items-center justify-start text-slate-200 h-max w-max gap-2.5";
 
 function UserInfos() {
     const { isLoading, user, error } = useUser();
@@ -20,12 +20,13 @@ function UserInfos() {
     return (
         <div className={userInfosContainerStyle}>
             <UserInfosAvatar data={user?.data} />
-            <div className={userInfosDataContainerStyle}>
+            <UserInfosData>
                 <UserInfosName data={user?.data} />
                 <UserInfosLevelXp data={user?.data} />
-                <UserInfosMoney data={user?.data} />
-            </div>
+            </UserInfosData>
+            <UserInfosMoney data={user?.data} />
         </div>
+    
     );
 };
 

@@ -8,18 +8,18 @@ RECHARTS VERSION
 
 // function CharacterAttributesChart({data}) {
 //     const chartData = [
-//         { 'attribute': 'STR', 'value': data?.attributes?.strength }, 
-//         { 'attribute': 'STA', 'value': data?.attributes?.stamina },
-//         { 'attribute': 'DEX', 'value': data?.attributes?.dexterity },
-//         { 'attribute': 'SPD', 'value': data?.attributes?.speed },
-//         { 'attribute': 'VIT', 'value': data?.attributes?.vitality },
-//         { 'attribute': 'AGI', 'value': data?.attributes?.agility },
-//         { 'attribute': 'INT', 'value': data?.attributes?.intelligence },
-//         { 'attribute': 'CHA', 'value': data?.attributes?.charisma },
-//         { 'attribute': 'WIS', 'value': data?.attributes?.wisdom },
-//         { 'attribute': 'PER', 'value': data?.attributes?.perception },
-//         { 'attribute': 'FOC', 'value': data?.attributes?.focus },
-//         { 'attribute': 'WIL', 'value': data?.attributes?.willpower },
+//         { "attribute": "STR", "value": data?.attributes?.strength }, 
+//         { "attribute": "STA", "value": data?.attributes?.stamina },
+//         { "attribute": "DEX", "value": data?.attributes?.dexterity },
+//         { "attribute": "SPD", "value": data?.attributes?.speed },
+//         { "attribute": "VIT", "value": data?.attributes?.vitality },
+//         { "attribute": "AGI", "value": data?.attributes?.agility },
+//         { "attribute": "INT", "value": data?.attributes?.intelligence },
+//         { "attribute": "CHA", "value": data?.attributes?.charisma },
+//         { "attribute": "WIS", "value": data?.attributes?.wisdom },
+//         { "attribute": "PER", "value": data?.attributes?.perception },
+//         { "attribute": "FOC", "value": data?.attributes?.focus },
+//         { "attribute": "WIL", "value": data?.attributes?.willpower },
 //     ];
 
 //     return (
@@ -40,27 +40,28 @@ RECHARTS VERSION
 /* //////////////////////////////////////////////////
 CHART.JS VERSION
 ////////////////////////////////////////////////// */
-import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip } from 'chart.js';
-import { PolarArea } from 'react-chartjs-2';
+import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip } from "chart.js";
+import { PolarArea } from "react-chartjs-2";
+import Card from "../../ui/Card";
   
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip);
 
 // const chartData2 = [
-//     { 'attribute': 'STR', 'value': data?.attributes?.strength }, 
-//     { 'attribute': 'STA', 'value': data?.attributes?.stamina },
-//     { 'attribute': 'DEX', 'value': data?.attributes?.dexterity },
-//     { 'attribute': 'SPD', 'value': data?.attributes?.speed },
-//     { 'attribute': 'VIT', 'value': data?.attributes?.vitality },
-//     { 'attribute': 'AGI', 'value': data?.attributes?.agility },
-//     { 'attribute': 'INT', 'value': data?.attributes?.intelligence },
-//     { 'attribute': 'CHA', 'value': data?.attributes?.charisma },
-//     { 'attribute': 'WIS', 'value': data?.attributes?.wisdom },
-//     { 'attribute': 'PER', 'value': data?.attributes?.perception },
-//     { 'attribute': 'FOC', 'value': data?.attributes?.focus },
-//     { 'attribute': 'WIL', 'value': data?.attributes?.willpower },
+//     { "attribute": "STR", "value": data?.attributes?.strength }, 
+//     { "attribute": "STA", "value": data?.attributes?.stamina },
+//     { "attribute": "DEX", "value": data?.attributes?.dexterity },
+//     { "attribute": "SPD", "value": data?.attributes?.speed },
+//     { "attribute": "VIT", "value": data?.attributes?.vitality },
+//     { "attribute": "AGI", "value": data?.attributes?.agility },
+//     { "attribute": "INT", "value": data?.attributes?.intelligence },
+//     { "attribute": "CHA", "value": data?.attributes?.charisma },
+//     { "attribute": "WIS", "value": data?.attributes?.wisdom },
+//     { "attribute": "PER", "value": data?.attributes?.perception },
+//     { "attribute": "FOC", "value": data?.attributes?.focus },
+//     { "attribute": "WIL", "value": data?.attributes?.willpower },
 // ];
 
-const characterAttributesChartCardStyle = "bg-variant1/50 col-span-3 row-span-6 text-white flex flex-col justify-start items-center border-4 border-variant1 rounded-lg";
+const characterAttributesChartContainerStyle = "col-span-3 row-span-6";
 const characterAttributesChartTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const characterAttributesChartAreaStyle = "h-full w-full p-4";
 
@@ -85,21 +86,21 @@ function CharacterAttributesChart({chartData}) {
                     chartData?.attributes?.willpower,
                 ],
                 backgroundColor: [
-                    "#cb364d",
-                    "#e96745",
-                    "#e7f49d",
-                    "#fade93",
-                    "#9a0040",
-                    "#f2a867",
-                    "#5c529e",
-                    "#d76fa9",
-                    "#64b799",
-                    "#448aba",
-                    "#b1dda9",
-                    "#9beae7",
+                    "#cb364dcc",
+                    "#e96745cc",
+                    "#e7f49dcc",
+                    "#fade93cc",
+                    "#9a0040cc",
+                    "#f2a867cc",
+                    "#5c529ecc",
+                    "#d76fa9cc",
+                    "#64b799cc",
+                    "#448abacc",
+                    "#b1dda9cc",
+                    "#9beae7cc",
                 ],
-                borderWidth: 1,
-                borderColor: "black",
+                borderWidth: 0.5,
+                borderColor: "#020617",
             },
         ],
     };
@@ -110,32 +111,33 @@ function CharacterAttributesChart({chartData}) {
         scales: {
             r: {
                 grid: {
-                    color: "black",
+                    color: "#1E293C",
                 },
                 ticks: {
                     display: true,
-                    backdropColor: 'black',
-                    color: 'white',
+                    backdropColor: "#1E293C",
+                    color: "#91A2B6",
                     z: 0,
                     font: {
-                        weight: 'bold'
+                        weight: "bold"
                     },
                 },
                 pointLabels: {
                     display: true,
                     centerPointLabels: true,
-                    color: 'white'
+                    color: "#91A2B6"
                 }
             }
         }
     };
 
     return (
-        <div className={characterAttributesChartCardStyle}>
-            <h2 className={characterAttributesChartTitleStyle}>Attributes Radar</h2>
-            <div className={characterAttributesChartAreaStyle}>
-                <PolarArea data={data} options={options} />
-            </div>
+        <div className={characterAttributesChartContainerStyle}>
+            <Card title="Attributes Radar">
+                <div className={characterAttributesChartAreaStyle}>
+                    <PolarArea data={data} options={options} />
+                </div>
+            </Card>
         </div>
     );
 };

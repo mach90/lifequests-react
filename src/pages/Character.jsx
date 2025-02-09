@@ -6,7 +6,7 @@ import CharacterGuildsProgress from "../features/character/CharacterGuildsProgre
 import CharacterTrackedQuests from "../features/character/CharacterTrackedQuests";
 import LoadingSpinner from "../ui/LoadingSpinner";
 
-const characterContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 p-4 gap-4 h-full";
+const characterContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 gap-4 h-full";
 
 function Character() {
     const { isLoading, user, error } = useUser();
