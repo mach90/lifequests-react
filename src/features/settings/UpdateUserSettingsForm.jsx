@@ -1,4 +1,9 @@
 import { useLocalStorageState } from "../../hooks/useLocalStorageState";
+import Card from "../../ui/Card";
+import Form from "../../ui/Form";
+import FormRow from "../../ui/FormRow";
+import Input from "../../ui/Input";
+
 
 const updateUserSettingsFormSectionTitleStyle = "text-white text-xl font-medium underline";
 
@@ -10,17 +15,18 @@ function UpdateUserSettingsForm() {
     }
 
     return (
-        <div className="flex flex-col gap-2">
-            <h2 className={updateUserSettingsFormSectionTitleStyle}>UI Settings</h2>
-            <label className="flex items-center gap-2">
-                <input 
-                    type="checkbox" 
-                    checked={xpDisplayStyle} 
-                    onChange={handleXpDisplayStyle}
-                /> 
-                Display remaining XP instead of Total
-            </label>
-        </div>
+        <Card title="Update settings">
+            <Form>
+                <FormRow>
+                    <Input 
+                        type="checkbox" 
+                        label="Display remaining XP instead of Total"
+                        checked={xpDisplayStyle} 
+                        onChange={handleXpDisplayStyle}
+                    /> 
+                </FormRow>
+            </Form>
+        </Card>
     );
 };
 

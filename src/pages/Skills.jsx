@@ -8,22 +8,18 @@ function Skills() {
         <div className={skillsContainerStyle}>
             <div className={skillsCardContainerStyle}>
                 <Card title="Skills List">
-                    <p>Not yet implemented</p>
                 </Card>
             </div>
             <div className={skillsCardContainerStyle}>
                 <Card title="Skill">
-                    <p>Not yet implemented</p>
                 </Card>
             </div>
             <div className={skillsCardContainerStyle}>
                 <Card title="Stats">
-                    <p>Not yet implemented</p>
                 </Card>
             </div>
             <div className={skillsCardContainerStyle}>
                 <Card title="Stats">
-                    <p>Not yet implemented</p>
                 </Card>
             </div>
         </div>

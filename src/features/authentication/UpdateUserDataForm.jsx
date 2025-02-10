@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useUpdateUser } from "./useUpdateUser";
+import Card from "../../ui/Card";
+import Input from "../../ui/Input";
+import Form from "../../ui/Form";
+import FormRow from "../../ui/FormRow";
+import FormError from "../../ui/FormError";
+import toast from "react-hot-toast";
+import Button from "../../ui/Button";
 
-const loginFormStyle = "flex flex-col gap-4 justify-center items-center w-max p-6";
-const loginFormRowStyle = "flex flex-col gap-2";
-const loginFormInputStyle = "bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]";
-const loginFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed";
-const errorMessageStyle = "text-red-500 text-sm mt-1";
+const userDataFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed";
 
 function UpdateUserDataForm() {
     const [formData, setFormData] = useState({
@@ -54,64 +57,64 @@ function UpdateUserDataForm() {
             onSuccess: () => {
                 // Clear form after successful update
                 setFormData({ name: "", email: "", photo: null });
+                toast.success("Change successful")
             }
         });
     }
 
+    console.log(error)
+
     return (
-        <form onSubmit={handleSubmit} className={loginFormStyle}>
-            <div className={loginFormRowStyle}>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Username"
-                    autoComplete="username"
-                    value={formData.name}
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={loginFormInputStyle}
-                />
-            </div>
-            <div className={loginFormRowStyle}>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    autoComplete="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={loginFormInputStyle}
-                />
-            </div>
-            <div className={loginFormRowStyle}>
-                <input
-                    type="file"
-                    id="photo"
-                    name="photo"
-                    accept="image/*"
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={loginFormInputStyle}
-                />
-            </div>
-            {error && (
-                <div className={errorMessageStyle}>
-                    {error.message}
-                </div>
-            )}
-            <div className={loginFormRowStyle}>
-            <button 
-                type="submit"
-                disabled={isUpdating || (!formData.name && !formData.email && !formData.photo)} 
-                className={loginFormButtonStyle}
-            >
-                {!isUpdating ? "Update" : "Updating..."}
-            </button>
-            </div>
-        </form>
+        <Card title="Update user">
+            <Form onSubmit={handleSubmit}>
+                <FormRow>
+                    <Input 
+                        type="text"
+                        inputName="name"
+                        placeholder="Username"
+                        label="Character name"
+                        autoComplete="username"
+                        value={formData.name}
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Input 
+                        type="email"
+                        inputName="email"
+                        placeholder="Email"
+                        label="Your email (contact & login)"
+                        autoComplete="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Input 
+                        type="file"
+                        id="photo"
+                        inputName="photo"
+                        label="Character avatar"
+                        accept="image/*"
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Button 
+                        type="submit" 
+                        label={!isUpdating ? "Update" : "Updating..."}
+                        disabled={isUpdating || (!formData.name && !formData.email && !formData.photo)}
+                        isUpdating={isUpdating}
+                    />
+                </FormRow>
+                <FormRow>
+                    <FormError error={error} />
+                </FormRow>
+            </Form>
+        </Card>
     );
 }
 

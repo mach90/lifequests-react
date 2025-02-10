@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useUpdatePassword } from "./useUpdatePassword";
+import Card from "../../ui/Card";
+import Form from "../../ui/Form";
+import FormRow from "../../ui/FormRow";
+import Input from "../../ui/Input";
+import FormError from "../../ui/FormError";
+import toast from "react-hot-toast";
+import Button from "../../ui/Button";
 
-const formStyle = "flex flex-col gap-4 justify-center items-center w-max p-6";
-const formRowStyle = "flex flex-col gap-2";
-const inputStyle = "bg-white border-2 border-[#e3e2dc] p-2 rounded-lg text-[#474646]";
 const buttonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed";
-const errorMessageStyle = "text-red-500 text-sm mt-1";
 
 function UpdateUserPasswordForm() {
     const [formData, setFormData] = useState({
@@ -41,6 +44,7 @@ function UpdateUserPasswordForm() {
                     password: "",
                     passwordConfirm: ""
                 });
+                toast.success("Password changed");
             }
         });
     }
@@ -52,73 +56,71 @@ function UpdateUserPasswordForm() {
         formData.password === formData.passwordConfirm;
 
     return (
-        <form onSubmit={handleSubmit} className={formStyle}>
-            <div className={formRowStyle}>
-                <input
-                    type="password"
-                    id="passwordCurrent"
-                    name="passwordCurrent"
-                    placeholder="Current Password"
-                    value={formData.passwordCurrent}
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={inputStyle}
-                    required
-                    minLength={8}
-                />
-            </div>
-            <div className={formRowStyle}>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="New Password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={inputStyle}
-                    required
-                    minLength={8}
-                />
-            </div>
-            <div className={formRowStyle}>
-                <input
-                    type="password"
-                    id="passwordConfirm"
-                    name="passwordConfirm"
-                    placeholder="Confirm New Password"
-                    value={formData.passwordConfirm}
-                    onChange={handleChange}
-                    disabled={isUpdating}
-                    className={inputStyle}
-                    required
-                    minLength={8}
-                />
-            </div>
-            
-            {error && (
-                <div className={errorMessageStyle}>
-                    {error.message}
-                </div>
-            )}
-            
-            {formData.password && formData.passwordConfirm && 
-             formData.password !== formData.passwordConfirm && (
-                <div className={errorMessageStyle}>
-                    Passwords do not match
-                </div>
-            )}
-
-            <div className={formRowStyle}>
-                <button 
-                    type="submit"
-                    disabled={isUpdating || !isValid}
-                    className={buttonStyle}
-                >
-                    {!isUpdating ? "Update Password" : "Updating..."}
-                </button>
-            </div>
-        </form>
+        <Card title="Update password">
+            <Form onSubmit={handleSubmit}>
+                <FormRow>
+                    <Input
+                        type="password"
+                        inputName="passwordCurrent"
+                        placeholder="******"
+                        label="Current password"
+                        value={formData.passwordCurrent}
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                        required
+                        minLength={8}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Input
+                        type="password"
+                        inputName="password"
+                        placeholder="******"
+                        label="New password"
+                        value={formData.password}
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                        required
+                        minLength={8}
+                    />
+                    {formData.password && formData.password.length < 8 && (
+                        <div className="text-red2">
+                            Password must be at least 8 characters
+                        </div>
+                    )}
+                </FormRow>
+                <FormRow>
+                    <Input
+                        type="password"
+                        inputName="passwordConfirm"
+                        placeholder="******"
+                        label="New password confirm"
+                        value={formData.passwordConfirm}
+                        onChange={handleChange}
+                        disabled={isUpdating}
+                        required
+                        minLength={8}
+                    />
+                    {formData.password && formData.passwordConfirm && 
+                    formData.password !== formData.passwordConfirm && formData.passwordConfirm.length >= 8 && (
+                        <div className="text-red2">
+                            Passwords do not match
+                        </div>
+                    )}
+                </FormRow>
+                <FormRow>
+                    <Button
+                        type="submit" 
+                        label={!isUpdating ? "Update Password" : "Updating password..."}
+                        disabled={isUpdating || !isValid}
+                        isUpdating={isUpdating}
+                    />
+                </FormRow>
+                <FormRow>
+                    <FormError error={error} />
+                </FormRow>
+            </Form>
+        </Card>
     );
 }
 
