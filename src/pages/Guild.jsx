@@ -18,7 +18,7 @@ function Guild() {
 
     return (
         <div className={guildContainerStyle}>
-            {guild && <GuildTitle guild={guild} />}
+            {guild && <GuildTitle guild={guild} isLoading={isLoading} />}
             {guild && <GuildMaster guild={guild} />}
             {guild && <GuildChatbotInput guild={guild} />}
             {guild && <GuildQuests guild={guild} />}
