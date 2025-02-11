@@ -1,10 +1,10 @@
 import { NavLink, useSearchParams } from "react-router-dom";
-import { FaCircle, FaFileContract, FaFlag, FaPlay, FaRegBookmark } from "react-icons/fa";
+import { FaFileContract, FaRegBookmark } from "react-icons/fa";
 
 const contractLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
 const contractLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
-const contractLinkNameStyle ="w-full text-sm font-bold";
-const contractLinkIcon = "bg-main2 p-1 rounded-lg";
+const contractLinkNameStyle = "w-full text-sm font-bold";
+const contractLinkIcon = "";
 const contractLinkStatusIconActiveStyle = "text-xs font-bold text-blue1 bg-blue2 p-1 w-24 text-center";
 const contractLinkStatusIconFinishStyle = "text-xs font-bold text-green1 bg-green2 p-1 w-24 text-center";
 

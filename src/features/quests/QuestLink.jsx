@@ -1,8 +1,10 @@
+import { FaScroll } from "react-icons/fa";
 import { NavLink, useSearchParams } from "react-router-dom";
 
-const questLinkStyle = "flex flex-row justify-start items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant6/50 border-b-4 border-slate-800";
-const questLinkActiveStyle = "flex flex-row justify-start items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant6 border-b-4 border-slate-800";
-const questLinkNameStyle ="text-slate-800 font-black uppercase text-base";
+const questLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
+const questLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
+const questLinkNameStyle = "w-full text-sm font-bold";
+const questLinkIcon = "";
 
 function QuestLink({questId, name}) {
     const [searchParams] = useSearchParams();
@@ -14,6 +16,7 @@ function QuestLink({questId, name}) {
 
     return (
         <NavLink to={to} className={({ isActive }) => isActive ? questLinkActiveStyle : questLinkStyle}>
+            <div className={questLinkIcon}><FaScroll /></div>
             <h2 className={questLinkNameStyle}>{name}</h2>
         </NavLink>
     );

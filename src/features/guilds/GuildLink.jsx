@@ -2,10 +2,10 @@ import { NavLink, useSearchParams } from "react-router-dom";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-const guildLinkStyle = "flex flex-row justify-start items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant3/50 border-b-4 border-slate-800";
-const guildLinkActiveStyle = "flex flex-row justify-start items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant3 border-b-4 border-slate-800";
-const guildLinkEmblemStyle ="h-6 w-6";
-const guildLinkNameStyle ="text-slate-800 font-black uppercase text-base";
+const guildLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
+const guildLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
+const guildLinkNameStyle = "w-full text-sm font-bold";
+const guildLinkEmblemStyle = "h-6 w-6";
 
 function GuildLink({guildId, name, emblem}) {
     const [searchParams] = useSearchParams();
