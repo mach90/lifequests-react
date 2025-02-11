@@ -1,8 +1,8 @@
+import Card from "../../ui/Card";
+
 function AppViewer() {
     return (
-        <div>
-            APP
-        </div>
+        <Card title="App viewer"></Card>
     );
 };
 

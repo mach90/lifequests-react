@@ -1,18 +1,18 @@
-import { NavLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useContract } from "../features/contracts/useContract";
 import ContractFinalizer from "../features/contracts/ContractFinalizer";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import Card from "../ui/Card";
 import QuestGuilds from "../features/quests/QuestGuilds";
-import { FaCheckCircle, FaExternalLinkSquareAlt } from "react-icons/fa";
+import { FaBuildingShield } from "react-icons/fa6";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 
-const contractContainerStyle = "relative col-span-8 row-span-full";
-const contractTitleStyle = "bg-variant2 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
-const contractDetailsStyle = "flex flex-col p-4 gap-2 w-max h-max";
-const contractDetailsTitleStyle = "text-xl font-bold text-white";
-const contractDetailQuestLinkStyle = "text-white/50 hover:text-white border border-white/50 hover:border-white w-max rounded-md px-2 flex flex-row gap-2 items-center";
-const contractDetailDateStyle = "text-sm text-white";
-const contractStatusStampStyle = "absolute bottom-0 right-0 p-8 text-xl font-black text-variant2 flex flex-col items-center";
+const contractContainerStyle = "col-span-8 row-span-full";
+const contractDetailsStyle = "grid grid-cols-6 grid-rows-10 gap-2.5 h-full w-full";
+const contractDetailsSectionTitleStyle = "uppercase text-base text-main4 font-black border-r border-r-main3 pr-4";
+const contractDetailsTextStyle = "uppercase font-bold text-base text-neutral0";
+const contractDetailsStatusStyle = "relative text-main3 w-full h-full flex items-center justify-center font-black text-4xl z-10";
+const contractDetailsStampStyle = "absolute z-0 rotate-8 text-green2/75 text-9xl";
 
 function Contract() {
     const { contractId } = useParams();
@@ -24,14 +24,48 @@ function Contract() {
         <div className={contractContainerStyle}>
             <Card title="Contract">
                 <div className={contractDetailsStyle}>
-                    <h3 className={contractDetailsTitleStyle}>Quest: {contract?.quest?.name}</h3>
-                    <NavLink to={`/quests/${contract?.quest?.id}`} className={contractDetailQuestLinkStyle}><FaExternalLinkSquareAlt /> See quest</NavLink>
-                    <div className={contractDetailDateStyle}>Creation: {contract?.createdAt ? new Date(contract.createdAt).toLocaleDateString() : ""}</div>
-                    <div className={contractDetailDateStyle}>Completion: {contract?.finishedAt ? new Date(contract.finishedAt).toLocaleDateString() : "Still active"}</div>
-                    <QuestGuilds questId={contract?.quest?.id} />
-                    <ContractFinalizer contractId={contractId} contractStatus={contract.status} questId={contract?.quest?.id} />
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-4 row-span-1 rounded-tl-xl">
+                        <h2 className={contractDetailsSectionTitleStyle}>Contract n°</h2>
+                        <p className={contractDetailsTextStyle}>{contract?.id}</p>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-2 row-span-1 rounded-tr-xl">
+                        <h2 className={contractDetailsSectionTitleStyle}>Created</h2>
+                        <p className={contractDetailsTextStyle}>{contract?.createdAt ? new Date(contract.createdAt).toLocaleDateString() : ""}</p>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-4 row-span-">
+                        <h2 className={contractDetailsSectionTitleStyle}>Quest name</h2>
+                        <p className={contractDetailsTextStyle}>{contract?.quest?.name}</p>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-2 row-span-1">
+                        <h2 className={contractDetailsSectionTitleStyle}>Completed</h2>
+                        <p className={contractDetailsTextStyle}>{contract?.finishedAt ? new Date(contract.finishedAt).toLocaleDateString() : ""}</p>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-3 row-span-1">
+                        <h2 className={contractDetailsSectionTitleStyle}>Between</h2>
+                        <p className={contractDetailsTextStyle}>ME</p>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-3 row-span-5">
+                        <h2 className={contractDetailsSectionTitleStyle}>Rewards</h2>
+                        <ContractFinalizer contractId={contractId} contractStatus={contract.status} questId={contract?.quest?.id} />
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-3 row-span-3">
+                        <h2 className={contractDetailsSectionTitleStyle}>And</h2>
+                        <QuestGuilds questId={contract?.quest?.id} />
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-3 row-span-4 rounded-bl-xl">
+                        <h2 className={contractDetailsSectionTitleStyle}>Summary</h2>
+                    </div>
+                    <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-3 row-span-3 rounded-br-xl">
+                        <h2 className={contractDetailsSectionTitleStyle}>Status</h2>
+                        {contract.status === "finished" && <div className={contractDetailsStatusStyle}>
+                            FINISHED
+                            <div className={contractDetailsStampStyle}><IoMdCheckmarkCircleOutline /></div>
+                        </div>}
+                        {contract.status === "active" && <div className={contractDetailsStatusStyle}>
+                            ACTIVE
+                        </div>}
+                    </div>
                 </div>
-                {contract.status === "finished" && <div className={contractStatusStampStyle}>FINISHED <FaCheckCircle size={96} /></div>}
             </Card>
         </div>
     );

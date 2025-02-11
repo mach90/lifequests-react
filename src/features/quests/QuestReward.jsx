@@ -9,7 +9,7 @@ const questAttributeValueStyle = "font-bold text-sm text-green2";
 function QuestReward({quest}) {
     return (
         <div className="col-span-2 row-span-3">
-            <h3>Rewards</h3>
+            <h3>You will receive</h3>
             <div className={questXpStyle}>+{quest?.reward?.experience} XP</div>
             <div className={questMoneyStyle}>+{quest?.reward?.money}<PiCoinVerticalFill /></div>
             {Object.entries(quest?.reward?.attributes).filter(([key, value]) => value > 0).map(([key, value]) => (

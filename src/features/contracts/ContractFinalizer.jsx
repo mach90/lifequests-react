@@ -4,13 +4,14 @@ import { useUpdateUser } from "../authentication/useUpdateUser";
 import toast from "react-hot-toast";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import { useUpdateCharacter } from "../character/useUpdateCharacter";
+import QuestReward from "../quests/QuestReward";
 
 const questRewardStyle = "flex flex-col gap-1 w-full";
 const questXpStyle = "font-bold text-sm text-white";
 const questMoneyStyle = "font-bold text-sm text-white";
 const questAttributesStyle = "flex flex-row gap-2 items-center text-sm";
 const questAttributeKeyStyle = "uppercase font-bold text-white text-sm";
-const questAttributeValueStyle = "font-bold text-green-400";
+const questAttributeValueStyle = "font-bold text-green2";
 
 function ContractFinalizer({contractId, contractStatus, questId}) {
     const {isLoading, quest, error: errorFromQuest} = useQuest(questId);
@@ -39,8 +40,9 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
     if (isLoading) return <LoadingSpinner size="md" />
 
     return (
-        <div className="border border-white p-2 rounded-md flex flex-col gap-4">
-            <div className={questRewardStyle}>
+        <div className="flex flex-col gap-4 w-full justify-between">
+            <QuestReward quest={quest} />
+            {/* <div className={questRewardStyle}>
                 <p className={questXpStyle}>+{quest?.reward?.experience} XP</p>
                 <p className={questMoneyStyle}>+{quest?.reward?.money}🪙</p>
                 {Object.entries(quest?.reward?.attributes).filter(([key, value]) => value > 0).map(([key, value]) => (
@@ -49,9 +51,9 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
                         <p className={questAttributeValueStyle}>+{value}</p>
                     </div>
                 ))}
-            </div>
+            </div> */}
             {contractStatus === "active" && 
-                <button className="p-2 bg-variant2/75 text-white font-bold rounded-md cursor-pointer hover:bg-variant2 w-60" onClick={handleStatusUpdate} disabled={isUpdatingContract}>
+                <button className="p-2 bg-green1 text-white font-bold rounded-md cursor-pointer hover:bg-green2 w-full" onClick={handleStatusUpdate} disabled={isUpdatingContract}>
                     Mark this contract as finished and claim reward
                 </button>
             }

@@ -1,8 +1,8 @@
+import Card from "../../ui/Card";
+
 function BookViewer() {
     return (
-        <div>
-            BOOK
-        </div>
+        <Card title="Book viewer"></Card>
     );
 };
 

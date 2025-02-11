@@ -1,8 +1,8 @@
+import Card from "../../ui/Card";
+
 function DocumentViewer() {
     return (
-        <div>
-            DOCUMENT
-        </div>
+        <Card title="Document viewer"></Card>
     );
 };
 

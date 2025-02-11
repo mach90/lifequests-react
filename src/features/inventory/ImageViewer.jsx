@@ -1,8 +1,8 @@
+import Card from "../../ui/Card";
+
 function ImageViewer() {
     return (
-        <div>
-           IMAGE 
-        </div>
+        <Card title="Image viewer"></Card>
     );
 };
 

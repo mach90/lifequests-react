@@ -48,7 +48,7 @@ function Quest() {
                         <QuestReward quest={quest}/>
                         <QuestGuilds questId={quest?.id} />
                         <div className="col-span-2 row-span-1 flex flex-col justify-center items-center">
-                            {!hasContract && <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-variant6/75 rounded-md hover:bg-variant6 cursor-pointer w-full">CREATE CONTRACT</button>}
+                            {!hasContract && <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-green1 rounded-md hover:bg-green2 text-neutral0 cursor-pointer w-full">CREATE CONTRACT</button>}
                         </div>
                     </div>
                 </Card>
