@@ -5,7 +5,7 @@ import {DEFAULT_PAGE_SIZE} from "../utils/constants";
 
 function Pagination({ totalCount, results }) {
   const paginationStyle = "flex flex-row gap-1 justify-center items-center p-1 w-full h-max bg-main3 rounded-xl";
-  const paginationButtonStyle = "bg-transparent w-8 h-8 flex justify-center items-center border border-main4 hover:border-neutral0 disabled:border-none text-main4 hover:text-neutral0 disabled:text-main3 rounded-full hover:cursor-pointer disabled:cursor-default disabled:bg-main2";
+  const paginationButtonStyle = "bg-transparent w-8 h-8 flex justify-center items-center border border-main4 hover:border-neutral0 disabled:border-none text-main4 hover:text-neutral0 disabled:text-main3 rounded-full hover:cursor-pointer disabled:cursor-default disabled:bg-main2 duration-200";
   const paginationPagesStyle ="text-main4 font-bold text-sm p-1.5";
 
   const [searchParams, setSearchParams] = useSearchParams();

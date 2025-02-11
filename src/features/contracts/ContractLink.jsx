@@ -1,10 +1,12 @@
-import { FaCheckCircle } from "react-icons/fa";
 import { NavLink, useSearchParams } from "react-router-dom";
+import { FaCircle, FaFileContract, FaFlag, FaPlay, FaRegBookmark } from "react-icons/fa";
 
-const contractLinkStyle = "flex flex-row justify-between items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant2/50 border-b-4 border-slate-800";
-const contractLinkActiveStyle = "flex flex-row justify-between items-center gap-2 p-2 bg-red-600 w-full rounded-l-full rounded-br-full bg-variant2 border-b-4 border-slate-800";
-const contractLinkNameStyle ="text-slate-800 font-black uppercase text-base";
-const contractLinkStatusIconStyle = "text-stone-300";
+const contractLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
+const contractLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
+const contractLinkNameStyle ="w-full text-sm font-bold";
+const contractLinkIcon = "bg-main2 p-1 rounded-lg";
+const contractLinkStatusIconActiveStyle = "text-xs font-bold text-blue1 bg-blue2 p-1 w-24 text-center";
+const contractLinkStatusIconFinishStyle = "text-xs font-bold text-green1 bg-green2 p-1 w-24 text-center";
 
 function ContractLink({contractId, name, status}) {
     const [searchParams] = useSearchParams();
@@ -16,8 +18,11 @@ function ContractLink({contractId, name, status}) {
 
     return (
         <NavLink to={to} className={({ isActive }) => isActive ? contractLinkActiveStyle : contractLinkStyle}>
+            <div className={contractLinkIcon}><FaFileContract /></div>
             <h2 className={contractLinkNameStyle}>{name}</h2>
-            {status === "active" ? "" : <div className={contractLinkStatusIconStyle}><FaCheckCircle size={24} /></div>}
+            {status === "active" && <div className={contractLinkStatusIconActiveStyle}>ACTIVE</div>}
+            {status === "finished" && <div className={contractLinkStatusIconFinishStyle}>FINISHED</div>}
+            <FaRegBookmark />
         </NavLink>
     );
 };

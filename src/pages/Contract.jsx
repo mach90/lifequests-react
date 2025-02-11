@@ -36,7 +36,7 @@ function Contract() {
                         </div>
                         <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-4 row-span-1 items-center">
                             <h2 className={contractDetailsSectionTitleStyle}>Quest</h2>
-                            <NavLink to={`/quests/${contract?.quest?.id}`} className="flex flex-row gap-2 items-center uppercase text-neutral0 font-black bg-main3 hover:bg-main4 border border-main4 rounded-sm px-2 h-full"><FaScroll /></NavLink>
+                            <NavLink to={`/quests/${contract?.quest?.id}`} className="flex flex-row gap-2 items-center uppercase text-neutral0 font-black bg-main3 hover:bg-main4 border border-main4 rounded-sm px-2 h-full duration-200"><FaScroll /></NavLink>
                             <p className={contractDetailsTextStyle}>{contract?.quest?.name}</p>
                         </div>
                         <div className="bg-main2 p-4 gap-2.5 flex flex-row col-span-2 row-span-1 items-center">
