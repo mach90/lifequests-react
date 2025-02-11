@@ -6,7 +6,7 @@ import Pagination from "../../ui/Pagination";
 import CardMenu from "../../ui/CardMenu";
 
 const guildsMenuContainerStyle = "col-span-3 row-span-full";
-const guildsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full h-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant3 [&::-webkit-scrollbar-thumb]:hover:bg-variant3 [&::-webkit-scrollbar:horizontal]:hidden";
+const guildsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
 const guildsListCompanyNameStyle = "text-lg uppercase font-black text-slate-900 border-b border-slate-900 pt-4";
 
 function GuildsMenu() {
@@ -16,10 +16,8 @@ function GuildsMenu() {
 
     return (
         <div className={guildsMenuContainerStyle}>
-            {/* <div>- sort (name asc-desc) or (company name asc-desc) or (guild progress asc-desc)
-            - filter (company) and (have progress) or (don't have progress)</div> */}
-            <CardMenu title="Guilds">
-                <GuildsMenuOperations />
+            <CardMenu title="Guilds" sort="Guilds" filter="Guilds">
+                {/* <GuildsMenuOperations /> */}
                 <div className={guildsListStyle}>
                     <h3 className={guildsListCompanyNameStyle}>Naturalists</h3>
                     {guilds.filter(guild => guild.company.name === "Naturalists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}

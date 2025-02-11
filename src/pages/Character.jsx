@@ -17,11 +17,11 @@ function Character() {
 
     return (
         <div className={characterContainerStyle}>
-            <CharacterAttributes data={user?.data} />
-            <CharacterAttributesChart chartData={user?.data} />
-            <CharacterStats />
-            <CharacterGuildsProgress />
-            <CharacterTrackedQuests />
+                <CharacterAttributes data={user?.data} />
+                <CharacterAttributesChart chartData={user?.data} />
+                <CharacterStats />
+                <CharacterGuildsProgress />
+                <CharacterTrackedQuests />
         </div>
     );
 };

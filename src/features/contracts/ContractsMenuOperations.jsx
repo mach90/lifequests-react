@@ -1,7 +1,7 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const contractsMenuOperationsStyle = "flex flex-row gap-8 p-4 border-b-2 border-slate-800 w-full justify-center";
+const contractsMenuOperationsStyle = "flex flex-row justify-center items-center";
 
 function ContractsMenuOperations() {
     return (
@@ -19,8 +19,6 @@ function ContractsMenuOperations() {
                 options={[
                     { value: "status-asc", label: "Sort active first" },
                     { value: "status-desc", label: "Sort finished first" },
-                    // { value: "quest.name-asc", label: "Sort by quest name (A-Z)" },
-                    // { value: "quest.name-desc", label: "Sort by quest name (Z-A)" },
                     { value: "createdAt-desc", label: "Sort recent" },
                     { value: "createdAt-asc", label: "Sort oldest" },
                     { value: "finishedAt-desc", label: "Sort finished ↓" },

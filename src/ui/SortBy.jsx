@@ -1,8 +1,8 @@
 import { useSearchParams } from "react-router-dom";
 
 function SortBy({ options }) {
-    const sortBySelectStyle = "bg-transparent hover:bg-main3 cursor-pointer p-1 rounded-sm text-main4 font-bold w-max appearance-none text-right uppercase";
-    const sortByOptionStyle = "bg-main2 p-1 rounded-sm text-main4 uppercase font-medium";
+    const sortBySelectStyle = "bg-transparent hover:bg-main3 cursor-pointer px-1 rounded-sm text-main4 font-bold w-max appearance-none text-right uppercase";
+    const sortByOptionStyle = "bg-main2 px-1 rounded-sm text-main4 uppercase font-medium";
 
     const [searchParams, setSearchParams] = useSearchParams();
     const sortBy = searchParams.get("sortBy") || "";

@@ -1,7 +1,7 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const guildsMenuOperationsStyle = "flex flex-auto gap-8 p-4 border-b-2 border-slate-800 w-full justify-center";
+const guildsMenuOperationsStyle = "flex flex-auto gap-8 border-b-2 border-slate-800 w-full justify-center";
 
 function GuildsMenuOperations() {
     return (
@@ -19,13 +19,13 @@ function GuildsMenuOperations() {
                 ]}
                 color="variant3"
             /> */}
-            <SortBy 
+            {/* <SortBy 
                 options={[
                     { value: "name-asc", label: "Sort A-Z ↑" },
                     { value: "name-desc", label: "Sort Z-A ↓" },
                 ]}
                 color="variant3"
-            />
+            /> */}
         </div>
     );
 };

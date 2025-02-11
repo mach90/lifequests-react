@@ -8,8 +8,8 @@ const guildsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items
 function GuildsMenu() {
     return (
         <div className={guildsMenuContainerStyle}>
-            <CardMenu title="Inventory">
-                <div>Filter/Sort + Search</div>
+            <CardMenu title="Inventory" sort="Inventory" filter="Inventory" pagination={true}>
+                {/* <div>Filter/Sort + Search</div> */}
                 <div className={guildsListStyle}>
                     {items.map(item => <InventoryLink key={item.id} itemId={item.id} itemName={item.name} itemType={item.type} itemQty={item.quantity} />)}
                 </div>

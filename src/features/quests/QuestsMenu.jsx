@@ -5,7 +5,7 @@ import QuestsMenuOperations from "./QuestsMenuOperations";
 import Pagination from "../../ui/Pagination";
 import CardMenu from "../../ui/CardMenu";
 
-const questsMenuContainerStyle = "col-span-4 row-span-full";
+const questsMenuContainerStyle = "col-span-3 row-span-full";
 const questsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
 
 function QuestsMenu() {
@@ -17,15 +17,12 @@ function QuestsMenu() {
 
     return (
         <div className={questsMenuContainerStyle}>
-            {/* <div>- sort (name asc-desc) or (xp ..................)
-            - filter (guild) or (company) and (contract) or (no contract)
-            - paginate</div> */}
-            <CardMenu title="Quests">
-                <QuestsMenuOperations />
+            <CardMenu title="Quests" sort="Quests" filter="Quests" pagination={true} totalCount={totalCount} results={results}>
+                {/* <QuestsMenuOperations /> */}
                 <div className={questsListStyle}>
                     {quests.map(quest => <QuestLink key={quest.id} questId={quest.id} name={quest.name} />)}
                 </div>
-                <Pagination totalCount={totalCount} results={results} />
+                {/* <Pagination totalCount={totalCount} results={results} /> */}
             </CardMenu>
         </div>
     );

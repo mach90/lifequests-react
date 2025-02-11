@@ -12,10 +12,9 @@ import QuestReward from "../features/quests/QuestReward";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
-const questContainerStyle = "grid grid-flow-col grid-cols-8 grid-rows-12 gap-4 text-white w-full h-full";
+const questContainerStyle = "grid grid-flow-col grid-cols-10 grid-rows-12 gap-4 text-white w-full h-full";
 const questContainerCardStyle = "col-span-full row-span-full";
 const questDataContainerStyle = "grid grid-flow-col grid-cols-6 grid-rows-8 w-full h-full gap-4";
-const questInfosStyle = "w-[70%]";
 
 function Quest() {
     const { questId } = useParams();
