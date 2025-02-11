@@ -21,8 +21,8 @@ function GuildsMenuOperations() {
             /> */}
             <SortBy 
                 options={[
-                    { value: "name-asc", label: "Sort by name (A-Z)" },
-                    { value: "name-desc", label: "Sort by name (Z-A)" },
+                    { value: "name-asc", label: "Sort A-Z ↑" },
+                    { value: "name-desc", label: "Sort Z-A ↓" },
                 ]}
                 color="variant3"
             />

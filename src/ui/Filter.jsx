@@ -1,10 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 
-const filterRowStyle = "flex flex-row gap-1 items-center";
+const filterRowStyle = "flex flex-row items-center w-full h-max p-1 gap-1 bg-main2 border-b border-main3";
 
-function Filter({filterField, options, color}) {
-    const filterButtonStyle = `bg-${color}/50 p-1 rounded-sm text-black cursor-pointer`;
-    const filterButtonActiveStyle = `bg-${color} p-1 rounded-sm text-black cursor-pointer`;
+function Filter({filterField, options}) {
+    const filterButtonStyle = "p-1.5 rounded-lg hover:bg-main3 text-main4 font-bold uppercase text-sm cursor-pointer duration-200";
+    const filterButtonActiveStyle = "p-1.5 rounded-lg bg-main3 text-neutral0 font-bold uppercase text-sm cursor-pointer duration-200";
 
     const [searchParams, setSearchParams] = useSearchParams();
     const currentFilter = searchParams.get(filterField) || options.at(0).value;

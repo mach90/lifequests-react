@@ -17,12 +17,14 @@ function ContractsMenuOperations() {
             />
             <SortBy 
                 options={[
-                    { value: "status-asc", label: "Sort by status (active first)" },
-                    { value: "status-desc", label: "Sort by status (finished first)" },
-                    { value: "quest.name-asc", label: "Sort by quest name (A-Z)" },
-                    { value: "quest.name-desc", label: "Sort by quest name (Z-A)" },
-                    { value: "finishedAt-desc", label: "Sort by finish date (recent first)" },
-                    { value: "finishedAt-asc", label: "Sort by finish date (oldest first)" },
+                    { value: "status-asc", label: "Sort active first" },
+                    { value: "status-desc", label: "Sort finished first" },
+                    // { value: "quest.name-asc", label: "Sort by quest name (A-Z)" },
+                    // { value: "quest.name-desc", label: "Sort by quest name (Z-A)" },
+                    { value: "createdAt-desc", label: "Sort recent" },
+                    { value: "createdAt-asc", label: "Sort oldest" },
+                    { value: "finishedAt-desc", label: "Sort finished ↓" },
+                    { value: "finishedAt-asc", label: "Sort finished ↑" },
                 ]}
                 color="variant2"
             />

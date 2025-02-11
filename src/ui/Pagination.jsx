@@ -3,8 +3,9 @@ import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 import {DEFAULT_PAGE_SIZE} from "../utils/constants";
 
-function Pagination({ totalCount, results, color }) {
-    const paginationButtonStyle = `bg-${color}/50 px-2 rounded-sm flex flex-row gap-1 items-center disabled:bg-slate-700 hover:cursor-pointer disabled:cursor-not-allowed`;
+function Pagination({ totalCount, results }) {
+    const paginationButtonStyle = "bg-transparent w-8 h-8 flex justify-center items-center border border-main4 hover:border-neutral0 disabled:border-none text-main4 hover:text-neutral0 disabled:text-main3 rounded-full hover:cursor-pointer disabled:cursor-default disabled:bg-main2";
+    const paginationPagesStyle ="text-main4 font-bold text-sm p-1.5"
 
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
@@ -22,14 +23,11 @@ function Pagination({ totalCount, results, color }) {
     };
   
     return (
-      <div className="flex flex-col gap-4 justify-center items-center p-4">
-  
-        <div className="flex flex-row gap-1">
-            <p>Results {currentPage * 10 - 10 + 1}-{currentPage !== totalNumPages ? currentPage * DEFAULT_PAGE_SIZE : totalCount} of {totalCount}.</p>
-            <button onClick={previousPage} disabled={currentPage === 1} className={paginationButtonStyle}><HiChevronLeft/></button>
-            <p>Page {currentPage}/{totalNumPages}</p>
-            <button onClick={nextPage} disabled={currentPage === totalNumPages} className={paginationButtonStyle}><HiChevronRight/></button>
-        </div>
+      <div className="flex flex-row gap-1 justify-center items-center p-1 w-full h-max bg-main3 rounded-xl">
+          {/* <p>Results {currentPage * 10 - 10 + 1}-{currentPage !== totalNumPages ? currentPage * DEFAULT_PAGE_SIZE : totalCount} of {totalCount}.</p> */}
+          <button onClick={previousPage} disabled={currentPage === 1} className={paginationButtonStyle}><HiChevronLeft/></button>
+          <p className={paginationPagesStyle}>{currentPage}/{totalNumPages}</p>
+          <button onClick={nextPage} disabled={currentPage === totalNumPages} className={paginationButtonStyle}><HiChevronRight/></button>
       </div>
     );
   };

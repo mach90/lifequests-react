@@ -1,7 +1,7 @@
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const questsMenuOperationsStyle = "flex flex-auto gap-8 p-4 border-b-2 border-slate-800 w-full justify-center";
+const questsMenuOperationsStyle = "flex flex-auto gap-8 p-4 border-b-2 border-slate-800 w-full h-max justify-center";
 
 function QuestsMenuOperations() {
     return (
@@ -18,10 +18,10 @@ function QuestsMenuOperations() {
             />
             <SortBy 
                 options={[
-                    { value: "name-asc", label: "Sort by name (A-Z)" },
-                    { value: "name-desc", label: "Sort by name (Z-A)" },
-                    { value: "reward.experience-desc", label: "Highest experience first" },
-                    { value: "reward.money-desc", label: "Highest money first" },
+                    { value: "name-asc", label: "Sort A-Z ↑" },
+                    { value: "name-desc", label: "Sort Z-A ↓" },
+                    { value: "reward.experience-desc", label: "Sort XP ↓" },
+                    { value: "reward.money-desc", label: "Sort money ↓" },
                 ]}
                 color="variant6"
             />
