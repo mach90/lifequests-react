@@ -1,4 +1,4 @@
-const authFormPanelStyle = "flex flex-col gap-4 justify-center items-center bg-container w-[30%] p-6 rounded-lg";
+const authFormPanelStyle = "flex flex-col justify-center items-center w-[30%]";
 
 function AuthPanel({children}) {
     return (

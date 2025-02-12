@@ -6,7 +6,7 @@ const guildMasterContainerStyle = "col-span-4 row-span-6";
 const guildMasterOutputContainerStyle = "relative w-full h-full";
 const guildMasterBackgroundStyle = "absolute h-full w-full object-cover object-center z-0 rounded-2xl";
 const guildMasterOutputStyle = "absolute top-2 right-2 bottom-2 left-[50%] bg-main3 p-4 rounded-xl overflow-x-none overflow-y-hidden text-main4";
-const guildMasterAvatarStyle = "absolute bottom-0 left-4 h-full z-10";
+const guildMasterAvatarStyle = "absolute bottom-0 left-4 h-[85%] z-10";
 
 function GuildsMaster({ guild }) {
     return (
