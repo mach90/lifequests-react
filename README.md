@@ -15,7 +15,7 @@ ___
 | -------------- | -------------------- | --- | --------------------------------------------------------------------------- |
 | Error Handling | ←                    | 🔴  | ←                                                                           |
 | Testing        | Create tests         | ⚫   | ←                                                                           |
-| Refactoring    | UI                   | 🟠  | ←                                                                           |
+| Refactoring    | UI                   | 🟡  | ←                                                                           |
 |                | HTML                 | 🟠  | [Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp) |
 |                | Logic                | 🔴  | ←                                                                           |
 | Responsiveness | ←                    | ⚫   | ←                                                                           |
@@ -38,9 +38,9 @@ ___
 |                | Contracts            | 🟢  | **Get my contracts/contract (x2)**                                          |
 |                |                      | 🟢  | **Post contracts**                                                          |
 |                |                      | 🟢  | **Patch contracts**                                                         |
-|                | Guild progress       | 🔴  | *Get my guilds/guild progress (x2)*                                         |
-|                |                      | 🔴  | *Post guild progress*                                                       |
-|                |                      | 🔴  | *Patch guild progress*                                                      |
+|                | Guild progress       | 🟡  | *Get my guilds/guild progress (x2)*                                         |
+|                |                      | 🟡  | *Post guild progress*                                                       |
+|                |                      | 🟡  | *Patch guild progress*                                                      |
 |                | Guilds               | ⚫   | Chatbots                                                                    |
 |                | Inventory            | 🟠  | .glb 3D viewer                                                              |
 |                |                      | ⚫   | Character equipement/perks                                                  |

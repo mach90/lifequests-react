@@ -1,8 +1,6 @@
 import { useGuilds } from "./useGuilds";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import GuildLink from "./GuildLink";
-import GuildsMenuOperations from "./GuildsMenuOperations";
-import Pagination from "../../ui/Pagination";
 import CardMenu from "../../ui/CardMenu";
 
 const guildsMenuContainerStyle = "col-span-3 row-span-full";
@@ -18,7 +16,6 @@ function GuildsMenu() {
     return (
         <div className={guildsMenuContainerStyle}>
             <CardMenu title="Guilds" sort="Guilds" filter="Guilds">
-                {/* <GuildsMenuOperations /> */}
                 <div className={guildsListStyle}>
                     <h3 className={guildsListCompanyNameStyle}>Naturalists <span className={guildsListCompanySpanStyle}>Company</span></h3>
                     {guilds.filter(guild => guild.company.name === "Naturalists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
@@ -33,7 +30,6 @@ function GuildsMenu() {
                     <h3 className={guildsListCompanyNameStyle}>Synergists <span className={guildsListCompanySpanStyle}>Company</span></h3>
                     {guilds.filter(guild => guild.company.name === "Synergists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
                 </div>
-                {/* <Pagination /> */}
             </CardMenu>
         </div>
     );

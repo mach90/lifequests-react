@@ -1,8 +1,6 @@
 import { useContracts } from "../contracts/useContracts";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import ContractLink from "./ContractLink";
-import ContractsMenuOperations from "./ContractsMenuOperations";
-import Pagination from "../../ui/Pagination";
 import CardMenu from "../../ui/CardMenu";
 
 const contractsMenuContainerStyle = "col-span-3 row-span-full";
@@ -17,11 +15,9 @@ function ContractsMenu() {
     return (
         <div className={contractsMenuContainerStyle}>
             <CardMenu title="Contracts" sort="Contracts" filter="Contracts" pagination={true} totalCount={totalCount}>
-                {/* <ContractsMenuOperations /> */}
                 <div className={contractsListStyle}>
                     {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
                 </div>
-                {/* <Pagination totalCount={totalCount} color="variant2" /> */}
             </CardMenu>
         </div>
     );

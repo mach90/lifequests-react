@@ -57,12 +57,12 @@ function CardMenu({ title, icon, legend, sort, filter, pagination, totalCount, r
                     filterField="company.name"
                     options={[
                         {value: "all", label:"All companies"},
-                        // {value: "naturalists", label:"🌿"},
-                        // {value: "crafters", label:"⚒️"},
-                        // {value: "specialists", label:"🛠️"},
-                        // {value: "champions", label:"🎖️"},
-                        // {value: "artists", label:"🖌️"},
-                        // {value: "synergists", label:"🗣️"},
+                        {value: "Naturalists", label:"🌿"},
+                        {value: "Crafters", label:"⚒️"},
+                        {value: "Specialists", label:"🛠️"},
+                        {value: "Champions", label:"🎖️"},
+                        {value: "Artists", label:"🖌️"},
+                        {value: "Synergists", label:"🗣️"},
                     ]}
                 />}
                 {filter === "Quests" && <Filter 

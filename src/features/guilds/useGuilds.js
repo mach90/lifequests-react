@@ -6,7 +6,7 @@ export function useGuilds() {
     const [searchParams] = useSearchParams();
     
     // Get filter and sort parameters
-    const companyFilter = searchParams.get('company');
+    const companyFilter = searchParams.get('company.name');
     const sortBy = searchParams.get('sortBy') || 'name-asc';
     
     // Build params object
