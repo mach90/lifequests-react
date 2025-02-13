@@ -2,6 +2,7 @@ import { useContracts } from "../contracts/useContracts";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import ContractLink from "./ContractLink";
 import CardMenu from "../../ui/CardMenu";
+import { FaFileContract } from "react-icons/fa6";
 
 const contractsMenuContainerStyle = "col-span-3 row-span-full";
 const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
@@ -14,7 +15,7 @@ function ContractsMenu() {
 
     return (
         <div className={contractsMenuContainerStyle}>
-            <CardMenu title="Contracts" sort="Contracts" filter="Contracts" pagination={true} totalCount={totalCount}>
+            <CardMenu title="Contracts" icon={FaFileContract} sort="Contracts" filter="Contracts" pagination={true} totalCount={totalCount}>
                 <div className={contractsListStyle}>
                     {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
                 </div>

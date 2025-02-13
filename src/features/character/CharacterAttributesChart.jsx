@@ -43,6 +43,7 @@ CHART.JS VERSION
 import { Chart as ChartJS, RadialLinearScale, ArcElement, Tooltip } from "chart.js";
 import { PolarArea } from "react-chartjs-2";
 import Card from "../../ui/Card";
+import { TbChartRadar } from "react-icons/tb";
   
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip);
 
@@ -133,7 +134,7 @@ function CharacterAttributesChart({chartData}) {
 
     return (
         <div className={characterAttributesChartContainerStyle}>
-            <Card title="Attributes Radar">
+            <Card title="Attributes Radar" icon={TbChartRadar}>
                 <div className={characterAttributesChartAreaStyle}>
                     <PolarArea data={data} options={options} />
                 </div>

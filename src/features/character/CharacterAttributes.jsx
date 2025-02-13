@@ -1,5 +1,6 @@
 import Card from "../../ui/Card";
 import CharacterAttribute from "./CharacterAttribute";
+import { IoIosStats } from "react-icons/io";
 
 const characterAttributesContainerStyle = "col-span-3 row-span-6";
 const characterAttributesListContainerStyle = "w-full h-full flex flex-row justify-between items-start";
@@ -9,7 +10,7 @@ const characterAttributesListSectionTitleStyle = "text-sm text-main4 font-bold";
 function CharacterAttributes({data}) {
     return (
         <div className={characterAttributesContainerStyle}>
-            <Card title="Attributes">
+            <Card title="Attributes" icon={IoIosStats}>
                 <div className={characterAttributesListContainerStyle}>
                     <div className={characterAttributesListSectionStyle}>
                         <h3 className={characterAttributesListSectionTitleStyle}>Physical attributes</h3>

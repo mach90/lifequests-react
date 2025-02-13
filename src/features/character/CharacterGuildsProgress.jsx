@@ -2,6 +2,7 @@ import { useAllProgress } from "../progress/useAllProgress";
 import ProgressItem from "../progress/ProgressItem";
 import Card from "../../ui/Card";
 import LoadingSpinner from "../../ui/LoadingSpinner";
+import { FaHouseFlag } from "react-icons/fa6";
 
 const characterGuildsProgressContainerStyle = "col-span-6 row-span-6";
 const guildProgressContainer = "grid grid-cols-3 gap-4";
@@ -16,7 +17,7 @@ function CharacterGuildsProgress() {
     return (
 
         <div className={characterGuildsProgressContainerStyle}>
-            <Card title="Guild Progress" legend="sort">
+            <Card title="Guilds Levels" icon={FaHouseFlag}>
                 <div className={guildProgressContainer}>
                     {progress.map(progr => <ProgressItem key={progr?.id} progr={progr} to={`/guilds/${progr?.guild?.id}`} />)}
                 </div>

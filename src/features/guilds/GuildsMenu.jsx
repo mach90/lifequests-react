@@ -2,6 +2,7 @@ import { useGuilds } from "./useGuilds";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import GuildLink from "./GuildLink";
 import CardMenu from "../../ui/CardMenu";
+import { FaHouseFlag } from "react-icons/fa6";
 
 const guildsMenuContainerStyle = "col-span-3 row-span-full";
 const guildsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full h-[85%] p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-main3 [&::-webkit-scrollbar-thumb]:bg-main4 [&::-webkit-scrollbar-thumb]:hover:bg-neutral0 [&::-webkit-scrollbar:horizontal]:hidden";
@@ -15,7 +16,7 @@ function GuildsMenu() {
 
     return (
         <div className={guildsMenuContainerStyle}>
-            <CardMenu title="Guilds" sort="Guilds" filter="Guilds">
+            <CardMenu title="Guilds" sort="Guilds" filter="Guilds" icon={FaHouseFlag}>
                 <div className={guildsListStyle}>
                     <h3 className={guildsListCompanyNameStyle}>Naturalists <span className={guildsListCompanySpanStyle}>Company</span></h3>
                     {guilds.filter(guild => guild.company.name === "Naturalists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
