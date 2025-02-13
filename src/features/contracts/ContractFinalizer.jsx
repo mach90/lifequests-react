@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import LoadingSpinner from "../../ui/LoadingSpinner";
 import { useUpdateCharacter } from "../character/useUpdateCharacter";
 import QuestReward from "../quests/QuestReward";
+import { useUpdateOrCreateContractRelatedProgress } from "../progress/useUpdateOrCreateContractRelatedProgress";
 
 const questRewardStyle = "flex flex-col gap-1 w-full";
 const questXpStyle = "font-bold text-sm text-white";
@@ -17,6 +18,7 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
     const {isLoading, quest, error: errorFromQuest} = useQuest(questId);
     const {isUpdating: isUpdatingContract, updateContract } = useUpdateContract();
     const {isUpdatingCharacter, updateCharacter} = useUpdateCharacter();
+    const {updateRelatedProgress, isUpdatingRelatedProgress, error} = useUpdateOrCreateContractRelatedProgress();
 
     const handleStatusUpdate = () => {
         const newStatus = "finished";
@@ -31,6 +33,12 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
             "experience": quest?.reward?.experience,
             "attributes": quest?.reward?.attributes
         });
+        updateRelatedProgress({
+            contractId,
+            progressData: {
+                experience: quest?.reward?.experience
+            }
+        });
         toast.success("Contract complete !");
         {quest?.reward?.money && toast.success(`Money: ${quest.reward.money}`)};
         {quest?.reward?.experience && toast.success(`Experience: ${quest.reward.experience}`)};
@@ -38,6 +46,8 @@ function ContractFinalizer({contractId, contractStatus, questId}) {
     };
 
     if (isLoading) return <LoadingSpinner size="md" />
+
+    console.log(quest?.guilds)
 
     return (
         <div className="flex flex-col gap-4 w-full justify-between">
