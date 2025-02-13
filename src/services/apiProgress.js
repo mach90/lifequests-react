@@ -32,6 +32,21 @@ export const getAllMyProgress = async (params = {}) => {
     }
 }
 
+export const getGuildProgress = async (guildId) => {
+    try {
+        const res = await api.get(`progress/guild-related-progress/${guildId}`);
+
+        if(res.data.status === "success") {
+            return res.data.data.progress;
+        }
+
+        throw new Error(`Request failed with status: ${res.data.status}`);
+    } catch(err) {
+        console.error('Get my contract error:', err);
+        throw new Error(err?.response?.data?.message || "Failed to get guild progress");
+    }
+}
+
 export const updateOrCreateContractRelatedProgress = async (contractId, progressData) => {
     if (!contractId) throw new Error("Contract ID is required");
     if (!progressData?.experience) throw new Error("Experience value is required");

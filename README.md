@@ -19,8 +19,7 @@ ___
 |                | HTML                 | 🟠  | [Semantic HTML](https://www.w3schools.com/html/html5_semantic_elements.asp) |
 |                | Logic                | 🔴  | ←                                                                           |
 | Responsiveness | ←                    | ⚫   | ←                                                                           |
-| Backend/API    | User model           |     |                                                                             |
-|                | Indexes              | 🔴  | *Create indexes that will improve performances*                             |
+| Backend/API    | Indexes              | 🔴  | *Create more appropriate indexes*                                           |
 |                | Emailing             | 🟠  | *Production Emailing service*                                               |
 |                |                      | 🟠  | *Welcome message (activate account)*                                        |
 |                |                      | 🟠  | *Reset password mail (reset link)*                                          |
@@ -29,7 +28,7 @@ ___
 |                | Auth                 | 🔴  | *Forgot password form*                                                      |
 |                |                      | 🔴  | *Reset password page+form*                                                  |
 |                | Settings             | 🟠  | *Basic settings (API/User model)*                                           |
-|                | Navigation           | 🔴  | Main nav routes should remember and use last params                         |
+|                | Navigation           | 🔴  | *Main nav routes should remember and use last params*                       |
 |                | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                                            |
 |                |                      | 🟠  | *Override params*                                                           |
 |                |                      | 🟠  | *Nested params*                                                             |
@@ -38,11 +37,12 @@ ___
 |                | Contracts            | 🟢  | **Get my contracts/contract (x2)**                                          |
 |                |                      | 🟢  | **Post contracts**                                                          |
 |                |                      | 🟢  | **Patch contracts**                                                         |
-|                | Guild progress       | 🟡  | *Get my guilds/guild progress (x2)*                                         |
-|                |                      | 🟡  | *Post guild progress*                                                       |
-|                |                      | 🟡  | *Patch guild progress*                                                      |
+|                | Guild progress       | 🟢  | **Get my guilds/guild progress (x2)**                                       |
+|                |                      | 🟢  | **Post guild progress**                                                     |
+|                |                      | 🟢  | **Patch guild progress**                                                    |
+|                |                      | 🟢  | **Patch contract related guilds progress**                                  |
 |                | Guilds               | ⚫   | Chatbots                                                                    |
-|                | Inventory            | 🟠  | .glb 3D viewer                                                              |
+|                | Inventory            | ⚫   | .glb 3D viewer                                                              |
 |                |                      | ⚫   | Character equipement/perks                                                  |
 |                |                      | ⚫   | Marketplace                                                                 |
 |                |                      | ⚫   | Books reader                                                                |

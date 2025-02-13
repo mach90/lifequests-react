@@ -12,10 +12,10 @@ function CharacterGuildsProgress() {
 
     if(isLoading) return <LoadingSpinner size="md" />;
     if(progress.length === 0 || totalCount === 0) return <div className={characterGuildsProgressContainerStyle}>No progress</div>
+
     console.log(progress)
 
     return (
-
         <div className={characterGuildsProgressContainerStyle}>
             <Card title="Guilds Levels" icon={FaHouseFlag}>
                 <div className={guildProgressContainer}>
