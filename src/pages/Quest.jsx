@@ -4,6 +4,9 @@ import { useContracts } from "../features/contracts/useContracts";
 import { useCreateContract } from "../features/contracts/useCreateContract";
 import LoadingSpinner from "../ui/LoadingSpinner";
 import Card from "../ui/Card";
+import Modal from "../ui/Modal";
+import Confirm from "../ui/Confirm";
+import Button from "../ui/Button";
 import QuestHeader from "../features/quests/QuestHeader";
 import QuestDetails from "../features/quests/QuestDetails";
 import QuestInfos from "../features/quests/QuestInfos";
@@ -46,9 +49,14 @@ function Quest() {
                         <QuestDetails quest={quest} />
                         <QuestReward quest={quest}/>
                         <QuestGuilds questId={quest?.id} />
-                        <div className="col-span-2 row-span-1 flex flex-col justify-center items-center">
-                            {!hasContract && <button onClick={() => handleCreateContract(questId)} disabled={createContract.isPending} className="p-2 bg-green1 rounded-md hover:bg-green2 text-neutral0 cursor-pointer w-full">CREATE CONTRACT</button>}
-                        </div>
+                        {!hasContract && <Modal>
+                            <Modal.Open opens="confirm-create-contract">
+                                <Button type="validation" label="Create contract" />
+                            </Modal.Open>
+                            <Modal.Window name="confirm-create-contract">
+                                <Confirm actionType="validation" resourceName="Contract creation" onConfirm={() => handleCreateContract(questId)} disabled={createContract.isPending} />
+                            </Modal.Window>
+                        </Modal>}
                     </div>
                 </Card>
             </div>

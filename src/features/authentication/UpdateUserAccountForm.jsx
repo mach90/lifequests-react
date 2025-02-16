@@ -1,6 +1,8 @@
 import { useDeleteUser } from "./useDeleteUser";
 import Card from "../../ui/Card";
 import Form from "../../ui/Form";
+import Modal from "../../ui/Modal";
+import Confirm from "../../ui/Confirm";
 import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
 
@@ -12,12 +14,20 @@ function UpdateUserAccountForm() {
 
     return (
         <Card title="Account">
-            <Form>
+            {/* <Form>
                 <FormRow>
                     <p className={updateUserAccountDangerLabelStyle}>Deactivate account (irreversible)</p>
                     <Button type="danger" label="Deactivate account" onClick={() => deleteUser()} disabled={isDeleting} className={updateUserAccountButtonStyle}/>
                 </FormRow>
-            </Form>
+            </Form> */}
+            <Modal>
+                <Modal.Open opens="confirm-account-deactivation">
+                    <Button type="danger" label="Delete account" />
+                </Modal.Open>
+                <Modal.Window name="confirm-account-deactivation">
+                    <Confirm actionType="delete" resourceName="Account deletion (definitive)" onConfirm={() => deleteUser()} disabled={isDeleting} />
+                </Modal.Window>
+            </Modal>
         </Card>
     );
 };
