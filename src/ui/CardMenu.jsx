@@ -20,49 +20,46 @@ function CardMenu({ title, icon: IconComponent, legend, sort, filter, pagination
                         { value: "name-asc", label: "Sort A-Z ↑" },
                         { value: "name-desc", label: "Sort Z-A ↓" },
                     ]}
-                    color="variant3"
                 />}
                 {sort === "Quests" && <SortBy 
                     options={[
                         { value: "name-asc", label: "Sort A-Z ↑" },
                         { value: "name-desc", label: "Sort Z-A ↓" },
+                        { value: "duration-asc", label: "Sort duration ↑" },
                         { value: "reward.experience-desc", label: "Sort XP ↓" },
                         { value: "reward.money-desc", label: "Sort money ↓" },
                     ]}
-                    color="variant6"
                 />}
                 {sort === "Contracts" && <SortBy 
                     options={[
                         { value: "status-asc", label: "Sort active first" },
                         { value: "status-desc", label: "Sort finished first" },
-                        // { value: "quest.name-asc", label: "Sort by quest name (A-Z)" },
-                        // { value: "quest.name-desc", label: "Sort by quest name (Z-A)" },
+                        // { value: "questName-asc", label: "Sort A-Z ↑" },
+                        // { value: "questName-desc", label: "Sort A-Z ↓" },
                         { value: "createdAt-desc", label: "Sort recent" },
                         { value: "createdAt-asc", label: "Sort oldest" },
                         { value: "finishedAt-desc", label: "Sort finished ↓" },
                         { value: "finishedAt-asc", label: "Sort finished ↑" },
                     ]}
-                    color="variant2"
                 />}
                 {sort === "Inventory" && <SortBy 
                     options={[
                         { value: "name-asc", label: "Sort AZ ↑" },
                         { value: "name-desc", label: "Sort ZA ↓" }
                     ]}
-                    color="variant2"
                 />}
             </div>
             <div className={cardFilterContainerStyle}>
                 {filter === "Guilds" && <Filter 
-                    filterField="company.name"
+                    filterField="companyName"
                     options={[
                         {value: "all", label:"All companies"},
-                        {value: "Naturalists", label:"🌿"},
-                        {value: "Crafters", label:"⚒️"},
-                        {value: "Specialists", label:"🛠️"},
-                        {value: "Champions", label:"🎖️"},
-                        {value: "Artists", label:"🖌️"},
-                        {value: "Synergists", label:"🗣️"},
+                        // {value: "Naturalists", label:"🌿"},
+                        // {value: "Crafters", label:"⚒️"},
+                        // {value: "Specialists", label:"🛠️"},
+                        // {value: "Champions", label:"🎖️"},
+                        // {value: "Artists", label:"🖌️"},
+                        // {value: "Synergists", label:"🗣️"},
                     ]}
                 />}
                 {filter === "Quests" && <Filter 
