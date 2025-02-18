@@ -1,16 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSignup } from "./useSignup";
-import LoadingSpinner from "../../ui/LoadingSpinner";
 import Card from "../../ui/Card";
 import FormRow from "../../ui/FormRow";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
 
-const signupFormInputStyle = "bg-stone-950 border border-gray-500 p-2 rounded-lg text-white";
-const signupFormButtonSubmitStyle = "bg-variant2 disabled:bg-gray-800 disabled:cursor-not-allowed hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md";
-const signupFormButtonLinkStyle = "bg-slate-700 hover:brightness-90 text-white text-sm font-bold px-4 py-2 rounded-lg shadow-md w-full text-center";
+const signupFormButtonLinkStyle = "text-main4 hover:text-neutral0 text-sm font-bold px-4 py-2 rounded-lg w-full text-center border border-main4 hover:border-neutral0 duration-200";
 
 function SignupForm() {
     const [name, setName] = useState("")
@@ -58,7 +55,6 @@ function SignupForm() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isLoading}
-                        className={signupFormInputStyle}
                     />
                 </FormRow>
                 <FormRow>
@@ -70,7 +66,6 @@ function SignupForm() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         disabled={isLoading}
-                        className={signupFormInputStyle}
                     />
                 </FormRow>
                 <FormRow>
@@ -82,7 +77,6 @@ function SignupForm() {
                         value={passwordConfirm}
                         onChange={(e) => setPasswordConfirm(e.target.value)}
                         disabled={isLoading}
-                        className={signupFormInputStyle}
                     />
                 </FormRow>
                 <FormRow>
@@ -91,7 +85,6 @@ function SignupForm() {
                         type="checkbox"
                         checked={isChecked}
                         onChange={(e) => setIsChecked(e.target.checked)}
-                        className={signupFormInputStyle}
                     />
                 </FormRow>
                 <FormRow>

@@ -17,6 +17,7 @@ import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Forgot from "./pages/Forgot";
+import Reset from "./pages/Reset";
 import Character from "./pages/Character";
 import Settings from "./pages/Settings";
 import SettingsProfile from "./pages/SettingsProfile";
@@ -87,6 +88,7 @@ function App() {
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
           <Route path="forgot" element={<Forgot />} />
+          <Route path="reset/:token" element={<Reset />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
@@ -106,8 +108,8 @@ function App() {
               fontSize: "16px",
               maxWidth: "500px",
               padding: "16px 24px",
-              backgroundColor: "white",
-              color: "black",
+              backgroundColor: "#324155",
+              color: "white",
             }
           }}
       />

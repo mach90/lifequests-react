@@ -62,8 +62,6 @@ function UpdateUserDataForm() {
         });
     }
 
-    console.log(error)
-
     return (
         <Card title="Update user">
             <Form onSubmit={handleSubmit}>

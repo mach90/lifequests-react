@@ -59,3 +59,29 @@ export const updatePassword = async ({ passwordCurrent, password, passwordConfir
         throw new Error(err?.response?.data?.message || "Password update failed");
     }
 }
+
+export const forgotPassword = async(email) => {
+    try {
+        const res = await api.post('/users/forgotPassword', {email});
+        if(res.data.status === "success") {
+            return res.data;
+        }
+    } catch(err) {
+        throw new Error("ERROR", err?.response?.data?.message || "Forgot password request failed");
+    }
+}
+
+export const resetPassword = async({ token, password, passwordConfirm }) => {
+    try {
+        const res = await api.patch(`/users/resetPassword/${token}`, {
+            password,
+            passwordConfirm
+        });
+
+        if(res.data.status === "success") {
+            return res.data;
+        }
+    } catch(err) {
+        throw new Error(err?.response?.data?.message || "Password reset failed");
+    }
+}
