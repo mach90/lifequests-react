@@ -11,46 +11,46 @@ ___
 ___
 
 ## 🔳 TO DO
-| Type           | Section              | St   | TODO                                                                          |
-| -------------- | -------------------- | ---- | ----------------------------------------------------------------------------- |
-| Error Handling | ←                    | 🔴   | ←                                                                             |
-| Testing        | Create tests         | ⚫    | ←                                                                             |
-| Refactoring    | UI                   | 🟡   | ←                                                                             |
-|                | HTML                 | 🟠   | [*Semantic HTML*](https://www.w3schools.com/html/html5_semantic_elements.asp) |
-|                | Logic                | 🔴   | ←                                                                             |
-| Responsiveness | ←                    | ⚫    | ←                                                                             |
-| Backend/API    | Indexes              | ⚫    | Create more appropriate indexes                                               |
-|                | Emailing             | 🟠🔵 | *Production Emailing service*                                                 |
-|                |                      | 🟠🔵 | *Welcome message (activate account)*                                          |
-|                |                      | 🟠🔵 | *Reset password mail (reset link)*                                            |
-|                | Aggregation/Stats    | 🔴   | *←*                                                                           |
-| Frontend       | UI                   | 🟢   | **Modals**                                                                    |
-|                |                      | 🟢   | **Confirmation in modal**                                                     |
-|                | Auth                 | 🔴🔵 | *Forgot password form*                                                        |
-|                |                      | 🔴🔵 | *Reset password page+form*                                                    |
-|                | Settings             | 🟠   | *Basic settings (API/User model)*                                             |
-|                | Navigation           | 🔴   | *Main nav routes should remember and use last params*                         |
-|                | Filter/Sort/Paginate | 🟢   | **Filtering/Sorting/Paginating**                                              |
-|                |                      | 🟢   | **Override params**                                                           |
-|                |                      | 🔴   | *Nested params*                                                               |
-|                | Character            | 🟢   | **Patch contract → Patch character**                                          |
-|                |                      | 🟢   | **Min/Max values after patch validator**                                      |
-|                | Contracts            | 🟢   | **Get my contracts/contract (x2)**                                            |
-|                |                      | 🟢   | **Post contracts**                                                            |
-|                |                      | 🟢   | **Patch contracts**                                                           |
-|                | Guild progress       | 🟢   | **Get my guilds/guild progress (x2)**                                         |
-|                |                      | 🟢   | **Post guild progress**                                                       |
-|                |                      | 🟢   | **Patch guild progress**                                                      |
-|                |                      | 🟢   | **Patch contract related guilds progress**                                    |
-|                | Guilds               | ⚫    | Chatbots                                                                      |
-|                | Inventory            | ⚫    | .glb 3D viewer                                                                |
-|                |                      | ⚫    | Character equipement/perks                                                    |
-|                |                      | ⚫    | Marketplace                                                                   |
-|                |                      | ⚫    | Books reader                                                                  |
-|                |                      | ⚫    | App viewer                                                                    |
-|                |                      | ⚫    | Doc reader                                                                    |
-|                |                      | ⚫    | Picture viewer                                                                |
-|                | Quests               | ⚫    | Community pictures                                                            |
+| Type           | Section              | St  | TODO                                                                          |
+| -------------- | -------------------- | --- | ----------------------------------------------------------------------------- |
+| Error Handling | ←                    | 🔴  | ←                                                                             |
+| Testing        | Create tests         | ⚫   | ←                                                                             |
+| Refactoring    | UI                   | 🟡  | ←                                                                             |
+|                | HTML                 | 🟠  | [*Semantic HTML*](https://www.w3schools.com/html/html5_semantic_elements.asp) |
+|                | Logic                | 🔴  | ←                                                                             |
+| Responsiveness | ←                    | ⚫   | ←                                                                             |
+| Backend/API    | Indexes              | ⚫   | Create more appropriate indexes                                               |
+|                | Emailing             | 🟢  | **Production Emailing service**                                               |
+|                |                      | 🟢  | **Welcome message**                                                           |
+|                |                      | 🟢  | **Reset password mail (reset link)**                                          |
+|                | Aggregation/Stats    | 🔴  | *←*                                                                           |
+| Frontend       | UI                   | 🟢  | **Modals**                                                                    |
+|                |                      | 🟢  | **Confirmation in modal**                                                     |
+|                | Auth                 | 🟢  | **Forgot password form**                                                      |
+|                |                      | 🟢  | **Reset password page+form**                                                  |
+|                | Settings             | 🟠  | *Basic settings (API/User model)*                                             |
+|                | Navigation           | 🔴  | *Main nav routes should remember and use last params*                         |
+|                | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                                              |
+|                |                      | 🟢  | **Override params**                                                           |
+|                |                      | 🔴  | *Nested params*                                                               |
+|                | Character            | 🟢  | **Patch contract → Patch character**                                          |
+|                |                      | 🟢  | **Min/Max values after patch validator**                                      |
+|                | Contracts            | 🟢  | **Get my contracts/contract (x2)**                                            |
+|                |                      | 🟢  | **Post contracts**                                                            |
+|                |                      | 🟢  | **Patch contracts**                                                           |
+|                | Guild progress       | 🟢  | **Get my guilds/guild progress (x2)**                                         |
+|                |                      | 🟢  | **Post guild progress**                                                       |
+|                |                      | 🟢  | **Patch guild progress**                                                      |
+|                |                      | 🟢  | **Patch contract related guilds progress**                                    |
+|                | Guilds               | ⚫   | Chatbots                                                                      |
+|                | Inventory            | ⚫   | .glb 3D viewer                                                                |
+|                |                      | ⚫   | Character equipement/perks                                                    |
+|                |                      | ⚫   | Marketplace                                                                   |
+|                |                      | ⚫   | Books reader                                                                  |
+|                |                      | ⚫   | App viewer                                                                    |
+|                |                      | ⚫   | Doc reader                                                                    |
+|                |                      | ⚫   | Picture viewer                                                                |
+|                | Quests               | ⚫   | Community pictures                                                            |
 
 ___
 
