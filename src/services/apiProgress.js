@@ -1,13 +1,8 @@
-import axios from "axios";
+import { api } from './api';
 
-const api = axios.create({
-    baseURL: process.env.NODE_ENV === 'production'
-      ? 'https://lifequests.onrender.com/api/v1'
-      : 'http://localhost:3000/api/v1',
-    withCredentials: true,  // Essential for cookies to work
-    credentials: 'include',  // Also important for cross-origin requests
-});
-
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET ALL MY PROGRESS, guilds experience
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const getAllMyProgress = async (params = {}) => {
     try {
         if (params.sortBy) {
@@ -32,6 +27,9 @@ export const getAllMyProgress = async (params = {}) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET PROGRESS BY ID, guild experience (GUILD ID)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const getGuildProgress = async (guildId) => {
     try {
         const res = await api.get(`progress/guild-related-progress/${guildId}`);
@@ -47,6 +45,10 @@ export const getGuildProgress = async (guildId) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+UPDATE OR CREATE CONTRACT RELATED PROGRESS
+Update progress or create new progress automatically for guilds when completing a contract
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const updateOrCreateContractRelatedProgress = async (contractId, progressData) => {
     if (!contractId) throw new Error("Contract ID is required");
     if (!progressData?.experience) throw new Error("Experience value is required");

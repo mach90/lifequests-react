@@ -10,7 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 /* //////////////////////////////////////////////////
-IMPORT - UI/PAGES
+IMPORT - UI & PAGES
 ////////////////////////////////////////////////// */
 import ProtectedRoute from "./ui/ProtectedRoute";
 import AppLayout from "./ui/AppLayout";
@@ -46,7 +46,7 @@ TANSTACK QUERYCLIENT
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 5*1000,
+      staleTime: 1000,
     }
   }
 });

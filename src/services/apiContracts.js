@@ -1,14 +1,8 @@
-import axios from "axios";
-import toast from "react-hot-toast";
+import { api } from './api';
 
-const api = axios.create({
-    baseURL: process.env.NODE_ENV === 'production'
-      ? 'https://lifequests.onrender.com/api/v1'
-      : 'http://localhost:3000/api/v1',
-    withCredentials: true,  // Essential for cookies to work
-    credentials: 'include',  // Also important for cross-origin requests
-});
-
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET ALL MY CONTRACTS
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const getMyContracts = async (params = {}) => {
     try {
         if (params.sortBy) {
@@ -33,6 +27,9 @@ export const getMyContracts = async (params = {}) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET MY CONTRACT (CONTRACT ID)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const getMyContract = async (contractId) => {
     try {
         const res = await api.get(`contracts/my-contracts/${contractId}`);
@@ -49,6 +46,9 @@ export const getMyContract = async (contractId) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+CREATE MY CONTRACT (QUEST ID)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const createMyContract = async (questId) => {
     try {
         const res = await api.post('contracts/my-contracts', { 
@@ -56,7 +56,6 @@ export const createMyContract = async (questId) => {
         });
         
         if(res.data.status === "success") {
-            toast.success("Contract successfully created.");
             return res.data;
         }
 
@@ -67,6 +66,9 @@ export const createMyContract = async (questId) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+UPDATE MY CONTRACT (CONTRACT ID)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const updateMyContract = async (contractId, status, finishedAt) => {
     try {
         const res = await api.patch(`contracts/my-contracts/${contractId}`, {

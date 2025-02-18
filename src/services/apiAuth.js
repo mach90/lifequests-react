@@ -1,21 +1,14 @@
-import axios from "axios";
+import { api } from './api';
 
-// console.log(process.env.NODE_ENV);
-
-const api = axios.create({
-    baseURL: process.env.NODE_ENV === 'production'
-      ? 'https://lifequests.onrender.com/api/v1'
-      : 'http://localhost:3000/api/v1',
-    withCredentials: true,  // Essential for cookies to work
-    credentials: 'include',  // Also important for cross-origin requests
-});
-
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+SIGNUP
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const signup = async (name, email, password, passwordConfirm) => {
     try {
         const res = await api.post('/users/signup', { name, email, password, passwordConfirm });
 
         if(res.data.status === "success") {
-            console.log("Signup success:", res.data);
+            return res.data;
         }
 
     } catch(err) {
@@ -23,6 +16,9 @@ export const signup = async (name, email, password, passwordConfirm) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+LOGIN
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const login = async (email, password) => {
     try {
         const res = await api.post('/users/login', { email, password });
@@ -34,6 +30,9 @@ export const login = async (email, password) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+LOGOUT
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const logout = async () => {
     try {
         const res = await api.get('/users/logout');
@@ -44,6 +43,9 @@ export const logout = async () => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+UPDATE PASSWORD
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const updatePassword = async ({ passwordCurrent, password, passwordConfirm }) => {
     try {
         const res = await api.patch('/users/updateMyPassword', {
@@ -60,6 +62,9 @@ export const updatePassword = async ({ passwordCurrent, password, passwordConfir
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+FORGOT PASSWORD
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const forgotPassword = async(email) => {
     try {
         const res = await api.post('/users/forgotPassword', {email});
@@ -71,6 +76,9 @@ export const forgotPassword = async(email) => {
     }
 }
 
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+RESET PASSWORD
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const resetPassword = async({ token, password, passwordConfirm }) => {
     try {
         const res = await api.patch(`/users/resetPassword/${token}`, {
