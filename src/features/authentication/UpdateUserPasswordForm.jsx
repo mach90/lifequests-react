@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useHandleChange } from "../../hooks/useHandleChange";
 import { useUpdatePassword } from "./useUpdatePassword";
 import Card from "../../ui/Card";
 import Form from "../../ui/Form";
@@ -8,43 +8,28 @@ import FormError from "../../ui/FormError";
 import toast from "react-hot-toast";
 import Button from "../../ui/Button";
 
-const buttonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed";
-
 function UpdateUserPasswordForm() {
-    const [formData, setFormData] = useState({
+    const {formData, handleChange, setFormData} = useHandleChange({
         passwordCurrent: "",
         password: "",
         passwordConfirm: ""
     });
     
-    const { updateUserPassword, isUpdating, error } = useUpdatePassword();
-
-    function handleChange(e) {
-        const { name, value } = e.target;
-        setFormData(prev => ({
-            ...prev,
-            [name]: value
-        }));
-    }
+    const {updateUserPassword, isPending, error} = useUpdatePassword();
 
     function handleSubmit(e) {
         e.preventDefault();
         
         if (!formData.passwordCurrent || !formData.password || !formData.passwordConfirm) return;
-        if (formData.password !== formData.passwordConfirm) {
-            // You might want to handle this error state in the UI
-            return;
-        }
+        if (formData.password !== formData.passwordConfirm) return;
         
         updateUserPassword(formData, {
             onSuccess: () => {
-                // Clear form after successful update
                 setFormData({
                     passwordCurrent: "",
                     password: "",
                     passwordConfirm: ""
                 });
-                toast.success("Password changed");
             }
         });
     }
@@ -66,7 +51,7 @@ function UpdateUserPasswordForm() {
                         label="Current password"
                         value={formData.passwordCurrent}
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                         required
                         minLength={8}
                     />
@@ -79,7 +64,7 @@ function UpdateUserPasswordForm() {
                         label="New password"
                         value={formData.password}
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                         required
                         minLength={8}
                     />
@@ -97,7 +82,7 @@ function UpdateUserPasswordForm() {
                         label="New password confirm"
                         value={formData.passwordConfirm}
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                         required
                         minLength={8}
                     />
@@ -111,9 +96,9 @@ function UpdateUserPasswordForm() {
                 <FormRow>
                     <Button
                         type="submit" 
-                        label={!isUpdating ? "Update Password" : "Updating password..."}
-                        disabled={isUpdating || !isValid}
-                        isUpdating={isUpdating}
+                        label={!isPending ? "Update Password" : "Updating password..."}
+                        disabled={isPending || !isValid}
+                        isPending={isPending}
                     />
                 </FormRow>
                 <FormRow>

@@ -7,18 +7,23 @@ export function useSignup() {
     const queryClient = useQueryClient();
     const navigate = useNavigate();
     
-    const {mutate: signup, isPending} = useMutation({
-        mutationFn: ({name, email, password, passwordConfirm}) => signupApi(name, email, password, passwordConfirm),
+    const {
+        mutate: signup, 
+        isPending,
+        error
+    } = useMutation({
+        mutationFn: (formData) => signupApi(formData),
         onSuccess: async (newUser) => {
+            toast.success("Account successfully created.");
             queryClient.setQueryData(["user"], newUser);
-            queryClient.invalidateQueries(["user"]);
-            navigate("/character", {replace: true});
-            toast.success("Welcome !");
+            setTimeout(() => {
+                navigate("/character", {replace: true});
+            }, 500);
         },
         onError: (error) => {
             toast.error(error.message || "Account creation failed.");
         }
-    })
+    });
 
-    return {signup, isPending};
+    return {signup, isPending, error};
 };

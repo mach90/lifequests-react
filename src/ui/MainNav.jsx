@@ -4,7 +4,7 @@ import MainNavLink from "./MainNavLink";
 const mainNavContainerStyle = "w-max h-full flex flex-row gap-2.5 justify-start items-center";
 
 function MainNav() {
-    const {logout, isLoading} = useLogout();
+    const {logout, isPending, error} = useLogout();
 
     function handleLogout() {
         logout();

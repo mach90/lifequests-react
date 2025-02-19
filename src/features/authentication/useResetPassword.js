@@ -1,5 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { resetPassword } from "../../services/apiAuth";
+import { resetPassword as resetPasswordApi } from "../../services/apiAuth";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
@@ -9,22 +9,24 @@ export function useResetPassword() {
 
     const { 
         mutate: resetUserPassword, 
-        isLoading: isUpdating,
+        isPending,
         error 
     } = useMutation({
-        mutationFn: resetPassword,
+        mutationFn: (formData) => resetPasswordApi(formData),
         onSuccess: () => {
-            toast.success("Password reset successfully");
-            // Invalidate user query to force a refresh if needed
+            toast.success("Password reset.");
             queryClient.invalidateQueries(["user"]);
-            navigate("/character", { replace: true });
+            setTimeout(() => {
+                navigate("/login", {replace: true});
+            }, 500);
         },
-        onError: (err) => {
-            console.error("Reset password error:", err);
-            toast.error(err.message || "Failed to reset password");
-            navigate("/login", { replace: true });
+        onError: (error) => {
+            toast.error(error.message || "Failed reset password.");
+            setTimeout(() => {
+                navigate("/login", {replace: true});
+            }, 500);
         }
     });
 
-    return { resetUserPassword, isUpdating, error };
+    return {resetUserPassword, isPending, error};
 }

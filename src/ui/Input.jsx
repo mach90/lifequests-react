@@ -29,7 +29,7 @@ function Input({ type, inputName, label, placeholder, autoComplete, value, onCha
                 // value={value}
                 // onChange={onChange}
                 // disabled={disabled}
-                // required={required}
+                required={required}
                 // minLength={minLength}
                 className={inputTextareaStyle}
             />}
