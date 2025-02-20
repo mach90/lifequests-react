@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { deleteMe } from "../../services/apiUser";
+import { deleteMe as deleteMeApi } from "../../services/apiUser";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export function useDeleteUser() {
     const queryClient = useQueryClient();
@@ -8,19 +9,20 @@ export function useDeleteUser() {
 
     const {
         mutate: deleteUser,
-        isLoading: isDeleting,
+        isPending,
         error
     } = useMutation({
-        mutationFn: deleteMe,
+        mutationFn: deleteMeApi,
         onSuccess: (deleteUser) => {
+            toast.success("Your account has been deleted.");
             queryClient.setQueryData(["user"], deleteUser);
             queryClient.invalidateQueries({ queryKey: ["user"] });
             navigate("/login", {replace: true});
         },
         onError: (error) => {
-            console.error("Delete user error:", error);
+            toast.error(error.message || "Couldn't delete user.");
         }
     });
 
-    return { deleteUser, isDeleting, error };
+    return {deleteUser, isPending, error};
 }

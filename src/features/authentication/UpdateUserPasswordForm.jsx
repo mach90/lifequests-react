@@ -5,7 +5,6 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import FormError from "../../ui/FormError";
-import toast from "react-hot-toast";
 import Button from "../../ui/Button";
 
 function UpdateUserPasswordForm() {

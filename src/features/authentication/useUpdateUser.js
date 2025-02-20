@@ -1,26 +1,24 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateMe } from "../../services/apiUser";
+import { updateMe as updateMeApi } from "../../services/apiUser";
+import toast from "react-hot-toast";
 
 export function useUpdateUser() {
     const queryClient = useQueryClient();
 
     const { 
         mutate: updateUser, 
-        isLoading: isUpdating,
+        isPending,
         error 
     } = useMutation({
-        mutationFn: updateMe,
-        onSuccess: (updatedUser) => {
-            // Update the user data in the cache
-            queryClient.setQueryData(["user"], updatedUser);
-            
-            // Optionally invalidate the query to trigger a refresh
+        mutationFn: (userData) => updateMeApi(userData),
+        onSuccess: () => {
+            toast.success("User updated");
             queryClient.invalidateQueries({ queryKey: ["user"] });
         },
         onError: (error) => {
-            console.error("Update user error:", error);
+            toast.error(error.message || "Couldn't update user.");
         }
     });
 
-    return { updateUser, isUpdating, error };
+    return {updateUser, isPending, error};
 }

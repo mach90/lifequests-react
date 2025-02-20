@@ -9,9 +9,9 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 const characterContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 gap-4 h-full";
 
 function Character() {
-    const { isLoading, user, error } = useUser();
+    const { isPending, user, error } = useUser();
 
-    if(isLoading) return <LoadingSpinner size="lg" />;
+    if(isPending) return <LoadingSpinner size="lg" />;
     if(error) return <div>Error: {error.message}</div>;
     if(!user) return <div>No user data found</div>;
 

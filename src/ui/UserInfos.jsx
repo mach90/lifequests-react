@@ -9,11 +9,11 @@ import UserInfosData from "./UserInfosData";
 const userInfosContainerStyle = "flex flex-row items-center justify-start text-slate-200 h-max w-max gap-2.5";
 
 function UserInfos() {
-    const { isLoading, user, error } = useUser();
+    const { isPending, user, error } = useUser();
     
     // console.log("GETMEQUERIED", userData);
 
-    if (isLoading) {
+    if (isPending) {
         return <LoadingSpinner size="md" />;
     }
 

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import DifficultyTag from "../../ui/DifficultyTag";
 
-const guildQuestsListItemStyle = "bg-main3 hover:-translate-y-0.5 hover:rotate-2 hover:scale-105 duration-400 shadow-lg shadow-main1 flex flex-col gap-2 p-4 h-40 w-40 justify-between items-center";
+const guildQuestsListItemStyle = "bg-main3 hover:-translate-y-0.5 hover:rotate-2 hover:scale-105 duration-400 shadow-lg shadow-main1 flex flex-col gap-2 p-4 h-40 w-40 justify-between items-center z-10";
 const guildQuestsListItemNameStyle = "flex flex-row gap-2 text-base text-white font-bold uppercase";
 
 function GuildQuestsItem({ quest, contracts }) {
