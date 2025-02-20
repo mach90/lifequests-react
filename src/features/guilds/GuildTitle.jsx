@@ -8,18 +8,17 @@ const guildTitleHeaderStyle = "flex flex-row gap-2 items-center justify-center";
 const guildEmblemStyle = "w-6 h-6";
 const guildNameStyle = "uppercase font-bold text-2xl text-neutral0";
 
-function GuildTitle({ guild, isLoading }) {
+function GuildTitle({ guild, isPending }) {
     return (
         <div className={guildTitleContainerStyle}>
             <Card title="Guild" legend={guild.company.name}>
-                {isLoading && <LoadingSpinner size="xs" />}
-                {!isLoading && <div className={guildTitleHeaderStyle}>
+                <div className={guildTitleHeaderStyle}>
                     <img 
                         className={guildEmblemStyle} 
-                        src={guild.images[0] ? `${serverUrl}/img/guilds/${guild.images[0]}` : `${serverUrl}/img/guilds/default-emblem.png`} 
+                        src={guild.images[0] ? `${serverUrl}/img/guilds/emblems/${guild.images[0]}` : `${serverUrl}/img/guilds/default-emblem.png`} 
                     />
                     <h1 className={guildNameStyle}>{guild.name}</h1>
-                </div>}
+                </div>
             </Card>
         </div>
     );

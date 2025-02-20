@@ -6,9 +6,9 @@ import ProgressItem from "../progress/ProgressItem";
 const guildProgressContainerStyle = "col-span-3 row-span-3";
 
 function GuildProgress({ guild }) {
-    const {isLoading, progress, error} = useGuildProgress(guild?.id);
+    const {isPending, progress, error} = useGuildProgress(guild?.id);
 
-    if(isLoading) return <LoadingSpinner size="sm" />
+    if(isPending) return <LoadingSpinner size="sm" />
 
     return (
         <div className={guildProgressContainerStyle}>

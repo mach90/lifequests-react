@@ -1,23 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import { getGuild } from "../../services/apiGuilds";
+import { getGuild as getGuildApi } from "../../services/apiGuilds";
+import toast from "react-hot-toast";
 
 export function useGuild(guildId) {
-    const {isLoading, data: guild, error} = useQuery({
+    const {
+        isPending, 
+        data: guild, 
+        error
+    } = useQuery({
         queryKey: ["guild", guildId],
-        queryFn: () => getGuild(guildId),
+        queryFn: () => getGuildApi(guildId),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get guild.");
             if (error?.response?.status === 401) return null;
-            console.error(error);
         }
     });
 
     return {
-        isLoading, 
+        isPending, 
         guild, 
         error
     };

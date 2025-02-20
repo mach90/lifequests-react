@@ -10,27 +10,44 @@ const guildsListCompanyNameStyle = "text-base uppercase font-black text-neutral0
 const guildsListCompanySpanStyle = "text-base uppercase font-bold text-neutral500";
 
 function GuildsMenu() {
-    const { isLoading, guilds, error } = useGuilds();
-
-    if(isLoading) return <LoadingSpinner size="lg" />
+    const { isPending, guilds, error } = useGuilds();
 
     return (
         <div className={guildsMenuContainerStyle}>
             <CardMenu title="Guilds" sort="Guilds" filter="Guilds" icon={FaHouseFlag}>
-                <div className={guildsListStyle}>
-                    <h3 className={guildsListCompanyNameStyle}>Naturalists <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Naturalists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                    <h3 className={guildsListCompanyNameStyle}>Crafters <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Crafters").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                    <h3 className={guildsListCompanyNameStyle}>Specialists <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Specialists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                    <h3 className={guildsListCompanyNameStyle}>Champions <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Champions").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                    <h3 className={guildsListCompanyNameStyle}>Artists <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Artists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                    <h3 className={guildsListCompanyNameStyle}>Synergists <span className={guildsListCompanySpanStyle}>Company</span></h3>
-                    {guilds.filter(guild => guild.company.name === "Synergists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} emblem={guild.images[0]} />)}
-                </div>
+                {isPending && <LoadingSpinner size="sm" />}
+
+                {!isPending && <div className={guildsListStyle}>
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Naturalists <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Naturalists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Crafters <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Crafters").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Specialists <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Specialists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Champions <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Champions").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Artists <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Artists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+
+                    <h3 className={guildsListCompanyNameStyle}>
+                        Synergists <span className={guildsListCompanySpanStyle}>Company</span>
+                    </h3>
+                    {guilds?.filter(guild => guild.company.name === "Synergists").map(guild => <GuildLink key={guild.id} guildId={guild.id} name={guild.name} imageCover={guild.imageCover} emblem={guild.images[0]} />)}
+                </div>}
             </CardMenu>
         </div>
     );
