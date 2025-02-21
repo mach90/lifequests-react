@@ -3,19 +3,12 @@ import UserInfosAvatar from "./UserInfosAvatar";
 import UserInfosName from "./UserInfosName";
 import UserInfosLevelXp from "./UserInfosLevelXp";
 import UserInfosMoney from "./UserInfosMoney";
-import LoadingSpinner from "./LoadingSpinner";
 import UserInfosData from "./UserInfosData";
 
 const userInfosContainerStyle = "flex flex-row items-center justify-start text-slate-200 h-max w-max gap-2.5";
 
 function UserInfos() {
-    const { isPending, user, error } = useUser();
-    
-    // console.log("GETMEQUERIED", userData);
-
-    if (isPending) {
-        return <LoadingSpinner size="md" />;
-    }
+    const { user } = useUser();
 
     return (
         <div className={userInfosContainerStyle}>

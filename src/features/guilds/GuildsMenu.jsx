@@ -14,7 +14,7 @@ function GuildsMenu() {
 
     return (
         <div className={guildsMenuContainerStyle}>
-            <CardMenu title="Guilds" sort="Guilds" filter="Guilds" icon={FaHouseFlag}>
+            <CardMenu title="Guilds" sort="Guilds" icon={FaHouseFlag}>
                 {isPending && <LoadingSpinner size="sm" />}
 
                 {!isPending && <div className={guildsListStyle}>

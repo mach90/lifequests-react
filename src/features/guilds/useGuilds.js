@@ -32,8 +32,8 @@ export function useGuilds() {
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
-            if (error?.response?.status === 401) return null;
             toast.error("Couldn't get guilds.");
+            if (error?.response?.status === 401) return null;
         }
     });
 

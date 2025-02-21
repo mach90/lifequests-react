@@ -51,15 +51,15 @@ function CardMenu({ title, icon: IconComponent, legend, sort, filter, pagination
             </div>
             <div className={cardFilterContainerStyle}>
                 {filter === "Guilds" && <Filter 
-                    filterField="companyName"
+                    filterField="company.name"
                     options={[
                         {value: "all", label:"All companies"},
-                        // {value: "Naturalists", label:"🌿"},
-                        // {value: "Crafters", label:"⚒️"},
-                        // {value: "Specialists", label:"🛠️"},
-                        // {value: "Champions", label:"🎖️"},
-                        // {value: "Artists", label:"🖌️"},
-                        // {value: "Synergists", label:"🗣️"},
+                        {value: "Naturalists", label:"🌿"},
+                        {value: "Crafters", label:"⚒️"},
+                        {value: "Specialists", label:"🛠️"},
+                        {value: "Champions", label:"🎖️"},
+                        {value: "Artists", label:"🖌️"},
+                        {value: "Synergists", label:"🗣️"},
                     ]}
                 />}
                 {filter === "Quests" && <Filter 

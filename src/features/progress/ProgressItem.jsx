@@ -34,7 +34,7 @@ function ProgressItem({ progr, to, simple }) {
 
     return (
         <NavLink to={to} className="bg-main2/75 hover:bg-main3 px-4 py-2 flex flex-col rounded-lg text-main4 hover:text-neutral0 font-medium duration-200">
-            <div className="flex flex-row gap-4 items-center justify-between">
+            <div className="flex flex-col gap-2 items-center justify-between">
             <h3 className="text-lg font-bold">{progr?.guild?.name}</h3>
             <p>Lv {calculateLevel(progr?.experience)}</p> 
             </div>

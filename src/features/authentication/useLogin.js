@@ -14,7 +14,7 @@ export function useLogin() {
     } = useMutation({
         mutationFn: (formData) => loginApi(formData),
         onSuccess: async (user) => {
-            queryClient.setQueryData(["user"] , user);
+            // queryClient.setQueryData(["user"] , user);
             setTimeout(() => {
                 navigate("/character", {replace: true});
             }, 500);

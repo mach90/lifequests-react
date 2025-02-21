@@ -4,11 +4,11 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 const guildLinkStyle = "relative flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
 const guildLinkActiveStyle = "relative flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
-const guildLinkNameStyle = "w-max text-sm font-bold z-10";
+const guildLinkNameStyle = "w-max text-sm font-bold z-10 uppercase";
 const guildLinkEmblemStyle = "h-6 w-6 z-10";
 const guildLinkCoverStyle = "absolute inset-0 rounded-lg z-0";
-const coverImageStyle = "w-full h-full object-cover rounded-lg";
-const coverGradientStyle = "absolute inset-0 bg-gradient-to-r from-main1/75 via-main1/90 via-30% to-main1 to-50% rounded-lg";
+const guildCoverImageStyle = "w-full h-full object-cover rounded-lg";
+const guildCoverGradientStyle = "absolute inset-0 bg-gradient-to-r from-main1/25 via-main1/90 via-30% to-main1 to-50% rounded-lg";
 
 function GuildLink({guildId, name, imageCover, emblem}) {
     const [searchParams] = useSearchParams();
@@ -26,9 +26,9 @@ function GuildLink({guildId, name, imageCover, emblem}) {
                 <img 
                     src={imageCover ? `${serverUrl}/img/guilds/covers/${imageCover}` : `${serverUrl}/img/guilds/covers/default-cover.png`} 
                     alt="Guild image cover" 
-                    className={coverImageStyle}
+                    className={guildCoverImageStyle}
                 />
-                <div className={coverGradientStyle}></div>
+                <div className={guildCoverGradientStyle}></div>
             </div>
         </NavLink>
     );

@@ -11,8 +11,8 @@ const loginFormButtonLinkStyle = "text-main4 hover:text-neutral0 text-sm font-bo
 
 function LoginForm() {
     const {formData, handleChange, setFormData} = useHandleChange({
-        email: "",
-        password: "",
+        email: "john@example.com",
+        password: "test123456",
     });
 
     const {login, isPending, error} = useLogin();

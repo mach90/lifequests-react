@@ -6,16 +6,16 @@ import Input from "../../ui/Input";
 
 const guildChatbotInputContainerStyle = "col-span-4 row-span-4";
 
-function GuildChatbotInput({ guild }) {
+function GuildChatbotInput({guild, isPending}) {
     return (
         <div className={guildChatbotInputContainerStyle}>
             <Card title="Chatbot input">
-                <Form>
+                {!isPending && <Form>
                     <FormRow>
                         <Input type="textarea" placeholder="Chatbot input not yet implemented..." />
                         <Button type="submit" label="Send" />
                     </FormRow>
-                </Form>
+                </Form>}
             </Card>
         </div>
     );

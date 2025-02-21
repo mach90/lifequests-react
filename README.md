@@ -16,7 +16,7 @@ ___
 | Testing     | Create tests         | ⚫   | Implement test & debut                                                            |
 | Refactoring | UI                   | 🟠  | *Refactor UI*                                                                     |
 |             | HTML                 | 🟠  | [*Use Semantic HTML*](https://www.w3schools.com/html/html5_semantic_elements.asp) |
-|             | Logic                | 🟤  | *Refactor logic*                                                                  |
+|             | Logic                | 🟠  | *Refactor logic*                                                                  |
 | Backend/API | Indexes              | 🔴  | *Create more appropriate indexes*                                                 |
 |             | Error Handling       | 🟤  | *Error handling*                                                                  |
 |             | Emailing             | 🟢  | **Production Emailing service**                                                   |
