@@ -1,5 +1,4 @@
 import Card from "../../ui/Card";
-import LoadingSpinner from "../../ui/LoadingSpinner";
 
 const serverUrl = import.meta.env.VITE_SERVER_URL;
 
@@ -8,18 +7,17 @@ const guildTitleHeaderStyle = "flex flex-row gap-2 items-center justify-center";
 const guildEmblemStyle = "w-6 h-6";
 const guildNameStyle = "uppercase font-bold text-2xl text-neutral0";
 
-function GuildTitle({ guild, isLoading }) {
+function GuildTitle({ guild, isPending }) {
     return (
         <div className={guildTitleContainerStyle}>
-            <Card title="Guild" legend={guild.company.name}>
-                {isLoading && <LoadingSpinner size="xs" />}
-                {!isLoading && <div className={guildTitleHeaderStyle}>
-                    <img 
+            <Card title="Guild" legend={guild?.company?.name}>
+                <div className={guildTitleHeaderStyle}>
+                    {guild.images[0] && <img 
                         className={guildEmblemStyle} 
-                        src={guild.images[0] ? `${serverUrl}/img/guilds/${guild.images[0]}` : `${serverUrl}/img/guilds/default-emblem.png`} 
-                    />
+                        src={`${serverUrl}/img/guilds/emblems/${guild.images[0]}`} 
+                    />}
                     <h1 className={guildNameStyle}>{guild.name}</h1>
-                </div>}
+                </div>
             </Card>
         </div>
     );

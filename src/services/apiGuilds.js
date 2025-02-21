@@ -14,7 +14,6 @@ export async function getGuilds(params = {}) {
             delete params.sortBy;
         }
 
-        // Convert params object to URL query string
         const queryString = new URLSearchParams(params).toString();
         const url = `${apiURL}/guilds${queryString ? `?${queryString}` : ''}`;
 
@@ -46,7 +45,6 @@ export async function getGuild(id) {
 
         let data = await response.json();
 
-        // console.log("GETGUILDAPI", data.data.data);
         return data.data.data;
 
     } catch(error) {
@@ -67,7 +65,6 @@ export async function getAllGuildQuests(id) {
 
         let data = await response.json();
 
-        // console.log("GETALLGUILDSQUESTSAPI", data.data.quests);
         return data.data.quests;
 
     } catch(err) {

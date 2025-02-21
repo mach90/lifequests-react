@@ -3,7 +3,7 @@ import Card from "../../ui/Card";
 const guildDescriptionContainerStyle = "col-span-3 row-span-3";
 const guildDescriptionTextStyle = "text-main4";
 
-function GuildDescription({ guild }) {
+function GuildDescription({guild, isPending}) {
     return (
         <div className={guildDescriptionContainerStyle}>
             <Card title="Guild description">

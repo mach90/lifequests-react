@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useHandleChange } from "../../hooks/useHandleChange";
 import { useForgotPassword } from "./useForgotPassword";
+import { NavLink } from "react-router-dom";
 import Card from "../../ui/Card";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
@@ -9,17 +9,27 @@ import Input from "../../ui/Input";
 
 const forgotFormButtonLinkStyle = "text-main4 hover:text-neutral0 text-sm font-bold px-4 py-2 rounded-lg w-full text-center border border-main4 hover:border-neutral0 duration-200";
 
-
 function ForgotPasswordForm() {
-    const [email, setEmail] = useState("");
-    const {forgotPassword, isPending: isLoading} = useForgotPassword();
+    const {formData, handleChange, setFormData} = useHandleChange({
+        email: "",
+    });
+    const {forgotPassword, isPending, error} = useForgotPassword();
 
     function handleSubmit(e) {
         e.preventDefault();
+
         if(!email) return;
-        forgotPassword({email}, {
-            onSettled: () => {
-                setEmail("");
+
+        forgotPassword(formData, {
+            onSuccess: () => {
+                setFormData({
+                    email: "",
+                });
+            },
+            onError: () => {
+                setFormData({
+                    email: "",
+                });
             }
         });
     }
@@ -34,16 +44,16 @@ function ForgotPasswordForm() {
                         placeholder="Email"
                         label="Enter the email associated with your account:"
                         autoComplete="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        disabled={isLoading}
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
                     <Button 
                         type="submit"
-                        label={!isLoading ? "Reset password" : "Reset password"}
-                        disabled={isLoading || !email}
+                        label={!isPending ? "Reset password" : "Reset password"}
+                        disabled={isPending || !email}
                     />
                 </FormRow>
                 <FormRow>

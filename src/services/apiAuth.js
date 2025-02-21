@@ -1,11 +1,16 @@
-import { api } from './api';
+import { api } from "./api";
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 SIGNUP
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-export const signup = async (name, email, password, passwordConfirm) => {
+export const signup = async ({name, email, password, passwordConfirm}) => {
     try {
-        const res = await api.post('/users/signup', { name, email, password, passwordConfirm });
+        const res = await api.post("/users/signup", { 
+            name, 
+            email, 
+            password, 
+            passwordConfirm 
+        });
 
         if(res.data.status === "success") {
             return res.data;
@@ -19,12 +24,17 @@ export const signup = async (name, email, password, passwordConfirm) => {
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 LOGIN
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-export const login = async (email, password) => {
+export const login = async ({email, password}) => {
     try {
-        const res = await api.post('/users/login', { email, password });
+        const res = await api.post("/users/login", { 
+            email, 
+            password 
+        });
+
         if(res.data.status === "success") {
             return res.data.data.user;
         }
+
     } catch(err) {
         throw new Error(err?.response?.data?.message || "Login failed");
     }
@@ -35,9 +45,12 @@ LOGOUT
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const logout = async () => {
     try {
-        const res = await api.get('/users/logout');
+        const res = await api.get("/users/logout");
 
-        return res.data;
+        if(res.data.status === "success") {
+            return res.data;
+        }
+
     } catch(err) {
         throw new Error(err?.response?.data?.message || "Logout failed");
     }
@@ -46,9 +59,9 @@ export const logout = async () => {
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 UPDATE PASSWORD
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-export const updatePassword = async ({ passwordCurrent, password, passwordConfirm }) => {
+export const updatePassword = async ({passwordCurrent, password, passwordConfirm}) => {
     try {
-        const res = await api.patch('/users/updateMyPassword', {
+        const res = await api.patch("/users/updateMyPassword", {
             passwordCurrent,
             password,
             passwordConfirm
@@ -57,6 +70,7 @@ export const updatePassword = async ({ passwordCurrent, password, passwordConfir
         if(res.data.status === "success") {
             return res.data.data.user;
         }
+
     } catch(err) {
         throw new Error(err?.response?.data?.message || "Password update failed");
     }
@@ -65,21 +79,25 @@ export const updatePassword = async ({ passwordCurrent, password, passwordConfir
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 FORGOT PASSWORD
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-export const forgotPassword = async(email) => {
+export const forgotPassword = async({email}) => {
     try {
-        const res = await api.post('/users/forgotPassword', {email});
+        const res = await api.post("/users/forgotPassword", {
+            email
+        });
+
         if(res.data.status === "success") {
             return res.data;
         }
+
     } catch(err) {
-        throw new Error("ERROR", err?.response?.data?.message || "Forgot password request failed");
+        throw new Error(err?.response?.data?.message || "Forgot password request failed");
     }
 }
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 RESET PASSWORD
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
-export const resetPassword = async({ token, password, passwordConfirm }) => {
+export const resetPassword = async({token, password, passwordConfirm}) => {
     try {
         const res = await api.patch(`/users/resetPassword/${token}`, {
             password,
@@ -89,6 +107,7 @@ export const resetPassword = async({ token, password, passwordConfirm }) => {
         if(res.data.status === "success") {
             return res.data;
         }
+
     } catch(err) {
         throw new Error(err?.response?.data?.message || "Password reset failed");
     }

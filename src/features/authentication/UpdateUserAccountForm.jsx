@@ -1,33 +1,31 @@
 import { useDeleteUser } from "./useDeleteUser";
 import Card from "../../ui/Card";
-import Form from "../../ui/Form";
 import Modal from "../../ui/Modal";
 import Confirm from "../../ui/Confirm";
-import FormRow from "../../ui/FormRow";
 import Button from "../../ui/Button";
 
-const updateUserAccountButtonStyle = "bg-red1 hover:bg-red2 text-neutral0 font-bold py-2 px-4 rounded-sm focus:outline-hidden focus:shadow-outline";
-const updateUserAccountDangerLabelStyle = "text-red2 font-bold";
+const containerStyle = "flex flex-col gap-10 justify-center items-center w-full h-full";
 
 function UpdateUserAccountForm() {
-    const { deleteUser, isDeleting, error } = useDeleteUser();
+    const { deleteUser, isPending, error } = useDeleteUser();
 
     return (
         <Card title="Account">
-            {/* <Form>
-                <FormRow>
-                    <p className={updateUserAccountDangerLabelStyle}>Deactivate account (irreversible)</p>
-                    <Button type="danger" label="Deactivate account" onClick={() => deleteUser()} disabled={isDeleting} className={updateUserAccountButtonStyle}/>
-                </FormRow>
-            </Form> */}
-            <Modal>
-                <Modal.Open opens="confirm-account-deactivation">
-                    <Button type="danger" label="Delete account" />
-                </Modal.Open>
-                <Modal.Window name="confirm-account-deactivation">
-                    <Confirm actionType="delete" resourceName="Account deletion (definitive)" onConfirm={() => deleteUser()} disabled={isDeleting} />
-                </Modal.Window>
-            </Modal>
+            <div className={containerStyle}>
+                <Modal>
+                    <Modal.Open opens="confirm-account-deactivation">
+                        <Button type="danger" label="Delete account" />
+                    </Modal.Open>
+                    <Modal.Window name="confirm-account-deactivation">
+                        <Confirm 
+                            actionType="danger" 
+                            resourceName="Account deletion (definitive)" 
+                            information="Your account will be deactivated permanently. This action cannot be undone." 
+                            onConfirm={() => deleteUser()} 
+                            disabled={isPending} />
+                    </Modal.Window>
+                </Modal>
+            </div>
         </Card>
     );
 };

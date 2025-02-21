@@ -1,23 +1,28 @@
 import { useQuery } from "@tanstack/react-query";
-import { getGuildProgress } from "../../services/apiProgress";
+import { getGuildProgress as getGuildProgressApi } from "../../services/apiProgress";
+import toast from "react-hot-toast";
 
 export function useGuildProgress(guildId) {
-    const { isLoading, data: progress, error } = useQuery({
+    const { 
+        isPending, 
+        data: progress, 
+        error 
+    } = useQuery({
         queryKey: ["progress", guildId],
-        queryFn: () => getGuildProgress(guildId),
+        queryFn: () => getGuildProgressApi(guildId),
         staleTime: 0,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get guild's progress.");
             if (error?.response?.status === 401) return null;
-            console.error("Query error:", error);
         }
     });
 
     return {
-        isLoading,
+        isPending,
         progress,
         error
     };

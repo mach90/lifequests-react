@@ -9,7 +9,7 @@ const userInfosXpBarStyle = "w-full h-full bg-green1 rounded-full";
 const userInfosXpBarProgressStyle = "bg-green2 h-full rounded-full";
 const userInfosXpNumbersStyle = "absolute top-0 right-2 text-xs font-bold text-main1";
 
-function UserInfosLevelXp({ data }) {
+function UserInfosLevelXp({data}) {
     const [xpDisplayStyle] = useLocalStorageState([], "xpDisplayStyle");
 
     const currentLevel = calculateLevel(data?.experience);

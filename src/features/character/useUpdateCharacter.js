@@ -1,20 +1,16 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { updateMyCharacter } from "../../services/apiUser";
+import { updateMyCharacter as updateMyCharacterApi } from "../../services/apiUser";
 
 export function useUpdateCharacter() {
     const queryClient = useQueryClient();
 
     const { 
         mutate: updateCharacter, 
-        isLoading: isUpdatingCharacter,
+        isPending,
         error 
     } = useMutation({
-        mutationFn: (characterData) => updateMyCharacter(characterData),
-        onSuccess: (updatedUser) => {
-            // Update the user data in the cache
-            queryClient.setQueryData(["user"], updatedUser);
-            
-            // Optionally invalidate the query to trigger a refresh
+        mutationFn: (characterData) => updateMyCharacterApi(characterData),
+        onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ["user"] });
         },
         onError: (error) => {
@@ -22,5 +18,5 @@ export function useUpdateCharacter() {
         }
     });
 
-    return { updateCharacter, isUpdatingCharacter, error };
+    return {updateCharacter, isPending, error};
 }

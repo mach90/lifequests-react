@@ -1,32 +1,52 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useHandleChange } from "../../hooks/useHandleChange";
 import { useSignup } from "./useSignup";
+import { NavLink } from "react-router-dom";
 import Card from "../../ui/Card";
 import FormRow from "../../ui/FormRow";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import Button from "../../ui/Button";
+import FormError from "../../ui/FormError";
 
 const signupFormButtonLinkStyle = "text-main4 hover:text-neutral0 text-sm font-bold px-4 py-2 rounded-lg w-full text-center border border-main4 hover:border-neutral0 duration-200";
 
 function SignupForm() {
-    const [name, setName] = useState("")
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirm, setPasswordConfirm] = useState("");
+    const {formData, handleChange, setFormData} = useHandleChange({
+        name: "",
+        email: "",
+        password: "",
+        passwordConfirm: ""
+    });
+
     const [isChecked, setIsChecked] = useState(false);
-    const {signup, isPending: isLoading} = useSignup();
+
+    const {signup, isPending, error} = useSignup();
 
     function handleSubmit(e) {
         e.preventDefault();
-        if(!name || !email || !password || !passwordConfirm) return;
-        signup({name, email, password, passwordConfirm}, {
-          onSettled: () => {
-            setName("");
-            setEmail("");
-            setPassword("");
-            setPasswordConfirm("");
-          }
+        
+        if(!formData.name || !formData.email || !formData.password || !formData.passwordConfirm) return;
+        if(formData.password !== formData.passwordConfirm) return;
+
+        signup(formData, {
+            onSuccess: () => {
+                setFormData({ 
+                    name: "", 
+                    email: "", 
+                    password: "", 
+                    passwordConfirm: "" 
+                });
+                setIsChecked(false);
+            },
+            onError: () => {
+                setFormData((prev) => ({
+                    ...prev,
+                    password: "",
+                    passwordConfirm: ""
+                }));
+                setIsChecked(false);
+            }
         });
     }
 
@@ -40,9 +60,10 @@ function SignupForm() {
                         placeholder="Username"
                         label="Character name"
                         autoComplete="username"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        disabled={isLoading}
+                        value={formData.name}
+                        onChange={handleChange}
+                        disabled={isPending}
+                        required
                     />
                 </FormRow>
                 <FormRow>
@@ -52,31 +73,34 @@ function SignupForm() {
                         placeholder="Email"
                         label="Your email (contact & login)"
                         autoComplete="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        disabled={isLoading}
+                        value={formData.email}
+                        onChange={handleChange}
+                        disabled={isPending}
+                        required
                     />
                 </FormRow>
                 <FormRow>
                     <Input
                         type="password"
+                        inputName="password"
                         placeholder="******"
                         autoComplete="new-password"
                         label="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        disabled={isLoading}
+                        value={formData.password}
+                        onChange={handleChange}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
                     <Input
                         type="password"
+                        inputName="passwordConfirm"
                         placeholder="******"
                         autoComplete="new-password"
                         label="Confirm Password"
-                        value={passwordConfirm}
-                        onChange={(e) => setPasswordConfirm(e.target.value)}
-                        disabled={isLoading}
+                        value={formData.passwordConfirm}
+                        onChange={handleChange}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
@@ -90,9 +114,12 @@ function SignupForm() {
                 <FormRow>
                     <Button 
                         type="submit"
-                        label={!isLoading ? "Create account" : "Registering..."}
-                        disabled={isLoading || !isChecked}
+                        label={!isPending ? "Create account" : "Please wait"}
+                        disabled={isPending || !isChecked}
                     />
+                </FormRow>
+                <FormRow>
+                    <FormError error={error} />
                 </FormRow>
                 <FormRow>
                     <NavLink to="/login" className={signupFormButtonLinkStyle}>Already registered ?</NavLink>

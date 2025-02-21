@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import { getAllMyProgress } from "../../services/apiProgress";
+import { getAllMyProgress as getAllMyProgressApi } from "../../services/apiProgress";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants";
 
@@ -8,15 +8,15 @@ export function useAllProgress(overrideParams = {}) {
     const [searchParams] = useSearchParams();
 
     // Get filter and sort parameters
-    const statusFilter = overrideParams.experience ?? searchParams.get('experience');
+    const experienceFilter = overrideParams.experience ?? searchParams.get('experience');
     const sortBy = overrideParams.sortBy ?? (searchParams.get('sortBy') || 'experience-desc');
     const page = overrideParams.page ?? (searchParams.get('page') || 1);
     const limit = overrideParams.limit ?? (searchParams.get('limit') || DEFAULT_PAGE_SIZE);
 
     // Build params object
     const params = {};
-    if (statusFilter && statusFilter !== 'all') {
-        params.status = statusFilter;
+    if (experienceFilter && experienceFilter !== 'all') {
+        params.status = experienceFilter;
     }
     if (sortBy) {
         params.sortBy = sortBy;
@@ -28,9 +28,9 @@ export function useAllProgress(overrideParams = {}) {
         params.limit = limit;
     }
 
-    const {isLoading, data, error} = useQuery({
+    const {isPending, data, error} = useQuery({
         queryKey: ["progress", params],
-        queryFn: () => getAllMyProgress(params),
+        queryFn: () => getAllMyProgressApi(params),
         staleTime: 0,
         retry: false,
         refetchOnMount: true,
@@ -46,7 +46,7 @@ export function useAllProgress(overrideParams = {}) {
     const totalCount = data?.totalCount || 0;
 
     return {
-        isLoading,
+        isPending,
         progress,
         totalCount,
         error

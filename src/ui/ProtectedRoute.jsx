@@ -7,15 +7,15 @@ import toast from "react-hot-toast";
 function ProtectedRoute({children}) {
     const navigate = useNavigate();
 
-    const {isLoading, isAuthenticated} = useUser();
+    const {isPending, isAuthenticated} = useUser();
 
     useEffect(function() {
-        if (!isAuthenticated && !isLoading) navigate("/login");
-        if (!isAuthenticated && isLoading) return;
+        if (!isAuthenticated && !isPending) navigate("/login");
+        if (!isAuthenticated && isPending) return;
         if (!isAuthenticated) toast.error("You need to log in to access the app");
-    }, [isAuthenticated, isLoading, navigate]); 
+    }, [isAuthenticated, isPending, navigate]); 
     
-    if(isLoading) return <div><LoadingSpinner /></div>
+    if(isPending) return <div><LoadingSpinner /></div>
 
     if(isAuthenticated) return children;
 

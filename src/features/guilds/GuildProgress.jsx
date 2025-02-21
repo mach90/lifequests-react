@@ -1,19 +1,16 @@
 import { useGuildProgress } from "../progress/useGuildProgress";
 import Card from "../../ui/Card";
-import LoadingSpinner from "../../ui/LoadingSpinner";
 import ProgressItem from "../progress/ProgressItem";
 
 const guildProgressContainerStyle = "col-span-3 row-span-3";
 
-function GuildProgress({ guild }) {
-    const {isLoading, progress, error} = useGuildProgress(guild?.id);
-
-    if(isLoading) return <LoadingSpinner size="sm" />
+function GuildProgress({guild, isPending}) {
+    const {isPending: isLoadingProgress, progress, error} = useGuildProgress(guild?.id);
 
     return (
         <div className={guildProgressContainerStyle}>
             <Card title="Guild progress">
-                <ProgressItem progr={progress} simple="true" />
+                {!isPending && progress && <ProgressItem progr={progress} simple="true" />}
             </Card>
         </div>
     );

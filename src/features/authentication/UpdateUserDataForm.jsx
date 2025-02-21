@@ -1,45 +1,28 @@
-import { useState } from "react";
+import { useHandleChange } from "../../hooks/useHandleChange";
+import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
 import Card from "../../ui/Card";
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import FormError from "../../ui/FormError";
-import toast from "react-hot-toast";
 import Button from "../../ui/Button";
-
-const userDataFormButtonStyle = "bg-slate-700 hover:bg-variant1 text-white font-bold px-4 py-2 rounded-lg shadow-md disabled:opacity-50 disabled:cursor-not-allowed";
+import UserInfosAvatar from "../../ui/UserInfosAvatar";
 
 function UpdateUserDataForm() {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
+    const {user} = useUser();
+
+    const {formData, handleChange, setFormData} = useHandleChange({
+        name: user?.data?.name,
+        email: user?.data?.email,
         photo: ""
     });
-    const { updateUser, isUpdating, error } = useUpdateUser();
-
-    function handleChange(e) {
-        const { name, type } = e.target;
-        
-        if (type === "file") {
-            const file = e.target.files[0];
-            setFormData(prev => ({
-                ...prev,
-                [name]: file
-            }));
-        } else {
-            const { value } = e.target;
-            setFormData(prev => ({
-                ...prev,
-                [name]: value
-            }));
-        }
-    }
+    const {updateUser, isPending, error} = useUpdateUser();
 
     function handleSubmit(e) {
         e.preventDefault();
         
-        // Create FormData object for handling file upload
+        // FormData object for handling file upload
         const submitData = new FormData();
         
         // Only append non-empty values
@@ -55,9 +38,9 @@ function UpdateUserDataForm() {
         
         updateUser(submitData, {
             onSuccess: () => {
-                // Clear form after successful update
-                setFormData({ name: "", email: "", photo: null });
-                toast.success("Change successful")
+                setFormData({ 
+                    photo: null 
+                });
             }
         });
     }
@@ -74,7 +57,7 @@ function UpdateUserDataForm() {
                         autoComplete="username"
                         value={formData.name}
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
@@ -86,7 +69,7 @@ function UpdateUserDataForm() {
                         autoComplete="email"
                         value={formData.email}
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
@@ -97,15 +80,15 @@ function UpdateUserDataForm() {
                         label="Character avatar"
                         accept="image/*"
                         onChange={handleChange}
-                        disabled={isUpdating}
+                        disabled={isPending}
                     />
                 </FormRow>
                 <FormRow>
                     <Button 
                         type="submit" 
-                        label={!isUpdating ? "Update" : "Updating..."}
-                        disabled={isUpdating || (!formData.name && !formData.email && !formData.photo)}
-                        isUpdating={isUpdating}
+                        label={!isPending ? "Update" : "Updating..."}
+                        disabled={isPending || (!formData.name && !formData.email && !formData.photo)}
+                        isPending={isPending}
                     />
                 </FormRow>
                 <FormRow>

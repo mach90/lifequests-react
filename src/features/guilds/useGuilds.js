@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import { getGuilds } from "../../services/apiGuilds";
+import { getGuilds as getGuildsApi } from "../../services/apiGuilds";
+import toast from "react-hot-toast";
 
 export function useGuilds() {
     const [searchParams] = useSearchParams();
@@ -18,22 +19,26 @@ export function useGuilds() {
         params.sortBy = sortBy;
     }
 
-    const {isLoading, data: guilds, error} = useQuery({
+    const {
+        isPending, 
+        data: guilds, 
+        error
+    } = useQuery({
         queryKey: ["guilds", params],
-        queryFn: () => getGuilds(params),
+        queryFn: () => getGuildsApi(params),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get guilds.");
             if (error?.response?.status === 401) return null;
-            console.error(error);
         }
     });
 
     return {
-        isLoading, 
+        isPending, 
         guilds, 
         error
     };
