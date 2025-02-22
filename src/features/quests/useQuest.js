@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getQuest } from "../../services/apiQuests";
 
 export function useQuest(questId) {
-    const {isLoading, data: quest, error} = useQuery({
+    const {isPending, data: quest, error} = useQuery({
         queryKey: ["quest", questId],
         queryFn: () => getQuest(questId),
         staleTime: 1000 * 60 * 30,
@@ -11,13 +11,13 @@ export function useQuest(questId) {
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get quest");
             if (error?.response?.status === 401) return null;
-            console.error(error);
         }
     });
 
     return {
-        isLoading, 
+        isPending, 
         quest, 
         error
     };

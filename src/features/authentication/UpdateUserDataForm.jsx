@@ -7,7 +7,6 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import FormError from "../../ui/FormError";
 import Button from "../../ui/Button";
-import UserInfosAvatar from "../../ui/UserInfosAvatar";
 
 function UpdateUserDataForm() {
     const {user} = useUser();

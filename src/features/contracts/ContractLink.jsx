@@ -3,6 +3,7 @@ import { FaFileContract, FaRegBookmark } from "react-icons/fa";
 
 const contractLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-transparent hover:border-main4 text-main4 duration-200";
 const contractLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
+const contractLinkFortyle = "uppercase text-xs text-main3";
 const contractLinkNameStyle = "w-full text-sm font-bold";
 const contractLinkIcon = "";
 const contractLinkStatusIconActiveStyle = "text-xs font-bold text-blue1 bg-blue2 p-1 w-24 text-center";
@@ -19,7 +20,7 @@ function ContractLink({contractId, name, status}) {
     return (
         <NavLink to={to} className={({ isActive }) => isActive ? contractLinkActiveStyle : contractLinkStyle}>
             <div className={contractLinkIcon}><FaFileContract /></div>
-            <h2 className={contractLinkNameStyle}>{name}</h2>
+            <h2 className={contractLinkNameStyle}><span className={contractLinkFortyle}>CTR.</span> {name}</h2>
             {status === "active" && <div className={contractLinkStatusIconActiveStyle}>ACTIVE</div>}
             {status === "finished" && <div className={contractLinkStatusIconFinishStyle}>FINISHED</div>}
             <FaRegBookmark />

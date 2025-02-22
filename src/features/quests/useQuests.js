@@ -28,7 +28,7 @@ export function useQuests() {
         params.limit = limit;
     }
 
-    const {isLoading, data, error} = useQuery({
+    const {isPending, data, error} = useQuery({
         queryKey: ["quests", params],
         queryFn: () => getQuests(params),
         staleTime: 1000 * 60 * 30,
@@ -37,8 +37,8 @@ export function useQuests() {
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get quests.");
             if (error?.response?.status === 401) return null;
-            console.error(error);
         }
     });
 
@@ -47,7 +47,7 @@ export function useQuests() {
     const results = data?.results || 0;
 
     return {
-        isLoading, 
+        isPending, 
         quests,
         totalCount, 
         results,
