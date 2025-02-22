@@ -1,6 +1,6 @@
 const characterAttributesListItemStyle = "w-full h-max flex flex-row justify-between items-center px-2 py-1 bg-main2";
 const characterAttributesListItemDescriptionStyle = "w-max h-max flex flex-row gap-1 justify-start items-center";
-const characterAttributesNameStyle = "text-neutral0 font-bold";
+const characterAttributesNameStyle = "text-neutral0 font-bold uppercase";
 const characterAttributesMaxValueStyle = "font-bold text-base text-neutral0";
 
 function CharacterAttribute({ data, attributeShort, attributeName }) {
@@ -59,7 +59,6 @@ function CharacterAttribute({ data, attributeShort, attributeName }) {
     return (
         <div className={characterAttributesListItemStyle}>
             <div className={characterAttributesListItemDescriptionStyle}>
-                🦾
                 <div className={characterAttributesTagStyle}>
                     {attributeShort}
                 </div>

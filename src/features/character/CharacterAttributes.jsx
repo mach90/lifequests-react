@@ -7,7 +7,7 @@ const characterAttributesListContainerStyle = "w-full h-full flex flex-row justi
 const characterAttributesListSectionStyle = "w-full h-full flex flex-col justify-between items-center p-2.5";
 const characterAttributesListSectionTitleStyle = "text-sm text-main4 font-bold";
 
-function CharacterAttributes({data}) {
+function CharacterAttributes({data, isPending}) {
     return (
         <div className={characterAttributesContainerStyle}>
             <Card title="Attributes" icon={IoIosStats}>

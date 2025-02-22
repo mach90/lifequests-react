@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
 import { getMyContracts } from "../../services/apiContracts";
+import toast from "react-hot-toast";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
 
@@ -28,7 +29,7 @@ export function useContracts(overrideParams = {}) {
         params.limit = limit;
     }
 
-    const {isLoading, data, error} = useQuery({
+    const {isPending, data, error} = useQuery({
         queryKey: ["contracts", params],
         queryFn: () => getMyContracts(params),
         staleTime: 0,
@@ -37,8 +38,8 @@ export function useContracts(overrideParams = {}) {
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get contracts.");
             if (error?.response?.status === 401) return null;
-            console.error("Query error:", error);
         }
     });
 
@@ -46,7 +47,7 @@ export function useContracts(overrideParams = {}) {
     const totalCount = data?.totalCount || 0;
 
     return {
-        isLoading,
+        isPending,
         contracts,
         totalCount,
         error

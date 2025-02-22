@@ -21,9 +21,9 @@ const questDataContainerStyle = "grid grid-flow-col grid-cols-6 grid-rows-8 w-fu
 
 function Quest() {
     const { questId } = useParams();
-    const {isLoading, quest, error} = useQuest(questId);
+    const {isPending, quest, error} = useQuest(questId);
     
-    const { isLoading: isLoadingContracts, contracts } = useContracts({
+    const { isPending: isLoadingContracts, contracts } = useContracts({
         page: 1,
         limit: 9999
     });
@@ -34,7 +34,7 @@ function Quest() {
         createContract.mutate(qId);
     };
 
-    if(isLoading || isLoadingContracts) return <LoadingSpinner size="lg" />
+    if(isPending || isLoadingContracts) return <LoadingSpinner size="lg" />
 
     const hasContract = contracts.some(contract => contract.quest.id === quest.id);
     const contractFinished = contracts.some(contract => contract.quest.id === quest.id && contract.status === "finished");

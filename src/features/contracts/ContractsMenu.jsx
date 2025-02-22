@@ -8,17 +8,16 @@ const contractsMenuContainerStyle = "col-span-3 row-span-full";
 const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
 
 function ContractsMenu() {
-    const {isLoading, contracts, totalCount, error} = useContracts();
-
-    if(isLoading) return <LoadingSpinner size="md" />;
-    if(contracts.length === 0 || totalCount === 0) return <div className={contractsMenuContainerStyle}>No contracts</div>
+    const { isPending, contracts, totalCount, error } = useContracts();
 
     return (
         <div className={contractsMenuContainerStyle}>
             <CardMenu title="Contracts" icon={FaFileContract} sort="Contracts" filter="Contracts" pagination={true} totalCount={totalCount}>
-                <div className={contractsListStyle}>
-                    {contracts.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
-                </div>
+                {isPending && <LoadingSpinner size="sm" />}
+
+                {!isPending && <div className={contractsListStyle}>
+                    {contracts?.map(contract => <ContractLink key={contract.id} contractId={contract.id} name={contract.quest.name} status={contract.status} />)}
+                </div>}
             </CardMenu>
         </div>
     );

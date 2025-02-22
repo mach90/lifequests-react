@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMyContract } from "../../services/apiContracts";
+import toast from "react-hot-toast";
 
 export function useContract(contractId) {
-    const {isLoading, data: contract, error} = useQuery({
+    const {isPending, data: contract, error} = useQuery({
         queryKey: ["contract", contractId],
         queryFn: () => getMyContract(contractId),
         staleTime: 0,
@@ -11,13 +12,13 @@ export function useContract(contractId) {
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
+            toast.error("Couldn't get contract.");
             if (error?.response?.status === 401) return null;
-            console.error("Query error:", error);
         }
     });
 
     return {
-        isLoading,
+        isPending,
         contract,
         error
     };

@@ -66,7 +66,7 @@ const characterAttributesChartContainerStyle = "col-span-3 row-span-6";
 const characterAttributesChartTitleStyle = "bg-variant1 w-full text-center text-base font-bold text-white py-1 px-2 uppercase";
 const characterAttributesChartAreaStyle = "h-full w-full p-4";
 
-function CharacterAttributesChart({chartData}) {
+function CharacterAttributesChart({chartData, isPending}) {
     const data = {
         labels: ["STR", "STA", "DEX", "SPD", "VIT", "AGI", "INT", "CHA", "WIS", "PER", "FOC", "WIL"],
         datasets: [
