@@ -4,7 +4,7 @@ const serverUrl = import.meta.env.VITE_SERVER_URL;
 
 const guildTitleContainerStyle = "col-span-4 row-span-2";
 const guildTitleHeaderStyle = "flex flex-row gap-2 items-center justify-center";
-const guildEmblemStyle = "w-6 h-6";
+const guildEmblemStyle = "h-6";
 const guildNameStyle = "uppercase font-bold text-2xl text-neutral0";
 
 function GuildTitle({ guild, isPending }) {

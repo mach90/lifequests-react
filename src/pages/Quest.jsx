@@ -21,7 +21,8 @@ const questDataContainerStyle = "grid grid-flow-col grid-cols-6 grid-rows-8 w-fu
 
 function Quest() {
     const { questId } = useParams();
-    const {isPending, quest, error} = useQuest(questId);
+    
+    const {isPending: isLoadingQuest, quest, error} = useQuest(questId);
     
     const { isPending: isLoadingContracts, contracts } = useContracts({
         page: 1,
@@ -34,22 +35,22 @@ function Quest() {
         createContract.mutate(qId);
     };
 
-    if(isPending || isLoadingContracts) return <LoadingSpinner size="lg" />
+    // if(isLoadingQuest || isLoadingContracts) return <LoadingSpinner size="lg" />
 
-    const hasContract = contracts.some(contract => contract.quest.id === quest.id);
-    const contractFinished = contracts.some(contract => contract.quest.id === quest.id && contract.status === "finished");
+    const hasContract = contracts?.some(contract => contract?.quest?.id === quest?.id);
+    const contractFinished = contracts?.some(contract => contract?.quest?.id === quest?.id && contract?.status === "finished");
 
     return (
         <div className={questContainerStyle}>
             <div className={questContainerCardStyle}>
                 <Card title="Quest Description">
                     <div className={questDataContainerStyle}>
-                        <QuestHeader quest={quest} hasContract={hasContract} contractFinished={contractFinished} />
-                        <QuestInfos quest={quest} serverUrl={serverUrl} />
-                        <QuestDetails quest={quest} />
-                        <QuestReward quest={quest}/>
-                        <QuestGuilds questId={quest?.id} />
-                        {!hasContract && <Modal>
+                        {!isLoadingQuest && <QuestHeader quest={quest} hasContract={hasContract} contractFinished={contractFinished} />}
+                        {!isLoadingQuest && <QuestInfos quest={quest} serverUrl={serverUrl} />}
+                        {!isLoadingQuest && <QuestDetails quest={quest} />}
+                        {!isLoadingQuest && <QuestReward quest={quest}/>}
+                        {!isLoadingQuest && <QuestGuilds questId={quest?.id} />}
+                        {!isLoadingQuest && !hasContract && <Modal>
                             <Modal.Open opens="confirm-create-contract">
                                 <Button type="validation" label="Create contract" />
                             </Modal.Open>
