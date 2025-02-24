@@ -34,3 +34,23 @@ export async function getSkills(params = {}) {
         throw new Error("Skills could not be fetched");
     }
 }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET SKILL BY ID (SKILL ID)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
+export async function getSkill(id) {
+    try {
+        let response = await fetch(`${apiURL}/skills/${id}`);
+
+        if(!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        let data = await response.json();
+
+        return data.data.data;
+
+    } catch(error) {
+        throw new Error("Skill could not be fetched");   
+    }
+}
