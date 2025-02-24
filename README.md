@@ -23,6 +23,12 @@ ___
 |             |                      | 🟢  | **Welcome message**                                                               |
 |             |                      | 🟢  | **Reset password mail (reset link)**                                              |
 |             | Aggregation/Stats    | 🔴  | *Statistics 7/30/365/All*                                                         |
+|             | Skills               | 🟢  | **Skill model**                                                                   |
+|             |                      | 🟢  | **Skill controller**                                                              |
+|             |                      | 🟢  | **Skill routes**                                                                  |
+|             | Skillsets            | 🟢  | **Skillset model**                                                                |
+|             |                      | 🟢  | **Skillset controller**                                                           |
+|             |                      | 🟢  | **Skillset routes**                                                               |
 | Frontend    | UI                   | 🟢  | **Modals**                                                                        |
 |             |                      | 🟢  | **Confirmation in modal**                                                         |
 |             | Responsiveness       | 🔴  | *UI Responsiveness*                                                               |
@@ -43,6 +49,9 @@ ___
 |             |                      | 🟢  | **Patch guild progress**                                                          |
 |             |                      | 🟢  | **Patch contract related guilds progress**                                        |
 |             | Guilds               | ⚫   | Chatbots                                                                          |
+|             | Skills/skillsets     | 🔴  | *Getallskills: Display all skills, sort, paginate*                                |
+|             |                      |     | *Getmyskillset: Compare and display my skills*                                    |
+|             |                      |     | *Getskillbyid: Display infos on skill*                                            |
 |             | Inventory            | ⚫   | .glb 3D viewer                                                                    |
 |             |                      | ⚫   | Character equipement/perks                                                        |
 |             |                      | ⚫   | Marketplace                                                                       |
