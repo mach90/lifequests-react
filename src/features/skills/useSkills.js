@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import { getSkills as GetSkillsApi } from "../../services/apiSkills";
+import { getSkills as getSkillsApi } from "../../services/apiSkills";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
 
@@ -8,16 +8,16 @@ export function useSkills() {
     const [searchParams] = useSearchParams();
     
     // Get filter and sort parameters
-    // const filterFilter = searchParams.get('filter');
+    const categoryFilter = searchParams.get('category');
     const sortBy = searchParams.get('sortBy') || 'name-asc';
     const page = searchParams.get('page') || 1;
     const limit = searchParams.get('limit') || DEFAULT_PAGE_SIZE;
     
     // Build params object
     const params = {};
-    // if (filterFilter && filterFilter !== 'all') {
-    //     params.filter = filterFilter;
-    // }
+    if (categoryFilter && categoryFilter !== 'all') {
+        params.category = categoryFilter;
+    }
     if (sortBy) {
         params.sortBy = sortBy;
     }
@@ -28,9 +28,13 @@ export function useSkills() {
         params.limit = limit;
     }
 
-    const {isPending, data, error} = useQuery({
+    const {
+        isPending, 
+        data, 
+        error
+    } = useQuery({
         queryKey: ["skills", params],
-        queryFn: () => GetSkillsApi(params),
+        queryFn: () => getSkillsApi(params),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,

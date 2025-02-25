@@ -14,9 +14,11 @@ function Skill() {
     return (
         <div className={skillContainerStyle}>
             <div className={skillDetailsStyle}>
-                <Card title={skill.name} legend={`${skill?.category} skill`}>
+                <Card title={skill?.name} legend={`${skill?.category} skill`}>
                     {isPending && <LoadingSpinner size="md" />}
-                    {!isPending && <div>{skill.description}</div>}
+                    {!isPending && <div className="flex flex-col gap-4 text-main4 text-justify">
+                        <p>{skill.description}</p>
+                    </div>}
                 </Card>
             </div>
         </div>

@@ -3,7 +3,11 @@ import { getMySkillset as getMySkillsetApi } from "../../services/apiSkillsets";
 import toast from "react-hot-toast";
 
 export function useSkillset() {
-    const {isPending, data: skillset, error} = useQuery({
+    const {
+        isPending, 
+        data: skillset, 
+        error
+    } = useQuery({
         queryKey: ["skillset"],
         queryFn: getMySkillsetApi,
         staleTime: 0,

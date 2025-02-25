@@ -1,11 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMyContract } from "../../services/apiContracts";
+import { getMyContract as getMyContractApi } from "../../services/apiContracts";
 import toast from "react-hot-toast";
 
 export function useContract(contractId) {
-    const {isPending, data: contract, error} = useQuery({
+    const {
+        isPending, 
+        data: contract, 
+        error
+    } = useQuery({
         queryKey: ["contract", contractId],
-        queryFn: () => getMyContract(contractId),
+        queryFn: () => getMyContractApi(contractId),
         staleTime: 0,
         retry: false,
         refetchOnMount: true,

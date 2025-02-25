@@ -1,4 +1,4 @@
-import { api } from './api';
+import { api } from "./api";
 
 /* ////////////////////////////////////////////////////////////////////////////////////////////////////
 GET ALL MY CONTRACTS
@@ -6,12 +6,12 @@ GET ALL MY CONTRACTS
 export const getMyContracts = async (params = {}) => {
     try {
         if (params.sortBy) {
-            const [field, direction] = params.sortBy.split('-');
-            params.sort = direction === 'desc' ? `-${field}` : field;
+            const [field, direction] = params.sortBy.split("-");
+            params.sort = direction === "desc" ? `-${field}` : field;
             delete params.sortBy;
         }
 
-        const res = await api.get('contracts/my-contracts', {
+        const res = await api.get("contracts/my-contracts", {
             params: params
         });
 
@@ -35,13 +35,11 @@ export const getMyContract = async (contractId) => {
         const res = await api.get(`contracts/my-contracts/${contractId}`);
 
         if(res.data.status === "success") {
-            // console.log("CONTRACT DATA", res.data.data.data);
             return res.data.data.data;
         }
 
         throw new Error(`Request failed with status: ${res.data.status}`);
     } catch(err) {
-        console.error('Get my contract error:', err);
         throw new Error(err?.response?.data?.message || "Failed to get user contract");
     }
 }
@@ -51,7 +49,7 @@ CREATE MY CONTRACT (QUEST ID)
 //////////////////////////////////////////////////////////////////////////////////////////////////// */
 export const createMyContract = async (questId) => {
     try {
-        const res = await api.post('contracts/my-contracts', { 
+        const res = await api.post("contracts/my-contracts", { 
             quest: questId
         });
         
@@ -61,7 +59,6 @@ export const createMyContract = async (questId) => {
 
         throw new Error(`Request failed with status: ${res.data.status}`);
     } catch(err) {
-        console.error('Create my contract error:', err);
         throw new Error(err?.response?.data?.message || "Failed to create user contract");
     }
 }
@@ -77,7 +74,6 @@ export const updateMyContract = async (contractId, status, finishedAt) => {
         });
 
         if(res.data.status === "success") {
-            // console.log("API CONTRACT UPDATED", res.data.data);
             return res.data.data;
         }
     } catch(err) {

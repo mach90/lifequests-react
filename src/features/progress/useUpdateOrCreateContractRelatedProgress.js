@@ -6,7 +6,7 @@ export function useUpdateOrCreateContractRelatedProgress() {
 
     const {
         mutate: updateRelatedProgress,
-        isLoading: isUpdatingRelatedProgress,
+        isPending: isUpdatingRelatedProgress,
         error
     } = useMutation({
         mutationFn: ({ contractId, progressData }) => 

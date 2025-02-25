@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { getQuest } from "../../services/apiQuests";
+import { getQuest as getQuestApi } from "../../services/apiQuests";
 
 export function useQuest(questId) {
     const {isPending, data: quest, error} = useQuery({
         queryKey: ["quest", questId],
-        queryFn: () => getQuest(questId),
+        queryFn: () => getQuestApi(questId),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import { getQuests } from "../../services/apiQuests";
+import { getQuests as getQuestsApi } from "../../services/apiQuests";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
 
@@ -30,7 +30,7 @@ export function useQuests() {
 
     const {isPending, data, error} = useQuery({
         queryKey: ["quests", params],
-        queryFn: () => getQuests(params),
+        queryFn: () => getQuestsApi(params),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
