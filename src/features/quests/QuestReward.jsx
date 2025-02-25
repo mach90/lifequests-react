@@ -19,6 +19,7 @@ function QuestReward({quest}) {
                     </div>
                 ))
             }
+            {quest?.reward?.skills?.map(skill => <p key={skill.id}>{skill.name}</p>)}
         </div>
     );
 };

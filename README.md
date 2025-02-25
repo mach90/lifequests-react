@@ -23,26 +23,39 @@ ___
 |             |                      | 🟢  | **Welcome message**                                                               |
 |             |                      | 🟢  | **Reset password mail (reset link)**                                              |
 |             | Aggregation/Stats    | 🔴  | *Statistics 7/30/365/All*                                                         |
+|             | Quest                | 🟢  | **Quest model: skills array in quest reward**                                     |
+|             | Skills               | 🟢  | **Skill model**                                                                   |
+|             |                      | 🟢  | **Skill controller**                                                              |
+|             |                      | 🟢  | **Skill routes**                                                                  |
+|             | Skillsets            | 🟢  | **Skillset model**                                                                |
+|             |                      | 🟢  | **Skillset controller**                                                           |
+|             |                      | 🟢  | **Skillset routes**                                                               |
 | Frontend    | UI                   | 🟢  | **Modals**                                                                        |
 |             |                      | 🟢  | **Confirmation in modal**                                                         |
 |             | Responsiveness       | 🔴  | *UI Responsiveness*                                                               |
 |             | Auth                 | 🟢  | **Forgot password form**                                                          |
 |             |                      | 🟢  | **Reset password page+form**                                                      |
 |             | Settings             | 🟠  | *Basic settings (API/User model)*                                                 |
-|             | Navigation           | 🔴  | *Main nav routes should remember and use last params*                             |
+|             | Navigation           | 🔴  | Main nav routes should remember and use last params                               |
 |             | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                                                  |
 |             |                      | 🟢  | **Override params**                                                               |
-|             |                      | 🔴  | *Nested params*                                                                   |
+|             |                      | 🔴  | Nested params                                                                     |
 |             | Character            | 🟢  | **Patch contract → Patch character**                                              |
 |             |                      | 🟢  | **Min/Max values after patch validator**                                          |
 |             | Contracts            | 🟢  | **Get my contracts/contract (x2)**                                                |
 |             |                      | 🟢  | **Post contracts**                                                                |
 |             |                      | 🟢  | **Patch contracts**                                                               |
+|             |                      | 🟢  | **Rewards skill(s) on completion**                                                |
 |             | Guild progress       | 🟢  | **Get my guilds/guild progress (x2)**                                             |
 |             |                      | 🟢  | **Post guild progress**                                                           |
 |             |                      | 🟢  | **Patch guild progress**                                                          |
 |             |                      | 🟢  | **Patch contract related guilds progress**                                        |
 |             | Guilds               | ⚫   | Chatbots                                                                          |
+|             | Skills/skillsets     | 🟡  | **Getallskills: Display all skills, sort, paginate**                              |
+|             |                      | 🟢  | **Getmyskillset: Compare and display my skills**                                  |
+|             |                      | 🟢  | **Getskillbyid: Display infos on skill**                                          |
+|             |                      | 🟢  | **Create skillset**                                                               |
+|             |                      | 🟢  | **Patch skillset**                                                                |
 |             | Inventory            | ⚫   | .glb 3D viewer                                                                    |
 |             |                      | ⚫   | Character equipement/perks                                                        |
 |             |                      | ⚫   | Marketplace                                                                       |
@@ -51,17 +64,6 @@ ___
 |             |                      | ⚫   | Doc reader                                                                        |
 |             |                      | ⚫   | Picture viewer                                                                    |
 |             | Quests               | ⚫   | Community pictures                                                                |
-
-___
-
-## COMPLETED TASKS
-- [x] Keep session alive
-- [x] user data flow issue
-- [x] Update user data form
-- [x] Update password form
-- [x] Delete account form
-- [x] Change photo form
-- [x] Signup form
 
 ___
 

@@ -25,6 +25,7 @@ import SettingsSecurity from "./pages/SettingsSecurity";
 import SettingsAdmin from "./pages/SettingsAdmin";
 import SettingsApp from "./pages/SettingsApp";
 import Skills from "./pages/Skills";
+import Skill from "./pages/Skill";
 import Guilds from "./pages/Guilds";
 import Guild from "./pages/Guild";
 import Quests from "./pages/Quests";
@@ -70,7 +71,9 @@ function App() {
               <Route path="admin" element={<SettingsAdmin />} />
               <Route path="app-settings" element={<SettingsApp />} />
             </Route>
-            <Route path="skills" element={<Skills />} />
+            <Route path="skills" element={<Skills />}>
+              <Route path="/skills/:skillId" element={<Skill />} />
+            </Route>
             <Route path="guilds" element={<Guilds />}>
               <Route path="/guilds/:guildId" element={<Guild />} />
             </Route>

@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router-dom";
-import { getMyContracts } from "../../services/apiContracts";
+import { getMyContracts as getMyContractsApi } from "../../services/apiContracts";
 import toast from "react-hot-toast";
 
 import { DEFAULT_PAGE_SIZE } from "../../utils/constants"; //10
@@ -9,14 +9,14 @@ export function useContracts(overrideParams = {}) {
     const [searchParams] = useSearchParams();
     
     // Get filter and sort parameters
-    const statusFilter = overrideParams.status ?? searchParams.get('status');
-    const sortBy = overrideParams.sortBy ?? (searchParams.get('sortBy') || 'status-asc');
-    const page = overrideParams.page ?? (searchParams.get('page') || 1);
-    const limit = overrideParams.limit ?? (searchParams.get('limit') || DEFAULT_PAGE_SIZE);
+    const statusFilter = overrideParams.status ?? searchParams.get("status");
+    const sortBy = overrideParams.sortBy ?? (searchParams.get("sortBy") || "status-asc");
+    const page = overrideParams.page ?? (searchParams.get("page") || 1);
+    const limit = overrideParams.limit ?? (searchParams.get("limit") || DEFAULT_PAGE_SIZE);
     
     // Build params object
     const params = {};
-    if (statusFilter && statusFilter !== 'all') {
+    if (statusFilter && statusFilter !== "all") {
         params.status = statusFilter;
     }
     if (sortBy) {
@@ -29,9 +29,13 @@ export function useContracts(overrideParams = {}) {
         params.limit = limit;
     }
 
-    const {isPending, data, error} = useQuery({
+    const {
+        isPending, 
+        data, 
+        error
+    } = useQuery({
         queryKey: ["contracts", params],
-        queryFn: () => getMyContracts(params),
+        queryFn: () => getMyContractsApi(params),
         staleTime: 0,
         retry: false,
         refetchOnMount: true,

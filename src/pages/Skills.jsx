@@ -1,28 +1,15 @@
-import CardMenu from "../ui/CardMenu";
-import Card from "../ui/Card";
-import { ImTree } from "react-icons/im";
+import { Outlet } from "react-router-dom";
+import SkillsMenu from "../features/skills/SkillsMenu";
 
 const skillsContainerStyle = "grid grid-flow-col grid-cols-12 grid-rows-12 gap-4 h-full";
-const skillsCardContainerStyle = "col-span-3 row-span-full"; //temporary
+const skillsOutletContainerStyle = "col-span-3 row-span-full text-white flex justify-center items-center";
 
 function Skills() {
     return (
         <div className={skillsContainerStyle}>
-            <div className={skillsCardContainerStyle}>
-                <CardMenu title="Skills" icon={ImTree}>
-                </CardMenu>
-            </div>
-            <div className={skillsCardContainerStyle}>
-                <Card title="Skill">
-                </Card>
-            </div>
-            <div className={skillsCardContainerStyle}>
-                <Card title="Stats">
-                </Card>
-            </div>
-            <div className={skillsCardContainerStyle}>
-                <Card title="Stats">
-                </Card>
+            <SkillsMenu />
+            <div className={skillsOutletContainerStyle}>
+                <Outlet />
             </div>
         </div>
     );

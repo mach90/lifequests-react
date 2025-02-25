@@ -15,6 +15,16 @@ function CardMenu({ title, icon: IconComponent, legend, sort, filter, pagination
             <div className={cardHeaderStyle}>
                 <h3 className={cardTitleStyle}>{IconComponent && <IconComponent size={16} />} {title}</h3>
                 {!sort && <h4 className={cardLegendStyle}>{legend}</h4>}
+                {sort === "Skills" && <SortBy 
+                    options={[
+                        { value: "name-asc", label: "Sort A-Z ↑" },
+                        { value: "name-desc", label: "Sort Z-A ↓" },
+                        { value: "level-asc", label: "Sort level ↑" },
+                        { value: "level-desc", label: "Sort level ↓" },
+                        { value: "category-asc", label: "Sort category ↑" },
+                        { value: "category-desc", label: "Sort category ↓" },
+                    ]}
+                />}
                 {sort === "Guilds" && <SortBy 
                     options={[
                         { value: "name-asc", label: "Sort A-Z ↑" },
@@ -60,6 +70,17 @@ function CardMenu({ title, icon: IconComponent, legend, sort, filter, pagination
                         {value: "Champions", label:"🎖️"},
                         {value: "Artists", label:"🖌️"},
                         {value: "Synergists", label:"🗣️"},
+                    ]}
+                />}
+                {filter === "Skills" && <Filter 
+                    filterField="category"
+                    options={[
+                        {value: "all", label:"All"},
+                        {value: "technical", label:"Tech."},
+                        {value: "social", label:"Soc."},
+                        {value: "physical", label:"Phys."},
+                        {value: "fourth", label:"Four."},
+                        {value: "fifth", label:"Fif."},
                     ]}
                 />}
                 {filter === "Quests" && <Filter 

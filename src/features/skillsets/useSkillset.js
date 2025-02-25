@@ -1,29 +1,29 @@
 import { useQuery } from "@tanstack/react-query";
-import { getMyContract as getMyContractApi } from "../../services/apiContracts";
+import { getMySkillset as getMySkillsetApi } from "../../services/apiSkillsets";
 import toast from "react-hot-toast";
 
-export function useContract(contractId) {
+export function useSkillset() {
     const {
         isPending, 
-        data: contract, 
+        data: skillset, 
         error
     } = useQuery({
-        queryKey: ["contract", contractId],
-        queryFn: () => getMyContractApi(contractId),
+        queryKey: ["skillset"],
+        queryFn: getMySkillsetApi,
         staleTime: 0,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
-            toast.error("Couldn't get contract.");
+            toast.error("Couldn't get skillset.");
             if (error?.response?.status === 401) return null;
         }
     });
 
     return {
         isPending,
-        contract,
+        skillset,
         error
     };
 }

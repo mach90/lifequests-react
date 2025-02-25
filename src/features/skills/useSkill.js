@@ -1,24 +1,24 @@
 import { useQuery } from "@tanstack/react-query";
-import { getQuest as getQuestApi } from "../../services/apiQuests";
+import { getSkill as getSkillApi } from "../../services/apiSkills";
 
-export function useQuest(questId) {
-    const {isPending, data: quest, error} = useQuery({
-        queryKey: ["quest", questId],
-        queryFn: () => getQuestApi(questId),
+export function useSkill(skillId) {
+    const {isPending, data: skill, error} = useQuery({
+        queryKey: ["skill", skillId],
+        queryFn: () => getSkillApi(skillId),
         staleTime: 1000 * 60 * 30,
         retry: false,
         refetchOnMount: true,
         refetchOnReconnect: true,
         refetchOnWindowFocus: false,
         onError: (error) => {
-            toast.error("Couldn't get quest");
+            toast.error("Couldn't get skill");
             if (error?.response?.status === 401) return null;
         }
     });
 
     return {
         isPending, 
-        quest, 
+        skill, 
         error
     };
 }
