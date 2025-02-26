@@ -8,14 +8,14 @@ export function useAllProgress(overrideParams = {}) {
     const [searchParams] = useSearchParams();
 
     // Get filter and sort parameters
-    const experienceFilter = overrideParams.experience ?? searchParams.get('experience');
-    const sortBy = overrideParams.sortBy ?? (searchParams.get('sortBy') || 'experience-desc');
-    const page = overrideParams.page ?? (searchParams.get('page') || 1);
-    const limit = overrideParams.limit ?? (searchParams.get('limit') || DEFAULT_PAGE_SIZE);
+    const experienceFilter = overrideParams.experience ?? searchParams.get("experience");
+    const sortBy = overrideParams.sortBy ?? (searchParams.get("sortBy") || "experience-desc");
+    const page = overrideParams.page ?? (searchParams.get("page") || 1);
+    const limit = overrideParams.limit ?? (searchParams.get("limit") || DEFAULT_PAGE_SIZE);
 
     // Build params object
     const params = {};
-    if (experienceFilter && experienceFilter !== 'all') {
+    if (experienceFilter && experienceFilter !== "all") {
         params.status = experienceFilter;
     }
     if (sortBy) {

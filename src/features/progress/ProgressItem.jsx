@@ -13,7 +13,13 @@ function ProgressItem({ progr, to, simple }) {
     const currentLevel = calculateLevel(progr?.experience);
     const currentLevelStartXp = calculateXp(currentLevel).toFixed(0);
     const nextLevelStartXp = calculateXp(currentLevel + 1).toFixed(0);
-    const progress = (((progr?.experience - currentLevelStartXp)/(nextLevelStartXp - currentLevelStartXp))*100).toFixed(2);
+    
+    let progress;
+    if (currentLevel === 1) {
+        progress = ((progr?.experience / nextLevelStartXp) * 100).toFixed(2);
+    } else {
+        progress = (((progr?.experience - currentLevelStartXp) / (nextLevelStartXp - currentLevelStartXp)) * 100).toFixed(2);
+    }
 
     if(progr === null) return;
 
