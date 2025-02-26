@@ -80,3 +80,24 @@ export const updateMyContract = async (contractId, status, finishedAt) => {
         throw new Error(err?.response?.data?.message || "Contract update failed");
     }
 }
+
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////
+GET MY CONTRACT AFTER DATE (DATE)
+//////////////////////////////////////////////////////////////////////////////////////////////////// */
+export const getMyContractsAfterDate = async (date) => {
+    try {
+        const res = await api.get(`contracts/my-recent-contracts/${date}`);
+
+        if(res.data.status === "success") {
+            return {
+                contracts: res.data.data.data,
+                totalCount: res.data.totalCount,
+                perDayStats: res.data.data.perDayStats,
+                averageStats: res.data.data.averageStats,
+            }
+        }
+        throw new Error(`Request failed with status: ${res.data.status}`);
+    } catch(err) {
+        throw new Error(err?.response?.data?.message || "Failed to get user contracts after date");
+    }
+}

@@ -1,9 +1,11 @@
+import Filter from "./Filter";
 import Pagination from "./Pagination";
 import SortBy from "./SortBy";
 
 function Card({ title, icon: IconComponent, legend, sort, filter, pagination, totalCount, results, children }) {
     const cardStyle = "flex flex-col p-5 gap-5 bg-main1 border border-main3 rounded-3xl h-full w-full justify-start items-start";
     const cardHeaderStyle = "w-full flex flex-row gap-2.5 justify-between items-center";
+    const cardFilterContainerStyle = "w-full h-max flex justify-center items-center";
     const cardTitleStyle = "uppercase text-base text-neutral0 font-bold flex flex-row gap-2 items-center";
     const cardLegendStyle = "uppercase text-xs text-neutral500 font-bold";
     const cardChildrenStyle = "w-full h-full";
@@ -20,6 +22,16 @@ function Card({ title, icon: IconComponent, legend, sort, filter, pagination, to
                     ]}
                 />}
             </div>
+            {filter && <div className={cardFilterContainerStyle}>
+                {filter === "Stats" && <Filter 
+                    filterField="last"
+                    options={[
+                        {value: "7", label:"Last 7 days"},
+                        {value: "30", label:"Last 30 days"},
+                        {value: "90", label:"Last 90 days"},
+                    ]}
+                />}
+            </div>}
             <div className={cardChildrenStyle}>
                 {children}
             </div>
