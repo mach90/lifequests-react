@@ -8,20 +8,28 @@ export const items = [
         quantity: 1
     },
     {
-        name: "Pottery",
-        id: "4598456",
-        model: "pottery",
-        type: "pottery",
-        description: "A classic earthenware vase, adorned with intricate black designs, echoing ancient craftsmanship.",
+        name: "Small treasure chest",
+        id: "981918915613456",
+        model: "coffre",
+        type: "trophy",
+        description: "Sci-fi Treasure chest.",
         quantity: 1
     },
     {
-        name: "Gold Medal",
-        id: "56984948",
-        model: "gold-medal",
+        name: "Little robot",
+        id: "959916513422",
+        model: "little-robot",
         type: "trophy",
-        description: "A gleaming emblem of triumph, bestowed upon those who achieve greatness",
-        quantity: 4
+        description: "Little robot.",
+        quantity: 1
+    },
+    {
+        name: "Servante Facom",
+        id: "5169461565649493",
+        model: "facom-servante",
+        type: "trophy",
+        description: "Servante FACOM",
+        quantity: 1
     },
     {
         name: "Calculator",

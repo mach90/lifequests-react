@@ -46,6 +46,90 @@
   --color-willpower: #9BEAE7;
 }
 
+[data-theme="dark"] {
+  /* MAIN COLORS */
+  --color-background: #020617;
+  --color-main1: #0F172B;
+  --color-main2: #1E293C;
+  --color-main3: #324155;
+  --color-main4: #91A2B6;
+
+  /* NEUTRAL COLORS */
+  --color-neutral0: #ffffff;
+  --color-neutral500: #858585;
+  --color-neutral1000: #000000;
+
+  /* NUANCES COLORS */
+  --color-green1: #115F59;
+  --color-green2: #13B8A7;
+  --color-red1: #9F1339;
+  --color-red2: #F4405F;
+  --color-orange1: #845425;
+  --color-orange2: #E5832C;
+  --color-yellow1: #988928;
+  --color-yellow2: #e1b131;
+  --color-blue1: #1C2761;
+  --color-blue2: #134DB8;
+  --color-purple1: #380B5F;
+  --color-purple2: #A558F5;
+
+  /* ATTRIBUTES COLORS */
+  --color-strength: #CB364D;
+  --color-stamina: #E96745;
+  --color-dexterity: #E7F49D;
+  --color-speed: #FADE93;
+  --color-vitality: #AF3769;
+  --color-agility: #F2A867;
+  --color-intelligence: #5C529E;
+  --color-charisma: #D76FA9;
+  --color-wisdom: #64B799;
+  --color-perception: #448ABA;
+  --color-focus: #B1DDA9;
+  --color-willpower: #9BEAE7;
+}
+
+[data-theme="light"] {
+  /* MAIN COLORS */
+  --color-background: #fafafa;
+  --color-main1: #eaeaea;
+  --color-main2: #cfcfcf;
+  --color-main3: #bababa;
+  --color-main4: #a3a3a3;
+
+  /* NEUTRAL COLORS */
+  --color-neutral0: #828282;
+  --color-neutral500: #5e5e5e;
+  --color-neutral1000: #444444;
+
+  /* NUANCES COLORS */
+  --color-green1: #e0f2e9;
+  --color-green2: #88c9a1;
+  --color-red1: #f8e0e0;
+  --color-red2: #f4a3a3;
+  --color-orange1: #f8e8d8;
+  --color-orange2: #f4c29d;
+  --color-yellow1: #f8f2d8;
+  --color-yellow2: #f4e29d;
+  --color-blue1: #e0e8f8;
+  --color-blue2: #a3b4f4;
+  --color-purple1: #e8e0f8;
+  --color-purple2: #c2a3f4;
+
+  /* ATTRIBUTES COLORS */
+  --color-strength: #CB364D;
+  --color-stamina: #E96745;
+  --color-dexterity: #E7F49D;
+  --color-speed: #FADE93;
+  --color-vitality: #AF3769;
+  --color-agility: #F2A867;
+  --color-intelligence: #5C529E;
+  --color-charisma: #D76FA9;
+  --color-wisdom: #64B799;
+  --color-perception: #448ABA;
+  --color-focus: #B1DDA9;
+  --color-willpower: #9BEAE7;
+}
+
 body {
   @apply font-display;
 }
@@ -58,4 +142,22 @@ body {
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+@keyframes random-spin {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(30deg); }
+  20% { transform: rotate(-25deg); }
+  30% { transform: rotate(90deg); }
+  40% { transform: rotate(-35deg); }
+  50% { transform: rotate(20deg); }
+  60% { transform: rotate(-15deg); }
+  70% { transform: rotate(-90deg); }
+  80% { transform: rotate(-5deg); }
+  90% { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.animate-random {
+  animation: random-spin 5s infinite ease-in-out;
 }

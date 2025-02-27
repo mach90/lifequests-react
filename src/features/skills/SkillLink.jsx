@@ -6,8 +6,8 @@ const skillLinkStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rou
 const skillLinkActiveStyle = "flex flex-row gap-4 w-full h-10 px-3 py-1.5 bg-main1 rounded-lg items-center justify-between border border-neutral0 text-neutral0 duration-200";
 const skillLinkNameStyle = "w-full text-sm font-bold";
 const skillLinkIconStyle = "";
-const skillLinkStatusAcquiredStyle = "uppercase text-sm font-bold text-main4";
-const skillLinkLevelStyle = "flex flex-row text-xs text-yellow2";
+const skillLinkStatusAcquiredStyle = "uppercase text-sm font-bold text-green1";
+const skillLinkLevelStyle = "flex flex-row text-xs text-green2";
 
 function SkillLink({skillId, name, category, level, acquired}) {
     const [searchParams] = useSearchParams();
@@ -19,11 +19,11 @@ function SkillLink({skillId, name, category, level, acquired}) {
 
     return (
         <NavLink to={to} className={({ isActive }) => isActive ? skillLinkActiveStyle : skillLinkStyle}>
-            {category === "technical" && <div className={skillLinkIconStyle}><PiSphereFill color="#e4c761" /></div>}
-            {category === "social" && <div className={skillLinkIconStyle}><PiSphereFill color="#e543ea" /></div>}
-            {category === "physical" && <div className={skillLinkIconStyle}><PiSphereFill color="#f03753" /></div>}
-            {category === "fourth" && <div className={skillLinkIconStyle}><PiSphereFill color="#1d5ef0" /></div>}
-            {category === "fifth" && <div className={skillLinkIconStyle}><PiSphereFill color="#58e044" /></div>}
+            {category === "technical" && <div className={skillLinkIconStyle}><PiSphereFill color="#eea66a" /></div>}
+            {category === "social" && <div className={skillLinkIconStyle}><PiSphereFill color="#d36ea7" /></div>}
+            {category === "physical" && <div className={skillLinkIconStyle}><PiSphereFill color="#c6324c" /></div>}
+            {category === "fourth" && <div className={skillLinkIconStyle}><PiSphereFill color="#4b8bb9" /></div>}
+            {category === "fifth" && <div className={skillLinkIconStyle}><PiSphereFill color="#6bb79a" /></div>}
             {level === 1 && <div className={skillLinkLevelStyle}><FaStar /><FaRegStar /><FaRegStar /><FaRegStar /><FaRegStar /></div>}
             {level === 2 && <div className={skillLinkLevelStyle}><FaStar /><FaStar /><FaRegStar /><FaRegStar /><FaRegStar /></div>}
             {level === 3 && <div className={skillLinkLevelStyle}><FaStar /><FaStar /><FaStar /><FaRegStar /><FaRegStar /></div>}

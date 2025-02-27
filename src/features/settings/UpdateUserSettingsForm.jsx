@@ -1,29 +1,75 @@
-import { useLocalStorageState } from "../../hooks/useLocalStorageState";
+import { useHandleChange } from "../../hooks/useHandleChange";
+import { useUser } from "../authentication/useUser";
+import { useUpdateSettings } from "../../features/settings/useUpdateSettings";
 import Card from "../../ui/Card";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-
-
-const updateUserSettingsFormSectionTitleStyle = "text-white text-xl font-medium underline";
+import Select from "../../ui/Select";
+import Button from "../../ui/Button";
+import FormError from "../../ui/FormError";
 
 function UpdateUserSettingsForm() {
-    const [xpDisplayStyle, setXpDisplayStyle] = useLocalStorageState(false, "xpDisplayStyle");
+    const {user} = useUser();
+    
+    const {formData, handleChange, setFormData} = useHandleChange({
+            theme: user?.data?.settings?.theme,
+            displayExperience: user?.data?.settings?.displayExperience,
+    });
+    
+    function handleSubmit(e) {
+        e.preventDefault();
 
-    function handleXpDisplayStyle(e) {
-        setXpDisplayStyle(e.target.checked);
+        const submitData = {
+            settings: {
+                theme: formData.theme,
+                displayExperience: formData.displayExperience
+            }
+        };
+
+        updateSettings(submitData);
     }
+
+    const {updateSettings, isPending, error} = useUpdateSettings();
 
     return (
         <Card title="Update settings">
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <FormRow>
-                    <Input 
-                        type="checkbox" 
-                        label="Display remaining XP instead of Total"
-                        checked={xpDisplayStyle} 
-                        onChange={handleXpDisplayStyle}
-                    /> 
+                    <Select
+                        inputName="theme"
+                        label="Theme"
+                        value={formData.theme}
+                        onChange={handleChange}
+                        disabled={isPending}
+                        options={[
+                            { value: "light", label: "Light" },
+                            { value: "dark", label: "Dark" }
+                        ]}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Select
+                        inputName="displayExperience"
+                        label="Display experience"
+                        value={formData.displayExperience}
+                        onChange={handleChange}
+                        disabled={isPending}
+                        options={[
+                            { value: "classic", label: "Classic (1000xp/3000xp)" },
+                            { value: "remaining", label: "Remaining (2000xp)" },
+                        ]}
+                    />
+                </FormRow>
+                <FormRow>
+                    <Button 
+                        type="submit" 
+                        label={!isPending ? "Update" : "Updating..."}
+                        disabled={isPending}
+                        isPending={isPending}
+                    />
+                </FormRow>
+                <FormRow>
+                    <FormError error={error} />
                 </FormRow>
             </Form>
         </Card>

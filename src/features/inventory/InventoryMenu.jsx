@@ -4,7 +4,8 @@ import CardMenu from "../../ui/CardMenu";
 import { BsBackpack4Fill } from "react-icons/bs";
 
 const guildsMenuContainerStyle = "col-span-3 row-span-full";
-const guildsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant5 [&::-webkit-scrollbar-thumb]:hover:bg-variant5 [&::-webkit-scrollbar:horizontal]:hidden";
+// const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
+const guildsListStyle = "overflow-hidden flex flex-col gap-2 justify-start items-center flex-col w-full p-4";
 
 function GuildsMenu() {
     return (

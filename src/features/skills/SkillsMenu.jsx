@@ -6,7 +6,8 @@ import SkillLink from "./SkillLink";
 import { ImTree } from "react-icons/im";
 
 const skillsMenuContainerStyle = "col-span-3 row-span-full";
-const skillsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
+// const skillsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
+const skillsListStyle = "overflow-hidden flex flex-col gap-2 justify-start items-center flex-col w-full p-4";
 
 function SkillsMenu() {
     const {isPending: loadingSkills, skills, totalCount, results, error: errorSkills} = useSkills();

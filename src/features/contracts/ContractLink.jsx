@@ -8,6 +8,7 @@ const contractLinkNameStyle = "w-full text-sm font-bold";
 const contractLinkIcon = "";
 const contractLinkStatusIconActiveStyle = "text-xs font-bold text-blue1 bg-blue2 p-1 w-24 text-center";
 const contractLinkStatusIconFinishStyle = "text-xs font-bold text-green1 bg-green2 p-1 w-24 text-center";
+const contractLinkBookmarkStyle = "w-8";
 
 function ContractLink({contractId, name, status}) {
     const [searchParams] = useSearchParams();
@@ -23,7 +24,9 @@ function ContractLink({contractId, name, status}) {
             <h2 className={contractLinkNameStyle}><span className={contractLinkFortyle}>CTR.</span> {name}</h2>
             {status === "active" && <div className={contractLinkStatusIconActiveStyle}>ACTIVE</div>}
             {status === "finished" && <div className={contractLinkStatusIconFinishStyle}>FINISHED</div>}
-            <FaRegBookmark />
+            <div className={contractLinkBookmarkStyle}>
+                {status === "active" && <FaRegBookmark />}
+            </div>
         </NavLink>
     );
 };

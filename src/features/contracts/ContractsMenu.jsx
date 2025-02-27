@@ -5,7 +5,8 @@ import CardMenu from "../../ui/CardMenu";
 import { FaFileContract } from "react-icons/fa6";
 
 const contractsMenuContainerStyle = "col-span-3 row-span-full";
-const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
+// const contractsListStyle = "overflow-scroll flex flex-col gap-2 justify-start items-center flex-col w-full p-4 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-slate-800 [&::-webkit-scrollbar-thumb]:bg-variant6 [&::-webkit-scrollbar-thumb]:hover:bg-variant6 [&::-webkit-scrollbar:horizontal]:hidden";
+const contractsListStyle = "overflow-hidden flex flex-col gap-2 justify-start items-center flex-col w-full p-4";
 
 function ContractsMenu() {
     const { isPending, contracts, totalCount, error } = useContracts();

@@ -7,7 +7,6 @@ function CharacterTrackedQuests() {
     return (
         <div className={characterTrackedQuestsContainerStyle}>
             <Card title="Tracked Contracts" icon={FaBookBookmark}>
-
             </Card>
         </div>
     );

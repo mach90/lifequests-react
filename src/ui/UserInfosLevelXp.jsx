@@ -10,8 +10,6 @@ const userInfosXpBarProgressStyle = "bg-green2 h-full rounded-full";
 const userInfosXpNumbersStyle = "absolute top-0 right-2 text-xs font-bold text-main1";
 
 function UserInfosLevelXp({data}) {
-    const [xpDisplayStyle] = useLocalStorageState([], "xpDisplayStyle");
-
     const currentLevel = calculateLevel(data?.experience);
     const currentLevelStartXp = calculateXp(currentLevel).toFixed(0);
     const nextLevelStartXp = calculateXp(currentLevel + 1).toFixed(0);
@@ -30,9 +28,9 @@ function UserInfosLevelXp({data}) {
                 <div className={userInfosXpBarStyle}>
                     <div className={userInfosXpBarProgressStyle} style={{ width: `${progress}%` }}></div>
                 </div>
-                {xpDisplayStyle 
-                    ? <div className={userInfosXpNumbersStyle}>{nextLevelStartXp - data?.experience} EXP</div>
-                    : <div className={userInfosXpNumbersStyle}>{data?.experience} / {nextLevelStartXp} EXP</div>
+                {data?.settings?.displayExperience === "classic" 
+                    ? <div className={userInfosXpNumbersStyle}>{data?.experience} / {nextLevelStartXp} EXP</div>
+                    : <div className={userInfosXpNumbersStyle}>{nextLevelStartXp - data?.experience} EXP</div>
                 }
             </div>
         </div>
