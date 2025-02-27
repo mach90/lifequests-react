@@ -22,7 +22,7 @@ function GuildQuests({guild, isPending}) {
     return (
         <div className={guildQuestsContainerStyle}>
             <Card title="Guild's Quests">
-                {quests?.length === 0 && <p>No quests available yet</p>}
+                {quests?.length === 0 && <p className="text-main4">No quests available yet</p>}
                 {isLoadingGuildsQuests || quests === undefined || isLoadingContracts && <LoadingSpinner size="md" />}
                 {quests && quests.length > 0 && <div className={guildQuestsListStyle}>
                     {quests.map(quest => 

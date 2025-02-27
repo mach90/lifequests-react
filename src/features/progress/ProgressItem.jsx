@@ -25,7 +25,7 @@ function ProgressItem({ progr, to, simple }) {
 
     if(simple) return (
         <div className="flex flex-row gap-4 items-center justify-between">
-            <p className="w-14">Lv {calculateLevel(progr?.experience)}</p> 
+            <p className="w-14 text-main4 uppercase font-medium">Lv {calculateLevel(progr?.experience)}</p> 
             <div className={userInfosXpContainerStyle}>
                 <div className={userInfosXpBarStyle}>
                     <div className={userInfosXpBarProgressStyle} style={{ width: `${progress}%` }}></div>
@@ -42,7 +42,7 @@ function ProgressItem({ progr, to, simple }) {
         <NavLink to={to} className="bg-main2/75 hover:bg-main3 px-4 py-2 flex flex-col rounded-lg text-main4 hover:text-neutral0 font-medium duration-200">
             <div className="flex flex-col gap-2 items-center justify-between">
             <h3 className="text-lg font-bold">{progr?.guild?.name}</h3>
-            <p>Lv {calculateLevel(progr?.experience)}</p> 
+            <p className="text-main4 uppercase font-medium">Lv {calculateLevel(progr?.experience)}</p> 
             </div>
                 <div className="relative w-full h-1">
                     <div className={userInfosXpBarStyle}>
