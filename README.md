@@ -7,6 +7,10 @@ Hook Form, Hot Toasts, React Icons, Game-icons.net
 ___
 
 ## 🔧 TO FIX
+- [ ] Login/Register etc. should redirect to Character page if user is logged in...
+- [ ] Pagination /0 when switching pages
+- [ ] Flashing UI
+- [ ] Signup header UI not displaying infos until refresh
 
 ___
 
@@ -22,7 +26,7 @@ ___
 |             | Emailing             | 🟢  | **Production Emailing service**                                                   |
 |             |                      | 🟢  | **Welcome message**                                                               |
 |             |                      | 🟢  | **Reset password mail (reset link)**                                              |
-|             | Aggregation/Stats    | 🔴  | *Statistics 7/30/365/All*                                                         |
+|             | Aggregation/Stats    | 🟢  | **Statistics 7/30/90**                                                            |
 |             | Quest                | 🟢  | **Quest model: skills array in quest reward**                                     |
 |             | Skills               | 🟢  | **Skill model**                                                                   |
 |             |                      | 🟢  | **Skill controller**                                                              |
@@ -32,14 +36,16 @@ ___
 |             |                      | 🟢  | **Skillset routes**                                                               |
 | Frontend    | UI                   | 🟢  | **Modals**                                                                        |
 |             |                      | 🟢  | **Confirmation in modal**                                                         |
+|             |                      | 🟢  | **Darkmode/lightmode**                                                            |
 |             | Responsiveness       | 🔴  | *UI Responsiveness*                                                               |
 |             | Auth                 | 🟢  | **Forgot password form**                                                          |
 |             |                      | 🟢  | **Reset password page+form**                                                      |
-|             | Settings             | 🟠  | *Basic settings (API/User model)*                                                 |
-|             | Navigation           | 🔴  | Main nav routes should remember and use last params                               |
+|             | Settings             | 🟢  | **Basic settings (API/User model)**                                               |
+|             | Reset                | 🔴  | *Reset character (xp0, money0, attributes0, contracts0, skillset0, progress0)*    |
+|             | Navigation           | ⚫   | Main nav routes should remember and use last params                               |
 |             | Filter/Sort/Paginate | 🟢  | **Filtering/Sorting/Paginating**                                                  |
 |             |                      | 🟢  | **Override params**                                                               |
-|             |                      | 🔴  | Nested params                                                                     |
+|             |                      | ⚫   | *Nested params*                                                                   |
 |             | Character            | 🟢  | **Patch contract → Patch character**                                              |
 |             |                      | 🟢  | **Min/Max values after patch validator**                                          |
 |             | Contracts            | 🟢  | **Get my contracts/contract (x2)**                                                |
@@ -50,12 +56,12 @@ ___
 |             |                      | 🟢  | **Post guild progress**                                                           |
 |             |                      | 🟢  | **Patch guild progress**                                                          |
 |             |                      | 🟢  | **Patch contract related guilds progress**                                        |
-|             | Guilds               | ⚫   | Chatbots                                                                          |
-|             | Skills/skillsets     | 🟡  | **Getallskills: Display all skills, sort, paginate**                              |
+|             | Skills/skillsets     | 🟢  | **Getallskills: Display all skills, sort, paginate**                              |
 |             |                      | 🟢  | **Getmyskillset: Compare and display my skills**                                  |
 |             |                      | 🟢  | **Getskillbyid: Display infos on skill**                                          |
 |             |                      | 🟢  | **Create skillset**                                                               |
 |             |                      | 🟢  | **Patch skillset**                                                                |
+|             | Guilds               | ⚫   | Chatbots                                                                          |
 |             | Inventory            | ⚫   | .glb 3D viewer                                                                    |
 |             |                      | ⚫   | Character equipement/perks                                                        |
 |             |                      | ⚫   | Marketplace                                                                       |
