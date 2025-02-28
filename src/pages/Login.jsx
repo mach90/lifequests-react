@@ -1,16 +1,17 @@
-import AuthLayout from "../ui/AuthLayout";
 import Welcome from "../ui/Welcome";
 import LoginForm from "../features/authentication/LoginForm";
 import AuthPanel from "../ui/AuthPanel";
 
+const loginContainerStyle = "flex flex-row h-full";
+
 function Login() {
     return (
-        <AuthLayout>
+        <div className={loginContainerStyle}>
             <Welcome />
             <AuthPanel>
                 <LoginForm />
             </AuthPanel>
-        </AuthLayout>
+        </div>
     );
 };
 

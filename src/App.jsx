@@ -12,7 +12,9 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 /* //////////////////////////////////////////////////
 IMPORT - UI & PAGES
 ////////////////////////////////////////////////// */
+import PublicRoute from "./ui/PublicRoute";
 import ProtectedRoute from "./ui/ProtectedRoute";
+import AuthLayout from "./ui/AuthLayout";
 import AppLayout from "./ui/AppLayout";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -61,6 +63,15 @@ function App() {
       <ReactQueryDevtools initialIsOpen={false} />
       <BrowserRouter>
         <Routes>
+
+          <Route element={<PublicRoute><AuthLayout /></PublicRoute>}>
+            <Route index element={<Navigate replace to="login" />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="forgot" element={<Forgot />} />
+            <Route path="reset/:token" element={<Reset />} />
+          </Route>
+
           <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
             <Route index element={<Navigate replace to="character" />} />
             <Route path="character" element={<Character />} />
@@ -88,11 +99,8 @@ function App() {
             </Route>
           </Route>
 
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="forgot" element={<Forgot />} />
-          <Route path="reset/:token" element={<Reset />} />
           <Route path="*" element={<PageNotFound />} />
+          
         </Routes>
       </BrowserRouter>
 
@@ -111,8 +119,8 @@ function App() {
               fontSize: "16px",
               maxWidth: "500px",
               padding: "16px 24px",
-              backgroundColor: "#324155",
-              color: "white",
+              backgroundColor: "var(--color-main3)",
+              color: "var(--color-neutral0)",
             }
           }}
       />
