@@ -6,12 +6,12 @@ TailwindCSS, Chartjs, React-three
 Hook Form, Hot Toasts, React Icons, Game-icons.net
 ___
 
-## 🔧 TO FIX
-- [ ] Login/Register etc. should redirect to Character page if user is logged in...
+## 🔧 KNOWN BUGS
+- [/] Login/Register etc. should redirect to Character page if user is logged in...
+- [ ] Persistent session policy: persistent
 - [ ] Pagination /0 when switching pages
 - [ ] Flashing UI
-- [ ] Signup header UI not displaying infos until refresh
-
+- [ ] User related infos not being displayed after signup until page refresh
 ___
 
 ## 🔳 TO DO

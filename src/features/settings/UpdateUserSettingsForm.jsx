@@ -42,8 +42,9 @@ function UpdateUserSettingsForm() {
                         onChange={handleChange}
                         disabled={isPending}
                         options={[
+                            { value: "dark", label: "Dark" },
+                            { value: "gray", label: "Gray" },
                             { value: "light", label: "Light" },
-                            { value: "dark", label: "Dark" }
                         ]}
                     />
                 </FormRow>
